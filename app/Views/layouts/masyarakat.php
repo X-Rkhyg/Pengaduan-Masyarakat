@@ -47,8 +47,12 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="getstarted scrollto" href="#about">Daftar</a></li>
-                    <li><a class="getstarted scrollto" href="#about">Login</a></li>
+                    <!-- dropdown -->
+                    <li class="dropdown"><a href="#"><span>Pengaduan Masyarakat</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="/masyarakat/tambah">Tambahkan Pengaduan</a></li>
+                            <li><a href="/masyarakat/lihat">Lihat Pengaduan</a></li>
+                        </ul>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -86,11 +90,11 @@
                     <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                         <h4>Contact Us</h4>
                         <p>
-                            A108 Adam Street <br />
-                            New York, NY 535022<br />
-                            United States <br /><br />
-                            <strong>Phone:</strong> +1 5589 55488 55<br />
-                            <strong>Email:</strong> info@example.com<br />
+                            SMK Muhammadiyah 1 <br />
+                            Yogyakarta, 51215<br />
+                            Indonesia <br /><br />
+                            <strong>Phone:</strong> +628 888 888 888<br />
+                            <strong>Email:</strong> contact@pengaduanmasyarakat.com<br />
                         </p>
                     </div>
                 </div>
