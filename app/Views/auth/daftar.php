@@ -1,19 +1,13 @@
 <?= $this->extend('layouts/auth') ?>
 <?= $this->section('content') ?>
 
-<?php
-$session = session();
-$error = $session->getFlashdata('error');
-$password = $session->getFlashdata('password');
-?>
-
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top" data-aos="fade-down">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
         <a href="/" class="logo d-flex align-items-center">
             <img src="/assets/img/logo.png" alt="">
-            <span>Aplikasi Pendataan Penduduk</span>
+            <span>Aplikasi Pengaduan Masyarakat</span>
         </a>
 
         <nav id="navbar" class="navbar">
@@ -28,30 +22,8 @@ $password = $session->getFlashdata('password');
 
 <!-- Section: Design Block -->
 <section class="background-radial-gradient overflow-hidden">
-    <style>
-        .background-radial-gradient {
-            background-image: url(/assets/img/hero-bg.png);
-        }
 
-        #radius-shape-1 {
-            height: 220px;
-            width: 220px;
-            top: -60px;
-            left: -130px;
-            background: radial-gradient(#5766ee, #0018ed);
-            overflow: hidden;
-        }
-
-        #radius-shape-2 {
-            border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
-            bottom: -60px;
-            right: -110px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(#5766ee, #0018ed);
-            overflow: hidden;
-        }
-
+<style>
         .teks-color {
             /* make a gradient text color */
             background: linear-gradient(180deg, #7a73ee, #2f00ff);
@@ -81,23 +53,6 @@ $password = $session->getFlashdata('password');
                 <div class="card bg-glass" data-aos="flip-down">
                     <div class="card-body px-4 py-5 px-md-5">
                         <form method="post" action="/auth/valid_register">
-
-                            <div>
-                                <?php if ($password) { ?>
-                                    <p style="color:red"><?php echo $password ?></p>
-                                <?php } ?>
-                            </div>
-
-                            <div>
-                                <?php if ($error) { ?>
-                                    <p style="color:red">Terjadi Kesalahan:
-                                        <?php foreach ($error as $e) { ?>
-                                            <br>
-                                    <p style="color:red"><?php echo $e ?></p>
-                                <?php } ?>
-                                </p>
-                            <?php } ?>
-                            </div>
 
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form3Example3">Username :</label>
