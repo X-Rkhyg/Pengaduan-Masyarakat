@@ -19,4 +19,3 @@ $routes->get('/masyarakat/lihat', 'Masyarakat::lihat');
 $routes->get('/petugas', 'Petugas::index');
 
 $routes->get('/admin', 'Admin::index');
-$routes->get('/admins', 'Admin::index');
