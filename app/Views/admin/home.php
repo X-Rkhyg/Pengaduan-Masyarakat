@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/petugas'); ?>
+<?= $this->extend('layouts/admin'); ?>
 <?= $this->section('content'); ?>
 
 <div class="shadow-bottom"></div>
@@ -110,7 +110,7 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h3 class="fw-bolder mb-75">Petugas</h3>
+                                    <h3 class="fw-bolder mb-75">Admin</h3>
                                     <p class="card-text">Role</p>
                                 </div>
                                 <div class="avatar avatar-stats p-50 m-0 bg-light-warning">
