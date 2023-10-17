@@ -29,7 +29,7 @@ class Auth extends BaseController
             'title' => 'Login - Aplikasi Pengaduan Masyarakat'
         ];
         //menampilkan halaman login
-        return view('auth/login', $data);
+        return view('auth/login-masyarakat', $data);
     }
 
     public function daftar()
