@@ -7,7 +7,7 @@
 
         <a href="/" class="logo d-flex align-items-center">
             <img src="/assets/img/logo.png" alt="">
-            <span>Aplikasi Pengaduan Masyarakat</span>
+            <span>Aplikasi Pendataan Penduduk</span>
         </a>
 
         <nav id="navbar" class="navbar">
