@@ -6,11 +6,11 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
-$routes->get('/auth/login', 'Auth::login');
-$routes->get('/auth/loginpetugas', 'Auth::login');
-$routes->get('/auth/daftar', 'Auth::daftar');
+$routes->get('/auth/login', 'AuthMasyarakat::login');
+$routes->get('/auth/loginpetugas', 'AuthPetugas::login');
+$routes->get('/auth/daftar', 'AuthMasyarakat::daftar');
 $routes->post('/auth/valid_login', 'Auth::valid_login');
-$routes->post('/auth/valid_register', 'Auth::valid_register');
+$routes->post('/authmasyarakat/valid_register', 'AuthMasyarakat::valid_register');
 $routes->get('/auth/logout', 'Auth::logout');
 
 $routes->get('/masyarakat', 'Masyarakat::index');

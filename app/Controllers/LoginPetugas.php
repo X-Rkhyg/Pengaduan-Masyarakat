@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\PengaduanModel;
 
-class LoginAdmin extends BaseController
+class LoginPetugas extends BaseController
 {
     protected $pengaduanModel;
     protected $session;

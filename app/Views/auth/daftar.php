@@ -52,11 +52,16 @@
 
                 <div class="card bg-glass" data-aos="flip-down">
                     <div class="card-body px-4 py-5 px-md-5">
-                        <form method="post" action="/auth/valid_register">
+                        <form method="post" action="/authmasyarakat/valid_register">
 
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form3Example3">Username :</label>
                                 <input name="username" id="form3Example3" class="form-control" placeholder="Yourname" required />
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="form3Example3">NIK :</label>
+                                <input name="nik" id="form3Example3" class="form-control" placeholder="Yourname" required />
                             </div>
 
                             <div class="form-outline mb-4">
@@ -67,6 +72,11 @@
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form3Example3">Konfirmasi Password :</label>
                                 <input type="password" name="confirm" id="form3Example3" class="form-control" placeholder="Yourname123" required />
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="form3Example3">Telepon :</label>
+                                <input name="telepon" id="form3Example3" class="form-control" placeholder="Yourname" required />
                             </div>
 
                             <div class="mb-3">

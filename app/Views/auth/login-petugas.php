@@ -62,9 +62,7 @@
                                 <input type="password" name="password" id="form3Example3" class="form-control" placeholder="Yourname123" required />
                             </div>
 
-                            <div class="mb-3">
-                                <a>Not Have Account? <a href="/auth/daftar">Daftar</a></a>
-                            </div>
+                            
 
                             <!-- Submit button -->
                             <button type="submit" class="btn btn-primary btn-block btn-lg mb-4" name="login">

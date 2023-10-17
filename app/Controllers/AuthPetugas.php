@@ -3,7 +3,7 @@
 namespace App\Controllers;
 use App\Models\PetugasModel;
 
-class Auth extends BaseController
+class AuthPetugas extends BaseController
 {
 
     protected $petugasModel;
@@ -29,7 +29,7 @@ class Auth extends BaseController
             'title' => 'Login - Aplikasi Pengaduan Masyarakat'
         ];
         //menampilkan halaman login
-        return view('auth/login', $data);
+        return view('auth/login-petugas', $data);
     }
 
     public function daftar()
