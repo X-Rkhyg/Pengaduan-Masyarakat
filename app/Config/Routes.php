@@ -7,6 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/auth/login', 'Auth::login');
+$routes->get('/auth/loginpetugas', 'Auth::login');
 $routes->get('/auth/daftar', 'Auth::daftar');
 $routes->post('/auth/valid_login', 'Auth::valid_login');
 $routes->post('/auth/valid_register', 'Auth::valid_register');
