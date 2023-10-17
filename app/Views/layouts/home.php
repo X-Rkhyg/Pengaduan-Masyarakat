@@ -47,8 +47,8 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="getstarted scrollto" href="#about">Daftar</a></li>
-                    <li><a class="getstarted scrollto" href="#about">Login</a></li>
+                    <li><a class="getstarted scrollto" href="/auth/daftar">Daftar</a></li>
+                    <li><a class="getstarted scrollto" href="/auth/login">Login</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
