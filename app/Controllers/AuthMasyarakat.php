@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\MasyarakatModel;
 
 class AuthMasyarakat extends BaseController
 {
-
     protected $masyarakatModel;
     protected $validation;
     protected $session;
@@ -73,7 +73,7 @@ class AuthMasyarakat extends BaseController
         session()->setFlashdata('login', 'Anda berhasil mendaftar, silahkan login');
         return redirect()->to('/auth/login');
     }
-    
+
     public function valid_login()
     {
         //ambil data dari form
@@ -106,7 +106,7 @@ class AuthMasyarakat extends BaseController
             return redirect()->to('/auth/login');
         }
     }
-    
+
     public function logout()
     {
         //hancurkan session 

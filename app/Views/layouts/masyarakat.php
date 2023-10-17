@@ -39,7 +39,7 @@
 
 <body>
     <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top">
+    <header id="header" class="header fixed-top" data-aos="fade-down">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
             <a href="/masyarakat" class="logo d-flex align-items-center">
                 <img src="/assets/img/logo.png" alt="" />

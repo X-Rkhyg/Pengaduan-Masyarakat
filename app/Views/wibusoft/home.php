@@ -269,34 +269,87 @@
                         <li class="nav-item me-auto"><a class="navbar-brand" href="/">
                                 <div class="brand-logo"><img src="data:image/png;base64,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" alt="logo"></div>
                                 <h2 class="brand-text mb-0">
-                                    <font color="#6D62FD">Laporin!</font>
+                                    <font color="#9EA1D4">wibu</font>
+                                    <font color="#6D62FD">soft.</font>
                                 </h2>
-                            </a>
+                            </a></li>
+                        <li class="nav-item nav-toggle">
+                            <div class="nav-link modern-nav-toggle cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-tour="toggle-icon" class="text-primary toggle-icon d-none d-xl-block">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon icon-x d-block d-xl-none">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg></div>
                         </li>
                     </ul>
                 </div>
                 <div class="shadow-bottom"></div>
                 <div class="scrollbar-container main-menu-content ps ps--active-y">
                     <ul class="navigation navigation-main">
-                        <li class="nav-item"><a href="/masyarakat"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <li class="nav-item"><a href="/user/dashboard"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
                                 </svg><span class="menu-item text-truncate">Dashboard</span></a></li>
-                        <li class="nav-item active"><a href="/masyarakat/tambah"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <li class="nav-item"><a href="/page/pricing"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                    <line x1="1" y1="10" x2="23" y2="10"></line>
+                                </svg><span class="menu-item text-truncate">Pricing</span></a></li>
+                        <li class="nav-item"><a href="/page/faq"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg><span class="menu-item text-truncate">FAQ's</span></a></li>
+                        <li class="nav-item"><a href="/page/changelog"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="1 4 1 10 7 10"></polyline>
+                                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                                </svg><span class="menu-item text-truncate">Changelog</span></a></li>
+                        <li class="navigation-header"><span>Bot</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-more-horizontal">
+                                <circle cx="12" cy="12" r="1"></circle>
+                                <circle cx="19" cy="12" r="1"></circle>
+                                <circle cx="5" cy="12" r="1"></circle>
+                            </svg></li>
+                        <li class="nav-item"><a href="/user/config" aria-current="page" class="d-flex align-items-center active"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                                </svg><span class="menu-item text-truncate">Config</span></a></li>
+                        <li class="nav-item"><a href="/user/mess"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
+                                    <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+                                </svg><span class="menu-item text-truncate">Mess</span></a></li>
+                        <li class="nav-item"><a href="/user/command"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                </svg><span class="menu-item text-truncate">Command</span></a></li>
+                        <li class="nav-item"><a href="/user/filtercommand"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                                </svg><span class="menu-item text-truncate">Filter Command</span></a></li>
+                        <li class="nav-item"><a href="/user/menu"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
                                     <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                </svg><span class="menu-item text-truncate">Tambahkan Data</span></a></li>
-                        <li class="nav-item"><a href="/masyarakat/lihat"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                </svg><span class="menu-item text-truncate">Menu</span></a></li>
+                        <li class="navigation-header"><span>User</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-more-horizontal">
+                                <circle cx="12" cy="12" r="1"></circle>
+                                <circle cx="19" cy="12" r="1"></circle>
+                                <circle cx="5" cy="12" r="1"></circle>
+                            </svg></li>
+                        <li class="nav-item"><a href="/user/setting"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                                </svg><span class="menu-item text-truncate">Setting</span></a></li>
+                        <li class="nav-item"><a href="/user/invoice"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                                     <polyline points="14 2 14 8 20 8"></polyline>
                                     <line x1="16" y1="13" x2="8" y2="13"></line>
                                     <line x1="16" y1="17" x2="8" y2="17"></line>
                                     <polyline points="10 9 9 9 8 9"></polyline>
-                                </svg><span class="menu-item text-truncate">Lihat Data</span></a></li>
-                        <li class="nav-item"><a href="/auth/logout"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="1 4 1 10 7 10"></polyline>
-                                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-                                </svg><span class="menu-item text-truncate">Logout</span></a></li>
+                                </svg><span class="menu-item text-truncate">Invoice</span></a></li>
+                        <li class="nav-item"><a href="/user/affiliate"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg><span class="menu-item text-truncate">Invite</span></a></li>
                     </ul>
                     <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
                         <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
@@ -309,12 +362,43 @@
             <nav class="header-navbar navbar align-items-center floating-nav container-xxl navbar-shadow navbar navbar-expand-lg navbar-light">
                 <div class="navbar-container d-flex content">
                     <div class="bookmark-wrapper d-flex align-items-center">
-                        <li class="d-none d-lg-block nav-item"><a class="nav-link-style nav-link">
-                                <h1>
-                                    Tambahkan Pengaduan
-                                </h1>
-                        </li>
+                        <ul class="navbar-nav d-xl-none">
+                            <li class="mobile-menu me-auto nav-item"><a class="nav-menu-main menu-toggle hidden-xs is-active nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ficon">
+                                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                                    </svg></a></li>
+                        </ul>
+                        <li class="d-none d-lg-block nav-item"><a class="nav-link-style nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ficon">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg></a></li>
                     </div>
+                    <ul class="nav navbar-nav align-items-center ms-auto">
+                        <li class="dropdown-user nav-item dropdown"><a href="/" aria-haspopup="true" class="nav-link dropdown-user-link" aria-expanded="false">
+                                <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bold">erkahayege</span><span class="user-status">Basic</span></div>
+                                <div class="avatar"><img class="" src="/static/media/Wibusoft-02.1af8bb54.png" alt="avatarImg" height="40" width="40" crossorigin="use-credentials"><span class="avatar-status-online"></span></div>
+                            </a>
+                            <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-end"><a tabindex="0" role="menuitem" class="dropdown-item" href="/user/setting"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-75">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg><span class="align-middle">Profile</span></a>
+                                <div tabindex="-1" class="dropdown-divider"></div><a tabindex="0" role="menuitem" class="dropdown-item" href="/pages/"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-75">
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                                    </svg><span class="align-middle">Settings</span></a><a tabindex="0" role="menuitem" class="dropdown-item" href="/page/pricing"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-75">
+                                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                                    </svg><span class="align-middle">Pricing</span></a><a tabindex="0" role="menuitem" class="dropdown-item" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-75">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                    </svg><span class="align-middle">FAQ</span></a><a tabindex="0" role="menuitem" class="dropdown-item" href="/user/config"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-75">
+                                        <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+                                        <line x1="12" y1="2" x2="12" y2="12"></line>
+                                    </svg><span class="align-middle">Logout</span></a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </nav>
             <div class="app-content content overflow-hidden">
@@ -326,11 +410,29 @@
                             <div class="col">
                                 <div class="card">
                                     <div class="card-body">
+                                        <h4 class="mb-1 card-title">Config</h4>
                                         <form class="">
-                                            <div class="mb-1"><label for="name" class="form-label form-label">Isi Laporan<font color="FF7F7F">*</font></label><input name="name" placeholder="Laporan Anda" type="text" class="form-control"></div>
-                                                <!-- upload foto -->
-                                                <div class="mb-1"><label for="name" class="form-label form-label">Foto<font color="FF7F7F">*</font></label><input name="name" placeholder="Laporan Anda" type="file" class="form-control"></div>
-                                            <button type="submit" class="me-1 btn btn-primary">Submit</button>
+                                            <div class="mb-1"><label for="name" class="form-label form-label">Name Bot<font color="FF7F7F">*</font></label><input name="name" placeholder="Nama bot anda" type="text" class="form-control" value="Bot WhatsApp"></div>
+                                            <div class="mb-1"><label for="packname" class="form-label form-label">Packname Sticker<font color="FF7F7F">*</font></label><input name="packname" placeholder="Packname sticker" type="text" class="form-control" value="Created By"></div>
+                                            <div class="mb-1"><label for="authorname" class="form-label form-label">Authorname Sticker<font color="FF7F7F">*</font></label><input name="authorname" placeholder="Authorname sticker" type="text" class="form-control" value="Wibusoft.com"></div>
+                                            <div class="mb-1"><label for="footerText" class="form-label form-label">FooterText (Only Nitro)<font color="FF7F7F">*</font></label><input name="footerText" placeholder="footerText" disabled="" type="text" class="form-control" value="wibusoft.com"></div>
+                                            <div class="mb-1"><label for="limit" class="form-label form-label">Limit<font color="FF7F7F">*</font></label><input name="limit" placeholder="20" type="number" class="form-control" value="20"></div>
+                                            <div class="mb-1"><label for="balanceperlimit" class="form-label form-label">Balance/limit<font color="FF7F7F">*</font></label><input name="balanceperlimit" placeholder="100" type="number" class="form-control" value="100"></div>
+                                            <div class="mb-1">
+                                                <div class="mb-2 row">
+                                                    <div class="col-sm-5"><label class="form-label form-label">Owner Name<font color="FF7F7F">*</font></label><input name="owner.0.name" type="text" class="form-control" value=""></div>
+                                                    <div class="col-sm-5"><label class="form-label form-label">Owner Number<font color="FF7F7F">*</font></label><input name="owner.0.number" type="text" class="form-control" value=""></div>
+                                                    <div class="mt-2 col-sm-2"><button type="button" class="text-nowrap px-1 btn btn-outline-danger"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                                                            </svg></button></div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-1"><label for="prefix" class="form-label form-label">Prefix<font color="FF7F7F">*</font></label><input name="prefix" placeholder="#" type="text" class="form-control" value="!#$./"></div>
+                                            <div class="form-check mb-1"><label for="prefix" class="form-check-label form-label">Multi Prefix</label><input name="prefixMode" type="radio" class="form-check-input" value="multi"></div>
+                                            <div class="form-check mb-1"><label for="prefix" class="form-check-label form-label">Single Prefix</label><input name="prefixMode" type="radio" class="form-check-input" value="single"></div>
+                                            <div class="form-check mb-1"><label for="prefix" class="form-check-label form-label">Empty Prefix</label><input name="prefixMode" type="radio" class="form-check-input" value="empty"></div>
+                                            <div class="form-check mb-1"><input name="onlineOnConnect" type="checkbox" class="form-check-input" value="true" checked=""><label for="onlineOnConnect" class="form-check-label form-label">Online On Connect</label></div><button type="submit" class="me-1 btn btn-primary">Submit</button>
                                             <div class="text-end"><small>
                                                     <font color="FF7F7F">*</font> required fields
                                                 </small></div>
@@ -344,7 +446,9 @@
             </div>
             <div class="sidenav-overlay"></div>
             <footer class="footer footer-light footer-static">
-                <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT © 2023 <b>Laporin</b><span class="d-none d-sm-inline-block">, All rights Reserved</span></span></p>
+                <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT © 2023 <a href="https://www.wibusoft.com" target="_blank" rel="noopener noreferrer">Wibusoft</a><span class="d-none d-sm-inline-block">, All rights Reserved</span></span><span class="float-md-end d-none d-md-block">Hand-crafted &amp; Made with<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg></span></p>
             </footer>
             <div class="scroll-to-top"></div>
         </div>
@@ -565,6 +669,8 @@
             }, d.p = "/", d.oe = function(e) {
                 throw console.error(e), e
             };
+            var f = this["webpackJsonpvuexy-react-admin-dashboard"] = this["webpackJsonpvuexy-react-admin-dashboard"] || [],
+                u = f.push.bind(f);
             f.push = t, f = f.slice();
             for (var i = 0; i < f.length; i++) t(f[i]);
             var l = u;
