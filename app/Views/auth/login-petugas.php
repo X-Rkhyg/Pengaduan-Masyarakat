@@ -11,9 +11,7 @@
         </a>
 
         <nav id="navbar" class="navbar">
-            <ul>
-                <li><a class="getstarted scrollto" href="/auth/daftar">Daftar</a></li>
-            </ul>
+           
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
     </div>
@@ -50,7 +48,7 @@
 
                 <div class="card bg-glass" data-aos="flip-down">
                     <div class="card-body px-4 py-5 px-md-5">
-                        <form method="post" action="/auth/valid_login">
+                        <form method="post" action="/authpetugas/valid_login">
 
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="form3Example3">Username :</label>

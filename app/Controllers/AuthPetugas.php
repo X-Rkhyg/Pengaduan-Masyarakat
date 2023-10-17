@@ -102,7 +102,7 @@ class AuthPetugas extends BaseController
                     'level' => $petugas['level'],
                     ];
                 $this->session->set($sessLogin);
-                return redirect()->to('/LoginAdmin');
+                return redirect()->to('/loginpetugas');
             }
         }
         else{
