@@ -55,7 +55,7 @@ class AuthMasyarakat extends BaseController
         //jika ada error kembalikan ke halaman register
         if($errors){
             session()->setFlashdata('error', $errors);
-            return redirect()->to('/auth/register');
+            return redirect()->to('/auth/daftar');
         }
         
         //jika tdk ada error 
@@ -86,7 +86,7 @@ class AuthMasyarakat extends BaseController
         if($masyarakat){
             //cek password
             //jika salah arahkan lagi ke halaman login
-            if($masyarakat['password'] != md5($data['password'])){
+            if($masyarakat['password'] != $data['password']){
                 session()->setFlashdata('password', 'Password salah');
                 return redirect()->to('/auth/login');
             }
@@ -97,7 +97,7 @@ class AuthMasyarakat extends BaseController
                     'username' => $masyarakat['username'],
                     ];
                 $this->session->set($sessLogin);
-                return redirect()->to('/LoginAdmin');
+                return redirect()->to('/masyarakat');
             }
         }
         else{

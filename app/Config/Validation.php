@@ -42,7 +42,7 @@ class Validation extends BaseConfig
     // Rules
 
     public $register = [
-        'username' => 'alpha_numeric|is_unique[user.username]',
+        'username' => 'alpha_numeric|is_unique[masyarakat.username]',
         'password' => 'min_length[8]|alpha_numeric_punct',
         'confirm' => 'matches[password]'
         ];
