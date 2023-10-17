@@ -20,7 +20,6 @@ $routes->get('/masyarakat/tambah', 'Masyarakat::tambah');
 $routes->get('/masyarakat/lihat', 'Masyarakat::lihat');
 
 $routes->get('/petugas', 'Petugas::index');
+$routes->get('/petugas/validasi', 'Petugas::validasi');
 
 $routes->get('/admin', 'Admin::index');
-
-$routes->get('/wibu', 'Wibu::index');

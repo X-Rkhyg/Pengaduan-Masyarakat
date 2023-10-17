@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 
-class Wibu extends BaseController
+class Admin extends BaseController
 {
     public function index(): string
     {
-        return view('wibusoft/home');
+        return view('admin/home');
     }
 }

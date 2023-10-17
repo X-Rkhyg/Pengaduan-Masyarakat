@@ -5,6 +5,9 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+
+new DataTable('#example');
+
 (function() {
   "use strict";
 
