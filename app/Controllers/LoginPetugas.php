@@ -24,14 +24,14 @@ class LoginPetugas extends BaseController
         
         //cek role dari session
         if($this->session->get('role') != 2){
-            return redirect()->to('/LoginPetugas');
+            return redirect()->to('/loginadmin');
         }
 
         $pengaduan = $this->pengaduanModel->findAll();
         $data = [
             'pengaduan' => $pengaduan
         ];
-        return view('admin/index', $data);
+        return view('petugas/home', $data);
         
     }
     

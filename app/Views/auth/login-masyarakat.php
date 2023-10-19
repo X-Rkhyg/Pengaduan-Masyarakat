@@ -1,8 +1,9 @@
-<?= $this->extend('layouts/auth') ?>
-<?= $this->section('content') ?>
+<?= $this->extend('layouts/auth'); ?>
+<?= $this->section('content'); ?>
+
 
 <!-- ======= Header ======= -->
-<header id="header" class="header fixed-top" data-aos="fade-down">
+<header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
         <a href="/" class="logo d-flex align-items-center">
@@ -36,10 +37,10 @@
         }
     </style>
 
-    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5" data-aos="fade-up">
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
         <div class="row gx-lg-5 align-items-center mb-5 mt-5">
             <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-                <h1 class="my-5 display-5 fw-bold ls-tight teks-color" data-aos="fade-right">
+                <h1 class="my-5 display-5 fw-bold ls-tight teks-color">
                     Selamat Datang Di Aplikasi Pendataan Penduduk<br>
                     Silahkan Login Untuk Melanjutkan
                 </h1>
@@ -49,7 +50,7 @@
                 <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
                 <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
 
-                <div class="card bg-glass" data-aos="flip-down">
+                <div class="card bg-glass">
                     <div class="card-body px-4 py-5 px-md-5">
                         <form method="post" action="/auth/valid_login">
 

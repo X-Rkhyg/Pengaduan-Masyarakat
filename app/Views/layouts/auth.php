@@ -25,7 +25,7 @@
     <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="/assets/css/styles.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
 </head>
 
 <body style="background-image: url(/assets/img/hero-bg.png);">
