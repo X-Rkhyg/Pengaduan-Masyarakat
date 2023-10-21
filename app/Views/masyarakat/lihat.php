@@ -55,6 +55,7 @@
                         <th>Isi Laporan</th>
                         <th>Foto</th>
                         <th>Status</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,6 +66,7 @@
                             <td><?= $adu->isi_laporan; ?></td>
                             <td><?= $adu->foto; ?></td>
                             <td><?= $adu->status; ?></td>
+                            <td><a class="btn btn-primary btn-sm" href="<?= base_url(); ?>/download/<?= $adu->id_pengaduan ?>"><i class="bi bi-file-earmark-arrow-down"></i></a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

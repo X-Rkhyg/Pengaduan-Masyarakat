@@ -20,4 +20,8 @@ class PengaduanModel extends Model
 
         return $this->where(['id_pengaduan' => $id])->first();
     }
+    public function getFileData($id)
+{
+    return $this->db->table('pengaduan')->select('foto')->where('id_pengaduan', $id)->get()->getRowArray();
+}
 }
