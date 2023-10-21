@@ -52,10 +52,13 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <form class="">
-                                <div class="mb-1"><label for="name" class="form-label form-label">Isi Laporan<font color="FF7F7F">*</font></label><input name="name" placeholder="Laporan Anda" type="text" class="form-control"></div>
+                        <?php if (session()->getFlashdata('vall')) : ?>
+                            <?= session()->getFlashdata('vall'); ?>
+                        <?php endif; ?>
+                            <form action="/masyarakat/save" method="post" enctype="multipart/form-data">
+                                <div class="mb-1"><label for="name" class="form-label form-label">Isi Laporan<font color="FF7F7F">*</font></label><input name="isi_laporan" placeholder="Laporan Anda" type="text" class="form-control"></div>
                                 <!-- upload foto -->
-                                <div class="mb-1"><label for="name" class="form-label form-label">Foto<font color="FF7F7F">*</font></label><input name="name" placeholder="Laporan Anda" type="file" class="form-control"></div>
+                                <div class="mb-1"><label for="name" class="form-label form-label">Foto<font color="FF7F7F">*</font></label><input name="foto" placeholder="Laporan Anda" type="file" class="form-control"></div>
                                 <button type="submit" class="me-1 btn btn-primary">Submit</button>
                                 <div class="text-end"><small>
                                         <font color="FF7F7F">*</font> required fields

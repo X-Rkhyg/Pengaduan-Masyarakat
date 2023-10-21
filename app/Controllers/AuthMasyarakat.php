@@ -95,6 +95,7 @@ class AuthMasyarakat extends BaseController
                 $sessLogin = [
                     'isLogin' => true,
                     'username' => $masyarakat['username'],
+                    'nik' => $masyarakat['nik'],
                     ];
                 $this->session->set($sessLogin);
                 return redirect()->to('/masyarakat');

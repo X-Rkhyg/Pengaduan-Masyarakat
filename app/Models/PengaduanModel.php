@@ -8,6 +8,7 @@ class PengaduanModel extends Model
 {
     protected $table      = 'pengaduan';
     protected $useAutoIncrement = true;
+    protected $primaryKey = 'id_pengaduan';
     protected $useTimestamps = true;
     protected $allowedFields = ['nik', 'isi_laporan', 'foto', 'status'];
 
@@ -17,6 +18,6 @@ class PengaduanModel extends Model
             return $this->findAll();
         }
 
-        return $this->where(['id' => $id])->first();
+        return $this->where(['id_pengaduan' => $id])->first();
     }
 }
