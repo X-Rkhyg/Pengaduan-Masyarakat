@@ -42,8 +42,6 @@ class Pengaduan extends BaseController
 
         // ambil gambar
         $fileDokumen = $this->request->getFile('foto');
-        // pindahkan file ke folder img
-        $fileDokumen->move('docs');
         // ambil nama file sampul
         $namaFile = $fileDokumen->getName();
 
@@ -54,12 +52,5 @@ class Pengaduan extends BaseController
 
         ]);
         return redirect()->to('/masyarakat/tambah');
-    }
-
-    public function download($id)
-    {
-        $filez = new PengaduanModel();
-        $dataFile = $filez->find($id);
-        return $this->response->download('docs/' .$dataFile['filez'], null );
     }
 }

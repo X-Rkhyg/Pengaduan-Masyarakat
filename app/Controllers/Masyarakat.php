@@ -52,11 +52,11 @@ class Masyarakat extends BaseController
 
     public function downloadFile($id)
 {
-    $fileData = $this->pengaduanModel->getFileData($id);
-
-    $fileContent = $fileData['foto'];
-
+    $fileData = $this->pengaduanModel->getFileData($id); 
+    header('Content-Disposition: attachment; filename="' . $fileData['foto'] . '"');
+    header('Content-Type: ' . $fileData['foto']);
     // Output the file content
-    echo $fileContent;
+    
+    
 }
 }
