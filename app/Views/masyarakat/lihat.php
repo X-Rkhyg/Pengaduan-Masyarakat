@@ -65,7 +65,15 @@
                             <td><?= $i++; ?></td>
                             <td><?= $adu->isi_laporan; ?></td>
                             <td><?= $adu->foto; ?></td>
-                            <td><?= $adu->status; ?></td>
+                            <td>
+                                <?php if ($adu->status == "0") : ?>
+                                    Pending
+                                <?php elseif ($adu->status == "1") : ?>
+                                    Proses
+                                <?php elseif ($adu->status == "2") : ?>
+                                    Selesai
+                                <?php endif; ?>
+                            </td>
                             <td><a class="btn btn-primary btn-sm" href="<?= base_url(); ?>/download/<?= $adu->id_pengaduan ?>"><i class="bi bi-file-earmark-arrow-down"></i></a></td>
                         </tr>
                     <?php endforeach; ?>
