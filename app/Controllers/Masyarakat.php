@@ -11,13 +11,15 @@ class Masyarakat extends BaseController
     public function __construct()
     {
         $this->session = session();
+
         $this->pengaduanModel = new PengaduanModel();
-        
-        
-        
     }
     public function index(): string
     {
+
+        // session
+        
+
         return view('masyarakat/home');
     }
 
@@ -50,14 +52,10 @@ class Masyarakat extends BaseController
         return view('masyarakat/lihat', ['data' => $data]);
     }
 
-    public function downloadFile($id)
-{
-    $fileData = $this->pengaduanModel->getFileData($id);
-
-    $fileContent = $fileData['foto'];
-    return $this->response->download($fileContent, null)->setFileName($fileData['foto']);
-
-    // Output the file content
-    
-}
+    public function download($id)
+    {
+        $foto = new PengaduanModel();
+        $dataFile = $foto->find($id);
+        return $this->response->download('foto_storage/' .$dataFile['foto'], null );
+    }
 }

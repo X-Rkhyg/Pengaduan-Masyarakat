@@ -19,7 +19,7 @@ $routes->get('/masyarakat', 'Masyarakat::index');
 $routes->get('/masyarakat/tambah', 'Masyarakat::tambah');
 $routes->get('/masyarakat/lihat', 'Masyarakat::lihat');
 $routes->post('/masyarakat/save', 'Pengaduan::save');
-$routes->get('/download/(:num)', 'Masyarakat::downloadFile/$1');
+$routes->get('/download/(:num)', 'Masyarakat::download/$1');
 
 //Petugas
 $routes->get('/auth/loginpetugas', 'AuthPetugas::login');
