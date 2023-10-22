@@ -11,13 +11,15 @@ class Masyarakat extends BaseController
     public function __construct()
     {
         $this->session = session();
+
         $this->pengaduanModel = new PengaduanModel();
-        
-        
-        
     }
     public function index(): string
     {
+
+        // session
+        
+
         return view('masyarakat/home');
     }
 
