@@ -6,14 +6,14 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center">
-                <h1 data-aos="fade-up">
+                <h1>
                     Layanan Aspirasi dan Pengaduan Online Masyarakat
                 </h1>
-                <h2 data-aos="fade-up" data-aos-delay="400">
+                <h2>
                     Sampaikan laporan Anda langsung kepada instansi pemerintah
                     berwenang
                 </h2>
-                <div data-aos="fade-up" data-aos-delay="600">
+                <div>
                     <div class="text-center text-lg-start">
                         <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                             <span>Pelajari Lebih Lanjut</span>
@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+            <div class="col-lg-6 hero-img">
                 <img src="assets/img/okee.png" class="img-fluid" alt="" />
             </div>
         </div>
@@ -33,9 +33,9 @@
 <main id="main">
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
-        <div class="container" data-aos="fade-up">
+        <div class="container">
             <div class="row gx-0">
-                <div class="col-lg-12 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-12 d-flex flex-column justify-content-center">
                     <div class="content">
                         <h3>Tentang Pengaduan Masyarakat</h3>
                         <p>
@@ -68,13 +68,13 @@
 
     <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">
-        <div class="container" data-aos="fade-up">
+        <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-12 col-md-12">
                     <div class="count-box justify-content-center">
                         <i class="bi bi-info-circle"></i>
                         <div>
-                            <span data-purecounter-start="0" data-purecounter-end="831776" data-purecounter-duration="1" class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="831776" data-purecounter-duration="1" class="purecounter">831776</span>
                             <p>JUMLAH LAPORAN SEKARANG</p>
                         </div>
                     </div>

@@ -55,8 +55,9 @@ class Masyarakat extends BaseController
     $fileData = $this->pengaduanModel->getFileData($id);
 
     $fileContent = $fileData['foto'];
+    return $this->response->download($fileContent, null)->setFileName($fileData['foto']);
 
     // Output the file content
-    echo $fileContent;
+    
 }
 }

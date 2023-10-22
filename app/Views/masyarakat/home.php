@@ -1,6 +1,9 @@
 <?= $this->extend('layouts/masyarakat'); ?>
 <?= $this->section('content'); ?>
-<?php $session = session() ?>
+<?php
+$berhasil = session()->get('berhasil');
+$session = session()
+?>
 
 <div class="shadow-bottom"></div>
 <div class="scrollbar-container main-menu-content ps ps--active-y">
@@ -128,7 +131,9 @@
                 </div>
             </div>
         </div>
-        Selamat datang <?= $session->get('username'); ?>, anda berhasil login!
+        <?php if ($berhasil) { ?>
+            <p style="color:green"><?php echo $berhasil ?></p>
+        <?php } ?>
     </div>
 </div>
 
