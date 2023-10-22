@@ -15,7 +15,7 @@ class Pengaduan extends BaseController
         $this->session = session();
         $this->pengaduanModel = new PengaduanModel();
     }
-    
+
     public function save()
     {
         $nik = session('nik'); // Ambil nik dari session
@@ -46,7 +46,7 @@ class Pengaduan extends BaseController
         $fileDokumen->move('foto_storage', $newName);
 
         // ambil nama file sampul
-        
+
 
         $this->pengaduanModel->save([
             "isi_laporan" => $this->request->getVar('isi_laporan'),
@@ -54,5 +54,19 @@ class Pengaduan extends BaseController
             'foto' => $newName,
         ]);
         return redirect()->to('/masyarakat/tambah');
+    }
+
+    public function download($id)
+    {
+        $foto = new PengaduanModel();
+        $dataFile = $foto->find($id);
+        return $this->response->download('foto_storage/' .$dataFile['foto'], null );
+    }
+
+    public function delete($id)
+    {
+        $this->pengaduanModel->delete($id);
+        session()->setFlashdata('pesan', 'Data berhasil dihapus.');
+        return redirect()->to('/masyarakat/lihat');
     }
 }
