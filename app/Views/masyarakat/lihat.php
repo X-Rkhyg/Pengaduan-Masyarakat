@@ -64,7 +64,9 @@
                         <tr>
                             <td><?= $i++; ?></td>
                             <td><?= $adu->isi_laporan; ?></td>
-                            <td><?= $adu->foto; ?></td>
+                            <td>
+                            <img src="<?= base_url($adu->foto) ?>" alt="Image">
+                            </td>
                             <td>
                                 <?php if ($adu->status == "0") : ?>
                                     Pending
