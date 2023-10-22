@@ -50,13 +50,10 @@ class Masyarakat extends BaseController
         return view('masyarakat/lihat', ['data' => $data]);
     }
 
-    public function downloadFile($id)
-{
-    $fileData = $this->pengaduanModel->getFileData($id); 
-    header('Content-Disposition: attachment; filename="' . $fileData['foto'] . '"');
-    header('Content-Type: ' . $fileData['foto']);
-    // Output the file content
-    
-    
-}
+    public function download($id)
+    {
+        $foto = new PengaduanModel();
+        $dataFile = $foto->find($id);
+        return $this->response->download('foto_storage/' .$dataFile['foto'], null );
+    }
 }

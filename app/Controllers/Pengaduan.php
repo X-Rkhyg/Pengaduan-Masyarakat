@@ -42,14 +42,16 @@ class Pengaduan extends BaseController
 
         // ambil gambar
         $fileDokumen = $this->request->getFile('foto');
+        $newName = $fileDokumen->getRandomName();
+        $fileDokumen->move('foto_storage', $newName);
+
         // ambil nama file sampul
-        $namaFile = $fileDokumen->getName();
+        
 
         $this->pengaduanModel->save([
             "isi_laporan" => $this->request->getVar('isi_laporan'),
-            "foto" => $namaFile,
             'nik' => $nik,
-
+            'foto' => $newName,
         ]);
         return redirect()->to('/masyarakat/tambah');
     }
