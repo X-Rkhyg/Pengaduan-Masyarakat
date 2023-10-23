@@ -87,7 +87,10 @@ $pesan = session()->getFlashdata('pesan');
                                     Selesai
                                 <?php endif; ?>
                             </td>
-                            <td><a class="btn btn-primary btn-sm" href="<?= base_url(); ?>/download/<?= $adu->id_pengaduan ?>"><i class="bi bi-file-earmark-arrow-down"></i></a></td>
+                            <td>
+                                <a class="btn btn-primary btn-sm" href="<?= base_url(); ?>/download/<?= $adu->id_pengaduan ?>"><i class="bi bi-file-earmark-arrow-down"></i></a>
+                                <a class="btn btn-danger btn-sm" href="<?= base_url(); ?>/delete/<?= $adu->id_pengaduan ?>"><i class="bi bi-trash"></i></a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

@@ -90,9 +90,9 @@ class AuthPetugas extends BaseController
         if($petugas){
             //cek password
             //jika salah arahkan lagi ke halaman login
-            if($petugas['password'] != md5($data['password'])){
+            if($petugas['password'] != $data['password']){
                 session()->setFlashdata('password', 'Password salah');
-                return redirect()->to('/auth/login');
+                return redirect()->to('/auth/loginpetugas');
             }
             else{
                 //jika benar, arahkan user masuk ke aplikasi 
@@ -102,7 +102,7 @@ class AuthPetugas extends BaseController
                     'level' => $petugas['level'],
                     ];
                 $this->session->set($sessLogin);
-                return redirect()->to('/loginpetugas');
+                return redirect()->to('/petugas');
             }
         }
         else{
