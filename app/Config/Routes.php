@@ -15,6 +15,7 @@ $routes->get('/auth/daftar', 'AuthMasyarakat::daftar');
 $routes->post('/auth/valid_login', 'AuthMasyarakat::valid_login');
 $routes->post('/authmasyarakat/valid_register', 'AuthMasyarakat::valid_register');
 $routes->get('/auth/logout', 'AuthMasyarakat::logout');
+
 $routes->get('/masyarakat', 'Masyarakat::index');
 $routes->get('/masyarakat/tambah', 'Masyarakat::tambah');
 $routes->get('/masyarakat/lihat', 'Masyarakat::lihat');
