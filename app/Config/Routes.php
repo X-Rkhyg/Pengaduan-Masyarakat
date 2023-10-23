@@ -24,8 +24,10 @@ $routes->get('/download/(:num)', 'Masyarakat::download/$1');
 //Petugas
 $routes->get('/auth/loginpetugas', 'AuthPetugas::login');
 $routes->post('/authpetugas/valid_login', 'AuthPetugas::valid_login');
+
 $routes->get('/petugas', 'Petugas::index');
 $routes->get('/petugas/validasi', 'Petugas::validasi');
+$routes->get('/petugas/management', 'Petugas::management');
 
 //Admin
 $routes->post('/loginadmin', 'LoginPetugas::index');

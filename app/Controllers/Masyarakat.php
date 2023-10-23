@@ -17,38 +17,43 @@ class Masyarakat extends BaseController
     public function index(): string
     {
 
-        // session
-        
+        $data = [
+            'title' => 'Dashboard'
+        ];
 
-        return view('masyarakat/home');
+        return view('masyarakat/home', $data);
     }
 
     public function tambah(): string
     {
-        return view('masyarakat/tambah');
+
+        $data = [
+            'title' => 'Tambah Data Pengaduan'
+        ];
+
+        return view('masyarakat/tambah', $data);
     }
 
     public function lihat(): string
     {
-        if(!$this->session->has('isLogin')){
-            return redirect()->to('/auth/login');
-        }
-        
+
         $aduan = new PengaduanModel();
         $nik = session('nik'); // Ambil username dari session
         $aduan = $aduan->find('nik', $nik);
         $aduan = array();
         $data = [
-            'title' => 'Input Data Aduan Masyarakat',
             'validation' => \Config\Services::validation(),
             'aduan' => $aduan
         ];
-        
+        $oke = [
+            'title' => 'testtt'
+        ];
+
         $data = $this->pengaduanModel->table('pengaduan')
-    ->where('nik', $nik)
-    ->get()
-    ->getResult();
-        
+            ->where('nik', $nik)
+            ->get()
+            ->getResult();
+
         return view('masyarakat/lihat', ['data' => $data]);
     }
 
@@ -56,6 +61,6 @@ class Masyarakat extends BaseController
     {
         $foto = new PengaduanModel();
         $dataFile = $foto->find($id);
-        return $this->response->download('foto_storage/' .$dataFile['foto'], null );
+        return $this->response->download('foto_storage/' . $dataFile['foto'], null);
     }
 }
