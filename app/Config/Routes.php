@@ -21,6 +21,8 @@ $routes->get('/masyarakat/lihat', 'Masyarakat::lihat');
 $routes->post('/masyarakat/save', 'Pengaduan::save');
 $routes->get('/download/(:num)', 'Pengaduan::download/$1');
 $routes->get('/delete/(:num)', 'Pengaduan::delete/$1');
+$routes->get('/pengaduan/edit/(:num)', 'Pengaduan::edit/$1');
+$routes->post('/pengaduan/update/(:num)', 'Pengaduan::update/$1');
 
 //Petugas
 $routes->get('/auth/loginpetugas', 'AuthPetugas::login');
