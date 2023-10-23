@@ -35,4 +35,7 @@ $routes->get('/petugas/management', 'Petugas::management');
 
 //Admin
 $routes->post('/loginadmin', 'LoginPetugas::index');
+
 $routes->get('/admin', 'Admin::index');
+$routes->get('/admin/validasi', 'Admin::validasi');
+$routes->get('/admin/masyarakat', 'Admin::masyarakat');
