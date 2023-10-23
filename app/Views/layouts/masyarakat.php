@@ -28,7 +28,7 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600">
-    <title>Wibusoft - App</title>
+    <title>Pengaduan Masyarakat</title>
     <link href="/static/css/5.ef8dc25e.chunk.css" rel="stylesheet">
     <link href="/static/css/main.64ba4cbd.chunk.css" rel="stylesheet">
     <style id="_goober">
@@ -296,260 +296,261 @@
                     </ul>
                 </div>
 
-                <?= $this->renderSection('content') ?>
-                <div class="sidenav-overlay"></div>
-                <footer class="footer footer-light footer-static">
-                    <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT © 2023 <b>Laporin!</b><span class="d-none d-sm-inline-block">, All rights Reserved</span></span></p>
-                </footer>
-                <div class="scroll-to-top"></div>
-            </div>
-            <div style="position: fixed; z-index: 9999; inset: 16px; pointer-events: none;"></div>
+            <?= $this->renderSection('content') ?>
+
+            <div class="sidenav-overlay"></div>
+            <footer class="footer footer-light footer-static">
+                <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT © 2023 <b>Laporin!</b><span class="d-none d-sm-inline-block">, All rights Reserved</span></span></p>
+            </footer>
+            <div class="scroll-to-top"></div>
         </div>
-        <script type="text/javascript">
-            ! function(e) {
-                function t(t) {
-                    for (var n, a, d = t[0], f = t[1], u = t[2], i = 0, s = []; i < d.length; i++) a = d[i], Object.prototype.hasOwnProperty.call(c, a) && c[a] && s.push(c[a][0]), c[a] = 0;
-                    for (n in f) Object.prototype.hasOwnProperty.call(f, n) && (e[n] = f[n]);
-                    for (l && l(t); s.length;) s.shift()();
-                    return o.push.apply(o, u || []), r()
-                }
+        <div style="position: fixed; z-index: 9999; inset: 16px; pointer-events: none;"></div>
+    </div>
+    <script type="text/javascript">
+        ! function(e) {
+            function t(t) {
+                for (var n, a, d = t[0], f = t[1], u = t[2], i = 0, s = []; i < d.length; i++) a = d[i], Object.prototype.hasOwnProperty.call(c, a) && c[a] && s.push(c[a][0]), c[a] = 0;
+                for (n in f) Object.prototype.hasOwnProperty.call(f, n) && (e[n] = f[n]);
+                for (l && l(t); s.length;) s.shift()();
+                return o.push.apply(o, u || []), r()
+            }
 
-                function r() {
-                    for (var e, t = 0; t < o.length; t++) {
-                        for (var r = o[t], n = !0, a = 1; a < r.length; a++) {
-                            var f = r[a];
-                            0 !== c[f] && (n = !1)
-                        }
-                        n && (o.splice(t--, 1), e = d(d.s = r[0]))
+            function r() {
+                for (var e, t = 0; t < o.length; t++) {
+                    for (var r = o[t], n = !0, a = 1; a < r.length; a++) {
+                        var f = r[a];
+                        0 !== c[f] && (n = !1)
                     }
-                    return e
+                    n && (o.splice(t--, 1), e = d(d.s = r[0]))
                 }
-                var n = {},
-                    a = {
-                        4: 0
-                    },
-                    c = {
-                        4: 0
-                    },
-                    o = [];
+                return e
+            }
+            var n = {},
+                a = {
+                    4: 0
+                },
+                c = {
+                    4: 0
+                },
+                o = [];
 
-                function d(t) {
-                    if (n[t]) return n[t].exports;
-                    var r = n[t] = {
-                        i: t,
-                        l: !1,
-                        exports: {}
-                    };
-                    return e[t].call(r.exports, r, r.exports, d), r.l = !0, r.exports
-                }
-                d.e = function(e) {
-                    var t = [];
-                    a[e] ? t.push(a[e]) : 0 !== a[e] && {
-                        6: 1,
-                        7: 1,
-                        8: 1,
-                        9: 1,
-                        10: 1,
-                        12: 1,
-                        13: 1,
-                        14: 1,
-                        15: 1,
-                        16: 1,
-                        18: 1,
-                        19: 1,
-                        20: 1,
-                        21: 1,
-                        22: 1,
-                        23: 1,
-                        24: 1,
-                        25: 1
-                    } [e] && t.push(a[e] = new Promise((function(t, r) {
-                        for (var n = "static/css/" + ({} [e] || e) + "." + {
-                                0: "31d6cfe0",
-                                1: "31d6cfe0",
-                                2: "31d6cfe0",
-                                6: "bcb85fc1",
-                                7: "140c000d",
-                                8: "9d034991",
-                                9: "140c000d",
-                                10: "153b8d9f",
-                                11: "31d6cfe0",
-                                12: "637d8c3a",
-                                13: "03ad5e5b",
-                                14: "61c41349",
-                                15: "aac12a67",
-                                16: "aac12a67",
-                                17: "31d6cfe0",
-                                18: "df3b3b9a",
-                                19: "61c41349",
-                                20: "140c000d",
-                                21: "140c000d",
-                                22: "140c000d",
-                                23: "e72262eb",
-                                24: "61c41349",
-                                25: "140c000d",
-                                26: "31d6cfe0",
-                                27: "31d6cfe0",
-                                28: "31d6cfe0",
-                                29: "31d6cfe0",
-                                30: "31d6cfe0",
-                                31: "31d6cfe0",
-                                32: "31d6cfe0",
-                                33: "31d6cfe0",
-                                34: "31d6cfe0",
-                                35: "31d6cfe0",
-                                36: "31d6cfe0"
-                            } [e] + ".chunk.css", c = d.p + n, o = document.getElementsByTagName("link"), f = 0; f < o.length; f++) {
-                            var u = (l = o[f]).getAttribute("data-href") || l.getAttribute("href");
-                            if ("stylesheet" === l.rel && (u === n || u === c)) return t()
-                        }
-                        var i = document.getElementsByTagName("style");
-                        for (f = 0; f < i.length; f++) {
-                            var l;
-                            if ((u = (l = i[f]).getAttribute("data-href")) === n || u === c) return t()
-                        }
-                        var s = document.createElement("link");
-                        s.rel = "stylesheet", s.type = "text/css", s.onload = t, s.onerror = function(t) {
-                            var n = t && t.target && t.target.src || c,
-                                o = new Error("Loading CSS chunk " + e + " failed.\n(" + n + ")");
-                            o.code = "CSS_CHUNK_LOAD_FAILED", o.request = n, delete a[e], s.parentNode.removeChild(s), r(o)
-                        }, s.href = c, document.getElementsByTagName("head")[0].appendChild(s)
-                    })).then((function() {
-                        a[e] = 0
-                    })));
-                    var r = c[e];
-                    if (0 !== r)
-                        if (r) t.push(r[2]);
-                        else {
-                            var n = new Promise((function(t, n) {
-                                r = c[e] = [t, n]
-                            }));
-                            t.push(r[2] = n);
-                            var o, f = document.createElement("script");
-                            f.charset = "utf-8", f.timeout = 120, d.nc && f.setAttribute("nonce", d.nc), f.src = function(e) {
-                                return d.p + "static/js/" + ({} [e] || e) + "." + {
-                                    0: "60b0699a",
-                                    1: "3ccb90e0",
-                                    2: "bc6794b9",
-                                    6: "6276e35b",
-                                    7: "c06af392",
-                                    8: "9e0ae027",
-                                    9: "532da329",
-                                    10: "6a8d7ac6",
-                                    11: "fb9dc913",
-                                    12: "9b610f9b",
-                                    13: "90d7349e",
-                                    14: "6643e635",
-                                    15: "d3381152",
-                                    16: "5e9a8b21",
-                                    17: "a357e591",
-                                    18: "fd176fe3",
-                                    19: "7b52b16f",
-                                    20: "381233b6",
-                                    21: "98fe5340",
-                                    22: "3396d91c",
-                                    23: "1c498e33",
-                                    24: "3760f90e",
-                                    25: "eb0d6eaa",
-                                    26: "90628f16",
-                                    27: "4ae769b4",
-                                    28: "6a0c7649",
-                                    29: "014db8eb",
-                                    30: "8ca6491f",
-                                    31: "dd351b7d",
-                                    32: "abf8fa9b",
-                                    33: "16d4eead",
-                                    34: "0aa74115",
-                                    35: "3db4151c",
-                                    36: "a0b40371"
-                                } [e] + ".chunk.js"
-                            }(e);
-                            var u = new Error;
-                            o = function(t) {
-                                f.onerror = f.onload = null, clearTimeout(i);
-                                var r = c[e];
-                                if (0 !== r) {
-                                    if (r) {
-                                        var n = t && ("load" === t.type ? "missing" : t.type),
-                                            a = t && t.target && t.target.src;
-                                        u.message = "Loading chunk " + e + " failed.\n(" + n + ": " + a + ")", u.name = "ChunkLoadError", u.type = n, u.request = a, r[1](u)
-                                    }
-                                    c[e] = void 0
-                                }
-                            };
-                            var i = setTimeout((function() {
-                                o({
-                                    type: "timeout",
-                                    target: f
-                                })
-                            }), 12e4);
-                            f.onerror = f.onload = o, document.head.appendChild(f)
-                        } return Promise.all(t)
-                }, d.m = e, d.c = n, d.d = function(e, t, r) {
-                    d.o(e, t) || Object.defineProperty(e, t, {
-                        enumerable: !0,
-                        get: r
-                    })
-                }, d.r = function(e) {
-                    "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
-                        value: "Module"
-                    }), Object.defineProperty(e, "__esModule", {
-                        value: !0
-                    })
-                }, d.t = function(e, t) {
-                    if (1 & t && (e = d(e)), 8 & t) return e;
-                    if (4 & t && "object" == typeof e && e && e.__esModule) return e;
-                    var r = Object.create(null);
-                    if (d.r(r), Object.defineProperty(r, "default", {
-                            enumerable: !0,
-                            value: e
-                        }), 2 & t && "string" != typeof e)
-                        for (var n in e) d.d(r, n, function(t) {
-                            return e[t]
-                        }.bind(null, n));
-                    return r
-                }, d.n = function(e) {
-                    var t = e && e.__esModule ? function() {
-                        return e.default
-                    } : function() {
-                        return e
-                    };
-                    return d.d(t, "a", t), t
-                }, d.o = function(e, t) {
-                    return Object.prototype.hasOwnProperty.call(e, t)
-                }, d.p = "/", d.oe = function(e) {
-                    throw console.error(e), e
+            function d(t) {
+                if (n[t]) return n[t].exports;
+                var r = n[t] = {
+                    i: t,
+                    l: !1,
+                    exports: {}
                 };
-                f.push = t, f = f.slice();
-                for (var i = 0; i < f.length; i++) t(f[i]);
-                var l = u;
-                r()
-            }([])
-        </script>
-        <script src="/static/js/5.d6cd0c68.chunk.js" type="text/javascript"></script>
-        <script src="/static/js/main.bb53d6a5.chunk.js" type="text/javascript"></script>
+                return e[t].call(r.exports, r, r.exports, d), r.l = !0, r.exports
+            }
+            d.e = function(e) {
+                var t = [];
+                a[e] ? t.push(a[e]) : 0 !== a[e] && {
+                    6: 1,
+                    7: 1,
+                    8: 1,
+                    9: 1,
+                    10: 1,
+                    12: 1,
+                    13: 1,
+                    14: 1,
+                    15: 1,
+                    16: 1,
+                    18: 1,
+                    19: 1,
+                    20: 1,
+                    21: 1,
+                    22: 1,
+                    23: 1,
+                    24: 1,
+                    25: 1
+                } [e] && t.push(a[e] = new Promise((function(t, r) {
+                    for (var n = "static/css/" + ({} [e] || e) + "." + {
+                            0: "31d6cfe0",
+                            1: "31d6cfe0",
+                            2: "31d6cfe0",
+                            6: "bcb85fc1",
+                            7: "140c000d",
+                            8: "9d034991",
+                            9: "140c000d",
+                            10: "153b8d9f",
+                            11: "31d6cfe0",
+                            12: "637d8c3a",
+                            13: "03ad5e5b",
+                            14: "61c41349",
+                            15: "aac12a67",
+                            16: "aac12a67",
+                            17: "31d6cfe0",
+                            18: "df3b3b9a",
+                            19: "61c41349",
+                            20: "140c000d",
+                            21: "140c000d",
+                            22: "140c000d",
+                            23: "e72262eb",
+                            24: "61c41349",
+                            25: "140c000d",
+                            26: "31d6cfe0",
+                            27: "31d6cfe0",
+                            28: "31d6cfe0",
+                            29: "31d6cfe0",
+                            30: "31d6cfe0",
+                            31: "31d6cfe0",
+                            32: "31d6cfe0",
+                            33: "31d6cfe0",
+                            34: "31d6cfe0",
+                            35: "31d6cfe0",
+                            36: "31d6cfe0"
+                        } [e] + ".chunk.css", c = d.p + n, o = document.getElementsByTagName("link"), f = 0; f < o.length; f++) {
+                        var u = (l = o[f]).getAttribute("data-href") || l.getAttribute("href");
+                        if ("stylesheet" === l.rel && (u === n || u === c)) return t()
+                    }
+                    var i = document.getElementsByTagName("style");
+                    for (f = 0; f < i.length; f++) {
+                        var l;
+                        if ((u = (l = i[f]).getAttribute("data-href")) === n || u === c) return t()
+                    }
+                    var s = document.createElement("link");
+                    s.rel = "stylesheet", s.type = "text/css", s.onload = t, s.onerror = function(t) {
+                        var n = t && t.target && t.target.src || c,
+                            o = new Error("Loading CSS chunk " + e + " failed.\n(" + n + ")");
+                        o.code = "CSS_CHUNK_LOAD_FAILED", o.request = n, delete a[e], s.parentNode.removeChild(s), r(o)
+                    }, s.href = c, document.getElementsByTagName("head")[0].appendChild(s)
+                })).then((function() {
+                    a[e] = 0
+                })));
+                var r = c[e];
+                if (0 !== r)
+                    if (r) t.push(r[2]);
+                    else {
+                        var n = new Promise((function(t, n) {
+                            r = c[e] = [t, n]
+                        }));
+                        t.push(r[2] = n);
+                        var o, f = document.createElement("script");
+                        f.charset = "utf-8", f.timeout = 120, d.nc && f.setAttribute("nonce", d.nc), f.src = function(e) {
+                            return d.p + "static/js/" + ({} [e] || e) + "." + {
+                                0: "60b0699a",
+                                1: "3ccb90e0",
+                                2: "bc6794b9",
+                                6: "6276e35b",
+                                7: "c06af392",
+                                8: "9e0ae027",
+                                9: "532da329",
+                                10: "6a8d7ac6",
+                                11: "fb9dc913",
+                                12: "9b610f9b",
+                                13: "90d7349e",
+                                14: "6643e635",
+                                15: "d3381152",
+                                16: "5e9a8b21",
+                                17: "a357e591",
+                                18: "fd176fe3",
+                                19: "7b52b16f",
+                                20: "381233b6",
+                                21: "98fe5340",
+                                22: "3396d91c",
+                                23: "1c498e33",
+                                24: "3760f90e",
+                                25: "eb0d6eaa",
+                                26: "90628f16",
+                                27: "4ae769b4",
+                                28: "6a0c7649",
+                                29: "014db8eb",
+                                30: "8ca6491f",
+                                31: "dd351b7d",
+                                32: "abf8fa9b",
+                                33: "16d4eead",
+                                34: "0aa74115",
+                                35: "3db4151c",
+                                36: "a0b40371"
+                            } [e] + ".chunk.js"
+                        }(e);
+                        var u = new Error;
+                        o = function(t) {
+                            f.onerror = f.onload = null, clearTimeout(i);
+                            var r = c[e];
+                            if (0 !== r) {
+                                if (r) {
+                                    var n = t && ("load" === t.type ? "missing" : t.type),
+                                        a = t && t.target && t.target.src;
+                                    u.message = "Loading chunk " + e + " failed.\n(" + n + ": " + a + ")", u.name = "ChunkLoadError", u.type = n, u.request = a, r[1](u)
+                                }
+                                c[e] = void 0
+                            }
+                        };
+                        var i = setTimeout((function() {
+                            o({
+                                type: "timeout",
+                                target: f
+                            })
+                        }), 12e4);
+                        f.onerror = f.onload = o, document.head.appendChild(f)
+                    } return Promise.all(t)
+            }, d.m = e, d.c = n, d.d = function(e, t, r) {
+                d.o(e, t) || Object.defineProperty(e, t, {
+                    enumerable: !0,
+                    get: r
+                })
+            }, d.r = function(e) {
+                "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
+                    value: "Module"
+                }), Object.defineProperty(e, "__esModule", {
+                    value: !0
+                })
+            }, d.t = function(e, t) {
+                if (1 & t && (e = d(e)), 8 & t) return e;
+                if (4 & t && "object" == typeof e && e && e.__esModule) return e;
+                var r = Object.create(null);
+                if (d.r(r), Object.defineProperty(r, "default", {
+                        enumerable: !0,
+                        value: e
+                    }), 2 & t && "string" != typeof e)
+                    for (var n in e) d.d(r, n, function(t) {
+                        return e[t]
+                    }.bind(null, n));
+                return r
+            }, d.n = function(e) {
+                var t = e && e.__esModule ? function() {
+                    return e.default
+                } : function() {
+                    return e
+                };
+                return d.d(t, "a", t), t
+            }, d.o = function(e, t) {
+                return Object.prototype.hasOwnProperty.call(e, t)
+            }, d.p = "/", d.oe = function(e) {
+                throw console.error(e), e
+            };
+            f.push = t, f = f.slice();
+            for (var i = 0; i < f.length; i++) t(f[i]);
+            var l = u;
+            r()
+        }([])
+    </script>
+    <script src="/static/js/5.d6cd0c68.chunk.js" type="text/javascript"></script>
+    <script src="/static/js/main.bb53d6a5.chunk.js" type="text/javascript"></script>
 
-        <!-- Vendor JS Files -->
-        <script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-        <script src="/assets/vendor/aos/aos.js"></script>
-        <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
-        <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-        <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
-        <script src="/assets/vendor/php-email-form/validate.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="/assets/jssb/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="/assets/jssb/chart-area-demo.js"></script>
-        <script src="/assets/jssb/chart-bar-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="/assets/jssb/datatables-simple-demo.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="/assets/vendor/aos/aos.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/vendor/php-email-form/validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="/assets/jssb/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="/assets/jssb/chart-area-demo.js"></script>
+    <script src="/assets/jssb/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="/assets/jssb/datatables-simple-demo.js"></script>
 
-        <!-- Template Main JS File -->
-        <script src="/assets/js/main.js"></script>
-        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 </body>
 
 </html>

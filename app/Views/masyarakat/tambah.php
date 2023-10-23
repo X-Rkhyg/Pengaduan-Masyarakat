@@ -19,10 +19,6 @@
                     <line x1="16" y1="17" x2="8" y2="17"></line>
                     <polyline points="10 9 9 9 8 9"></polyline>
                 </svg><span class="menu-item text-truncate">Lihat Data</span></a></li>
-        <li class="nav-item"><a href="/auth/logout"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="1 4 1 10 7 10"></polyline>
-                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-                </svg><span class="menu-item text-truncate">Logout</span></a></li>
     </ul>
     <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
         <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
@@ -32,17 +28,23 @@
     </div>
 </div>
 </div>
+
 <nav class="header-navbar navbar align-items-center floating-nav container-xxl navbar-shadow navbar navbar-expand-lg navbar-light">
     <div class="navbar-container d-flex content">
         <div class="bookmark-wrapper d-flex align-items-center">
             <li class="d-none d-lg-block nav-item"><a class="nav-link-style nav-link">
-                    <h1>
-                        Tambahkan Pengaduan
-                    </h1>
-            </li>
+                    Tambah Data Pengaduan
+                </a></li>
         </div>
+        <ul class="nav navbar-nav align-items-center ms-auto">
+            <li class="dropdown-user nav-item dropdown"><a href="/auth/logout" aria-haspopup="true" class="nav-link dropdown-user-link btn btn-outline-primary" aria-expanded="false">
+                    Logout
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>
+
 <div class="app-content content overflow-hidden">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
@@ -52,9 +54,9 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                        <?php if (session()->getFlashdata('vall')) : ?>
-                            <?= session()->getFlashdata('vall'); ?>
-                        <?php endif; ?>
+                            <?php if (session()->getFlashdata('vall')) : ?>
+                                <?= session()->getFlashdata('vall'); ?>
+                            <?php endif; ?>
                             <form action="/masyarakat/save" method="post" enctype="multipart/form-data">
                                 <div class="mb-1"><label for="name" class="form-label form-label">Isi Laporan<font color="FF7F7F">*</font></label><input name="isi_laporan" placeholder="Laporan Anda" type="text" class="form-control"></div>
                                 <!-- upload foto -->

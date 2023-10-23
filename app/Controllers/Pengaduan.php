@@ -53,7 +53,9 @@ class Pengaduan extends BaseController
             'nik' => $nik,
             'foto' => $newName,
         ]);
-        return redirect()->to('/masyarakat/tambah');
+
+        session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
+        return redirect()->to('/masyarakat/lihat');
     }
 
     public function download($id)

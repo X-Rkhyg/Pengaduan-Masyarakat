@@ -104,7 +104,8 @@ class AuthMasyarakat extends BaseController
         else{
             //jika username tidak ditemukan, balikkan ke halaman login
             session()->setFlashdata('username', 'Username tidak ditemukan');
-            session()->setFlashdata('berhasil', 'Selamat datang, anda berhasil login!');
+            // mengirimkan pesan
+            session()->setFlashdata('pesan', 'Selamat Datang, Anda Berhasil Login');
             return redirect()->to('/auth/login');
         }
     }

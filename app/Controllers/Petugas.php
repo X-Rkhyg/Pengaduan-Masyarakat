@@ -2,8 +2,23 @@
 
 namespace App\Controllers;
 
+use App\Models\PengaduanModel;
+use App\Models\MasyarakatModel;
+
 class Petugas extends BaseController
 {
+
+    protected $session;
+    protected $pengaduanModel;
+    protected $masyarakatModel;
+    public function __construct()
+    {
+        $this->session = session();
+
+        $this->pengaduanModel = new PengaduanModel();
+
+        $this->masyarakatModel = new MasyarakatModel();
+    }
     public function index(): string
     {
         return view('petugas/home');
@@ -11,6 +26,24 @@ class Petugas extends BaseController
 
     public function validasi(): string
     {
-        return view('masyarakat/validasi');
+        $pengaduan = $this->pengaduanModel->findAll();
+
+        $data = [
+            'title' => 'Data Kelahiran Sleman',
+            'aduan' => $pengaduan
+        ];
+
+        return view('petugas/validasi', $data);
+    }
+
+    public function management(): string
+    {
+        $masyarakat = $this->masyarakatModel->findAll();
+        $data = [
+            'title' => 'Data Kelahiran Sleman',
+            'masyarakat' => $masyarakat
+        ];
+
+        return view('petugas/management', $data);
     }
 }
