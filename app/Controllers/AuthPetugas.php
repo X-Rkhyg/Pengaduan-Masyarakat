@@ -59,6 +59,7 @@ class AuthPetugas extends BaseController
                         'logged_in' => TRUE
                     ]);
                     //kembalikan ke halaman admin
+                    session()->setFlashdata('login', 'Selamat Datang ');
                     return redirect()->to('/admin');
                 } else {
                     //jika benar, buat session
@@ -70,6 +71,7 @@ class AuthPetugas extends BaseController
                         'logged_in' => TRUE
                     ]);
                     //kembalikan ke halaman petugas
+                    session()->setFlashdata('login', 'Selamat Datang ');
                     return redirect()->to('/petugas');
                 }
             }
@@ -78,7 +80,6 @@ class AuthPetugas extends BaseController
             //jika username tidak ditemukan, balikkan ke halaman login
             session()->setFlashdata('username', 'Username tidak ditemukan');
             // mengirimkan pesan
-            session()->setFlashdata('pesan', 'Selamat Datang, Anda Berhasil Login');
             return redirect()->to('/auth/loginpetugas');
         }
     }

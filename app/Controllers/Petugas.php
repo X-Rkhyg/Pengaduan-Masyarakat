@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\PengaduanModel;
 use App\Models\MasyarakatModel;
+use App\Models\PetugasModel;
 
 class Petugas extends BaseController
 {
@@ -11,6 +12,7 @@ class Petugas extends BaseController
     protected $session;
     protected $pengaduanModel;
     protected $masyarakatModel;
+    protected $petugasModel;
     public function __construct()
     {
         $this->session = session();
@@ -18,6 +20,8 @@ class Petugas extends BaseController
         $this->pengaduanModel = new PengaduanModel();
 
         $this->masyarakatModel = new MasyarakatModel();
+
+        $this->petugasModel = new PetugasModel();
     }
     public function index(): string
     {
@@ -45,6 +49,18 @@ class Petugas extends BaseController
         ];
 
         return view('petugas/masyarakat', $data);
+    }
+
+    public function setting(): string
+    {
+        $petugas = $this->petugasModel->findAll();
+
+        $data = [
+            'title' => 'Setting',
+            'petugas' => $petugas
+        ];
+
+        return view('petugas/setting', $data);
     }
 
 

@@ -3,16 +3,20 @@
 namespace App\Controllers;
 
 use App\Models\PengaduanModel;
+use App\Models\MasyarakatModel;
 
 class Masyarakat extends BaseController
 {
     protected $session;
     protected $pengaduanModel;
+    protected $masyarakatModel;
     public function __construct()
     {
         $this->session = session();
 
         $this->pengaduanModel = new PengaduanModel();
+
+        $this->masyarakatModel = new MasyarakatModel();
     }
     public function index(): string
     {
@@ -55,5 +59,18 @@ class Masyarakat extends BaseController
             ->getResult();
 
         return view('masyarakat/lihat', ['data' => $data]);
+    }
+
+    public function setting(): string
+    {
+        $masyarakat = $this->masyarakatModel->findAll();
+
+        $data = [
+            'title' => 'Setting',
+            'masyarakat' => $masyarakat,
+            'validation' => \Config\Services::validation()
+        ];
+
+        return view('masyarakat/setting', $data);
     }
 }

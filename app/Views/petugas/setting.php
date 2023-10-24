@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/masyarakat'); ?>
+<?= $this->extend('layouts/petugas'); ?>
 <?= $this->section('content'); ?>
 
 <div class="shadow-bottom"></div>
@@ -8,7 +8,7 @@
                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
                 </svg><span class="menu-item text-truncate">Dashboard</span></a></li>
-        <li class="nav-item active"><a href="/petugas/validasi"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <li class="nav-item"><a href="/petugas/validasi"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                     <polyline points="14 2 14 8 20 8"></polyline>
                     <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -23,7 +23,7 @@
                 <circle cx="19" cy="12" r="1"></circle>
                 <circle cx="5" cy="12" r="1"></circle>
             </svg></li>
-        <li class="nav-item"><a href="/petugas/setting"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <li class="nav-item active"><a href="/petugas/setting"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="3"></circle>
                     <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
                 </svg><span class="menu-item text-truncate">Setting</span></a></li>
@@ -37,12 +37,11 @@
 </div>
 </div>
 
-
 <nav class="header-navbar navbar align-items-center floating-nav container-xxl navbar-shadow navbar navbar-expand-lg navbar-light">
     <div class="navbar-container d-flex content">
         <div class="bookmark-wrapper d-flex align-items-center">
             <li class="d-none d-lg-block nav-item"><a class="nav-link-style nav-link">
-                    Management Data masyarakat
+                    Ganti Password
                 </a></li>
         </div>
         <ul class="nav navbar-nav align-items-center ms-auto">
@@ -62,12 +61,14 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                        <?php if (session()->getFlashdata('vall')) : ?>
-                            <?= session()->getFlashdata('vall'); ?>
-                        <?php endif; ?>
-                            <form action="/pengaduanpetugas/updatetanggapan/<?= $aduan['id_pengaduan']; ?>" method="post" enctype="multipart/form-data">
-                                <div class="mb-1"><label for="name" class="form-label form-label">Isi Tanggapan<font color="FF7F7F">*</font></label><input name="tanggapan" placeholder="Tanggapan Anda" type="text" class="form-control"></div>
-                                <button type="submit" class="me-1 btn btn-primary">Submit</button>
+                            <form class="">
+                                <div class="mb-1"><label for="name" class="form-label form-label">Password Lama<font color="FF7F7F">*</font></label>
+                                <input name="name" placeholder="Password Lama Anda" type="text" class="form-control"></div>
+                                <div class="mb-1"><label for="name" class="form-label form-label">Password Baru<font color="FF7F7F">*</font></label>
+                                <input name="name" placeholder="Password Baru Anda" type="text" class="form-control"></div>
+                                <div class="mb-1"><label for="name" class="form-label form-label">Konfirmasi Password Baru<font color="FF7F7F">*</font></label>
+                                <input name="name" placeholder="Konfirmasi Password Baru Anda" type="text" class="form-control"></div>
+                                <button type="submit" class="me-1 btn btn-primary">Ganti Password</button>
                                 <div class="text-end"><small>
                                         <font color="FF7F7F">*</font> required fields
                                     </small></div>
@@ -80,4 +81,4 @@
     </div>
 </div>
 
-<?= $this->endSection(); ?>
+<?= $this->endSection() ?>

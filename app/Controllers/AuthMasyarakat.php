@@ -94,10 +94,13 @@ class AuthMasyarakat extends BaseController
                 //jika benar, arahkan user masuk ke aplikasi 
                 $sessLogin = [
                     'isLogin' => true,
+                    'id_masyarakat' => $masyarakat['id_masyarakat'], //tambahkan id_masyarakat ke session
                     'username' => $masyarakat['username'],
+                    'password' => $masyarakat['password'],
                     'nik' => $masyarakat['nik'],
                     ];
                 $this->session->set($sessLogin);
+                session()->setFlashdata('login', 'Selamat Datang ');
                 return redirect()->to('/masyarakat');
             }
         }
@@ -105,7 +108,6 @@ class AuthMasyarakat extends BaseController
             //jika username tidak ditemukan, balikkan ke halaman login
             session()->setFlashdata('username', 'Username tidak ditemukan');
             // mengirimkan pesan
-            session()->setFlashdata('pesan', 'Selamat Datang, Anda Berhasil Login');
             return redirect()->to('/auth/login');
         }
     }
