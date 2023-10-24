@@ -51,7 +51,7 @@ $session = session()
                 </a></li>
         </div>
         <ul class="nav navbar-nav align-items-center ms-auto">
-            <li class="dropdown-user nav-item dropdown"><a href="/auth/logout" aria-haspopup="true" class="nav-link dropdown-user-link btn btn-outline-primary" aria-expanded="false">
+            <li class="dropdown-user nav-item dropdown"><a href="/auth/logoutpetugas" aria-haspopup="true" class="nav-link dropdown-user-link btn btn-outline-primary" aria-expanded="false">
                     Logout
                 </a>
             </li>

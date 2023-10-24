@@ -15,6 +15,7 @@ $routes->get('/auth/daftar', 'AuthMasyarakat::daftar');
 $routes->post('/auth/valid_login', 'AuthMasyarakat::valid_login');
 $routes->post('/authmasyarakat/valid_register', 'AuthMasyarakat::valid_register');
 $routes->get('/auth/logout', 'AuthMasyarakat::logout');
+$routes->get('/auth/logoutpetugas', 'AuthPetugas::logout');
 
 $routes->get('/masyarakat', 'Masyarakat::index');
 $routes->get('/masyarakat/tambah', 'Masyarakat::tambah');
@@ -35,6 +36,7 @@ $routes->get('/petugas', 'Petugas::index');
 $routes->get('/petugas/validasi', 'Petugas::validasi');
 $routes->get('/petugas/management', 'Petugas::management');
 $routes->get('/petugas/setting', 'Petugas::setting');
+$routes->post('/petugas/ganti_password/(:num)', 'Setting::ganti_password_petugas/$1');
 $routes->get('/pengaduanpetugas/validasi/(:num)', 'PengaduanPetugas::validasi/$1');
 $routes->get('/pengaduanpetugas/tanggapan/(:num)', 'PengaduanPetugas::tanggapan/$1');
 $routes->post('/pengaduanpetugas/updatetanggapan/(:num)', 'PengaduanPetugas::updatetanggapan/$1');

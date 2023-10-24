@@ -93,6 +93,7 @@ $session = session()
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('confirm'); ?>
                                     </div>
+                                </div>
 
                                     <button type="submit" class="me-1 btn btn-primary mt-2">Ganti Password</button>
                                     <div class="text-end"><small>
@@ -106,7 +107,6 @@ $session = session()
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <?= $this->endSection() ?>

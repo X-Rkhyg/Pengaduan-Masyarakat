@@ -57,7 +57,8 @@ class Petugas extends BaseController
 
         $data = [
             'title' => 'Setting',
-            'petugas' => $petugas
+            'petugas' => $petugas,
+            'validation' => \Config\Services::validation()
         ];
 
         return view('petugas/setting', $data);

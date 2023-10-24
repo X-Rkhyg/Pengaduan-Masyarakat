@@ -1,6 +1,11 @@
 <?= $this->extend('layouts/petugas'); ?>
 <?= $this->section('content'); ?>
 
+<?php
+$pesan = session()->getFlashdata('pesan');
+$session = session()
+?>
+
 <div class="shadow-bottom"></div>
 <div class="scrollbar-container main-menu-content ps ps--active-y">
     <ul class="navigation navigation-main">
@@ -45,7 +50,7 @@
                 </a></li>
         </div>
         <ul class="nav navbar-nav align-items-center ms-auto">
-            <li class="dropdown-user nav-item dropdown"><a href="/auth/logout" aria-haspopup="true" class="nav-link dropdown-user-link btn btn-outline-primary" aria-expanded="false">
+            <li class="dropdown-user nav-item dropdown"><a href="/auth/logoutpetugas" aria-haspopup="true" class="nav-link dropdown-user-link btn btn-outline-primary" aria-expanded="false">
                     Logout
                 </a>
             </li>
@@ -61,17 +66,38 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <form class="">
-                                <div class="mb-1"><label for="name" class="form-label form-label">Password Lama<font color="FF7F7F">*</font></label>
-                                <input name="name" placeholder="Password Lama Anda" type="text" class="form-control"></div>
-                                <div class="mb-1"><label for="name" class="form-label form-label">Password Baru<font color="FF7F7F">*</font></label>
-                                <input name="name" placeholder="Password Baru Anda" type="text" class="form-control"></div>
-                                <div class="mb-1"><label for="name" class="form-label form-label">Konfirmasi Password Baru<font color="FF7F7F">*</font></label>
-                                <input name="name" placeholder="Konfirmasi Password Baru Anda" type="text" class="form-control"></div>
-                                <button type="submit" class="me-1 btn btn-primary">Ganti Password</button>
-                                <div class="text-end"><small>
-                                        <font color="FF7F7F">*</font> required fields
-                                    </small></div>
+                            <form action="/petugas/ganti_password/<?= $session->get('id_petugas'); ?>" method="post">
+                                <?= csrf_field(); ?>
+
+                                <div class="mb-1">
+                                    <label for="password" class="form-label">Password Lama<font color="FF7F7F">*</font></label>
+                                    <input type="text" class="form-control <?= ($validation->hasError('passwordLama')) ? 'is-invalid' : ''; ?>" id="passwordLama" name="passwordLama" placeholder="Password Lama Anda" required>
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('passwordLama'); ?>
+                                    </div>
+                                </div>
+
+                                <div class="mb-1">
+                                    <label for="password" class="form-label">Password Baru<font color="FF7F7F">*</font></label>
+                                    <input type="password" class="form-control <?= ($validation->hasError('passwordBaru')) ? 'is-invalid' : ''; ?>" id="passwordBaru" name="passwordBaru" placeholder="Password Baru Anda" required>
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('passwordBaru'); ?>
+                                    </div>
+                                </div>
+
+                                <div class="mb-1">
+                                    <label for="password" class="form-label">Konfirmasi Password Baru<font color="FF7F7F">*</font></label>
+                                    <input type="password" class="form-control <?= ($validation->hasError('confirm')) ? 'is-invalid' : ''; ?>" id="confirm" name="confirm" placeholder="Konfirmasi Password Baru Anda" required>
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('confirm'); ?>
+                                    </div>
+                                </div>
+
+                                    <button type="submit" class="me-1 btn btn-primary mt-2">Ganti Password</button>
+                                    <div class="text-end"><small>
+                                            <font color="FF7F7F">*</font> required fields
+                                        </small>
+                                    </div>
                             </form>
                         </div>
                     </div>
