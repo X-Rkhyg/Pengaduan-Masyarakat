@@ -1,9 +1,5 @@
-<?= $this->extend('layouts/petugas'); ?>
+<?= $this->extend('layouts/masyarakat'); ?>
 <?= $this->section('content'); ?>
-
-<?php
-$pesan = session()->getFlashdata('pesan');
-?>
 
 <div class="shadow-bottom"></div>
 <div class="scrollbar-container main-menu-content ps ps--active-y">
@@ -32,78 +28,43 @@ $pesan = session()->getFlashdata('pesan');
 </div>
 </div>
 
+
 <nav class="header-navbar navbar align-items-center floating-nav container-xxl navbar-shadow navbar navbar-expand-lg navbar-light">
     <div class="navbar-container d-flex content">
         <div class="bookmark-wrapper d-flex align-items-center">
             <li class="d-none d-lg-block nav-item"><a class="nav-link-style nav-link">
-                    Validasi Data Pengaduan
-                </a></li>
-        </div>
-        <ul class="nav navbar-nav align-items-center ms-auto">
-            <li class="dropdown-user nav-item dropdown"><a href="/auth/logout" aria-haspopup="true" class="nav-link dropdown-user-link btn btn-outline-primary" aria-expanded="false">
-                    Logout
-                </a>
+                    <h1>
+                        Beri Tanggapan
+                    </h1>
             </li>
-        </ul>
+        </div>
     </div>
 </nav>
-
-<?php if ($pesan) { ?>
-    <?php echo $pesan ?>
-<?php } ?>
-
 <div class="app-content content overflow-hidden">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
     <div class="container-xxl p-0">
         <div>
-            <table id="example" class="table table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>NO</th>
-                        <th>Isi Laporan</th>
-                        <th>Foto</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($aduan as $adu) : ?>
-                        <tr>
-                            <td><?= $i++; ?></td>
-                            <td><?= $adu['isi_laporan']; ?></td>
-                            <td>
-                                <img src="/foto_storage/<?= $adu['foto'] ?>" alt="Image" style="width: 200px; height: 130px;">
-                            </td>
-                            <td>
-                                <?php if ($adu['status'] == "0") : ?>
-                                    Pending
-                                <?php elseif ($adu['status'] == "1") : ?>
-                                    Proses
-                                <?php elseif ($adu['status'] == "2") : ?>
-                                    Selesai
-                                <?php endif; ?>
-                            </td>
-
-
-                            <td>
-                                <?php if ($adu['status'] == "0") : ?>
-                                    <a class="btn btn-primary btn-sm" href="/pengaduanpetugas/validasi/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-check"></i></a>
-                                <?php elseif ($adu['status'] == "1") : ?>
-                                    <a class="btn btn-primary btn-sm" href="/pengaduanpetugas/tanggapan/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-envelope"></i></a>
-                                <?php elseif ($adu['status'] == "1") : ?>
-                                    Selesai
-                                <?php endif; ?>
-                            </td>
-
-
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                        <?php if (session()->getFlashdata('vall')) : ?>
+                            <?= session()->getFlashdata('vall'); ?>
+                        <?php endif; ?>
+                            <form action="/pengaduanpetugas/updatetanggapan/<?= $aduan['id_pengaduan']; ?>" method="post" enctype="multipart/form-data">
+                                <div class="mb-1"><label for="name" class="form-label form-label">Isi Tanggapan<font color="FF7F7F">*</font></label><input name="tanggapan" placeholder="Tanggapan Anda" type="text" class="form-control"></div>
+                                <button type="submit" class="me-1 btn btn-primary">Submit</button>
+                                <div class="text-end"><small>
+                                        <font color="FF7F7F">*</font> required fields
+                                    </small></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<?= $this->endSection() ?>
+<?= $this->endSection(); ?>

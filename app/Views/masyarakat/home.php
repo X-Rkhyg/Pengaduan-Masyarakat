@@ -134,9 +134,7 @@ $session = session()
                 </div>
             </div>
         </div>
-        <?php if ($pesan) { ?>
-            <?php echo $pesan ?>
-        <?php } ?>
+        Selamat Datang <?= $session->get('username'); ?>
     </div>
 </div>
 
