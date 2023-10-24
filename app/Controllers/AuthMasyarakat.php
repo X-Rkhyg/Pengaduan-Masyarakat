@@ -115,7 +115,7 @@ class AuthMasyarakat extends BaseController
         //hancurkan session 
         //balikan ke halaman login
         $this->session->destroy();
-        return redirect()->to('/');
+        return redirect()->to('/auth/login');
     }
 
 }
