@@ -8,6 +8,7 @@
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">Dashboard</li>
             </ol>
+            Selamat Datang <?= $session->get('nama_petugas'); ?>
     </main>
 
     <?php $this->endSection(); ?>

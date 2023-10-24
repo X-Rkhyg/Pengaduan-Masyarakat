@@ -133,7 +133,7 @@ $session = session()
                 </div>
             </div>
         </div>
-        Selamat Datang <?= $session->get('username'); ?>
+        Selamat Datang <?= $session->get('nama_petugas'); ?>
     </div>
 </div>
 

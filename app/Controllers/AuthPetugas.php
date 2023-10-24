@@ -52,6 +52,7 @@ class AuthPetugas extends BaseController
                 if ($petugas['level'] == 'admin') {
                     //jika benar, buat session
                     $this->session->set([
+                        'id_petugas' => $petugas['id_petugas'], //tambahkan id_petugas ke session
                         'username' => $petugas['username'],
                         'nama_petugas' => $petugas['nama_petugas'],
                         'level' => $petugas['level'],
@@ -62,6 +63,7 @@ class AuthPetugas extends BaseController
                 } else {
                     //jika benar, buat session
                     $this->session->set([
+                        'id_petugas' => $petugas['id_petugas'], //tambahkan id_petugas ke session
                         'username' => $petugas['username'],
                         'nama_petugas' => $petugas['nama_petugas'],
                         'level' => $petugas['level'],

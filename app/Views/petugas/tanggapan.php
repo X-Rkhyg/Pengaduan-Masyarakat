@@ -33,11 +33,15 @@
     <div class="navbar-container d-flex content">
         <div class="bookmark-wrapper d-flex align-items-center">
             <li class="d-none d-lg-block nav-item"><a class="nav-link-style nav-link">
-                    <h1>
-                        Beri Tanggapan
-                    </h1>
-            </li>
+                    Management Data masyarakat
+                </a></li>
         </div>
+        <ul class="nav navbar-nav align-items-center ms-auto">
+            <li class="dropdown-user nav-item dropdown"><a href="/auth/logout" aria-haspopup="true" class="nav-link dropdown-user-link btn btn-outline-primary" aria-expanded="false">
+                    Logout
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>
 <div class="app-content content overflow-hidden">
