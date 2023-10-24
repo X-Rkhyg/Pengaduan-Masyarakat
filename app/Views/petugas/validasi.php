@@ -1,6 +1,9 @@
 <?= $this->extend('layouts/petugas'); ?>
 <?= $this->section('content'); ?>
 
+<?php
+$pesan = session()->getFlashdata('pesan');
+?>
 
 <div class="shadow-bottom"></div>
 <div class="scrollbar-container main-menu-content ps ps--active-y">
@@ -45,6 +48,10 @@
     </div>
 </nav>
 
+<?php if ($pesan) { ?>
+    <?php echo $pesan ?>
+<?php } ?>
+
 <div class="app-content content overflow-hidden">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
@@ -66,7 +73,9 @@
                         <tr>
                             <td><?= $i++; ?></td>
                             <td><?= $adu['isi_laporan']; ?></td>
-                            <td><?= $adu['foto']; ?></td>
+                            <td>
+                                <img src="/foto_storage/<?= $adu['foto'] ?>" alt="Image" style="width: 200px; height: 130px;">
+                            </td>
                             <td>
                                 <?php if ($adu['status'] == "0") : ?>
                                     Pending
@@ -76,7 +85,17 @@
                                     Selesai
                                 <?php endif; ?>
                             </td>
-                            <td><a class="btn btn-primary btn-sm" href=""><i class="bi bi-check"></i></a></td>
+                            
+
+                            <td>
+                                <?php if ($adu['status'] == "0") : ?>
+                                    <a class="btn btn-primary btn-sm" href="/pengaduanpetugas/validasi/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-check"></i></a>
+                                <?php elseif ($adu['status'] == "1") : ?>
+                                    <i class="bi bi-check">Tervalidasi</i>
+                                <?php endif; ?>
+                            </td>
+                                
+                            
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

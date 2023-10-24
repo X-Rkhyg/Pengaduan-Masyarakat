@@ -32,6 +32,7 @@ $routes->post('/authpetugas/valid_login', 'AuthPetugas::valid_login');
 $routes->get('/petugas', 'Petugas::index');
 $routes->get('/petugas/validasi', 'Petugas::validasi');
 $routes->get('/petugas/management', 'Petugas::management');
+$routes->get('/pengaduanpetugas/validasi/(:num)', 'PengaduanPetugas::validasi/$1');
 
 //Admin
 $routes->post('/loginadmin', 'LoginPetugas::index');

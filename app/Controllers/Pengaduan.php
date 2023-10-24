@@ -94,9 +94,8 @@ class Pengaduan extends BaseController
                 ]
             ],
             'foto' => [
-                'rules' => 'uploaded[foto]|max_size[foto,10240]',
+                'rules' => 'max_size[foto,10240]',
                 'errors' => [
-                    'uploaded' => 'File harus ditambahkan',
                     'max_size' => 'Ukuran file harus kurang dari 10MB',
                 ]
             ]
@@ -108,10 +107,14 @@ class Pengaduan extends BaseController
         }
 
         // ambil gambar
-        $fileDokumen = $this->request->getFile('foto');
-        $newName = $fileDokumen->getRandomName();
-        $fileDokumen->move('foto_storage', $newName);
-
+        if ('' == $this->request->getFile('foto')->getName()) {
+            $fileDokumen = $this->pengaduanModel->getFileData($id);
+            $newName = $fileDokumen['foto'];
+        } else {
+            $fileDokumen = $this->request->getFile('foto');
+            $newName = $fileDokumen->getRandomName();
+            $fileDokumen->move('foto_storage', $newName);
+        }
         // ambil nama file sampul
 
 
