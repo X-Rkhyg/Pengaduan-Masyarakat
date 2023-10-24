@@ -36,4 +36,7 @@ $routes->get('/pengaduanpetugas/validasi/(:num)', 'PengaduanPetugas::validasi/$1
 
 //Admin
 $routes->post('/loginadmin', 'LoginPetugas::index');
+
 $routes->get('/admin', 'Admin::index');
+$routes->get('/admin/validasi', 'Admin::validasi');
+$routes->get('/admin/masyarakat', 'Admin::masyarakat');

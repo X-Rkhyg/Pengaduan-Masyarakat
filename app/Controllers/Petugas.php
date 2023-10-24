@@ -44,6 +44,6 @@ class Petugas extends BaseController
             'masyarakat' => $masyarakat
         ];
 
-        return view('petugas/management', $data);
+        return view('petugas/masyarakat', $data);
     }
 }
