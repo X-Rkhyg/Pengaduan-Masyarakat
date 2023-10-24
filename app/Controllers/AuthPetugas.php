@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\PetugasModel;
 
 class AuthPetugas extends BaseController
 {
-
     protected $petugasModel;
     protected $validation;
     protected $session;
@@ -26,58 +26,12 @@ class AuthPetugas extends BaseController
     public function login()
     {
         $data = [
-            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+            'title' => 'Login - Aplikasi Pengaduan Petugas'
         ];
         //menampilkan halaman login
         return view('auth/login-petugas', $data);
     }
 
-    public function daftar()
-    {
-        $data = [
-            'title' => 'Daftar - Aplikasi Pengaduan Masyarakat'
-        ];
-        //menampilkan halaman register
-        return view('auth/daftar', $data);
-    }
-
-    public function valid_register()
-    {
-        //tangkap data dari form 
-        $data = $this->request->getPost();
-        
-        //jalankan validasi
-        $this->validation->run($data, 'register');
-        
-        //cek errornya
-        $errors = $this->validation->getErrors();
-        
-        //jika ada error kembalikan ke halaman register
-        if($errors){
-            session()->setFlashdata('error', $errors);
-            return redirect()->to('/auth/register');
-        }
-        
-        //jika tdk ada error 
-        //masukan data ke database
-        $levelpetugas = "1";
-
-        $this->petugasModel->save([
-            'nama_petugas' => $data['nama_petugas'],
-            'username' => $data['username'],
-            'nik' => $data['nik'],
-            'password' => $data['password'],
-            'telepon' => $data['telepon'],
-            'level' => $levelpetugas,
-
-            
-            ]);
-        
-        //arahkan ke halaman login
-        session()->setFlashdata('login', 'Anda berhasil mendaftar, silahkan login');
-        return redirect()->to('/auth/login');
-    }
-    
     public function valid_login()
     {
         //ambil data dari form
@@ -95,29 +49,44 @@ class AuthPetugas extends BaseController
                 return redirect()->to('/auth/loginpetugas');
             }
             else{
-                //jika benar, arahkan user masuk ke aplikasi 
-                $sessLogin = [
-                    'isLogin' => true,
-                    'username' => $petugas['username'],
-                    'level' => $petugas['level'],
-                    ];
-                $this->session->set($sessLogin);
-                return redirect()->to('/petugas');
+                if ($petugas['level'] == 'admin') {
+                    //jika benar, buat session
+                    $this->session->set([
+                        'username' => $petugas['username'],
+                        'nama_petugas' => $petugas['nama_petugas'],
+                        'level' => $petugas['level'],
+                        'logged_in' => TRUE
+                    ]);
+                    //kembalikan ke halaman admin
+                    return redirect()->to('/admin');
+                } else {
+                    //jika benar, buat session
+                    $this->session->set([
+                        'username' => $petugas['username'],
+                        'nama_petugas' => $petugas['nama_petugas'],
+                        'level' => $petugas['level'],
+                        'logged_in' => TRUE
+                    ]);
+                    //kembalikan ke halaman petugas
+                    return redirect()->to('/petugas');
+                }
             }
         }
         else{
             //jika username tidak ditemukan, balikkan ke halaman login
             session()->setFlashdata('username', 'Username tidak ditemukan');
-            return redirect()->to('/auth/login');
+            // mengirimkan pesan
+            session()->setFlashdata('pesan', 'Selamat Datang, Anda Berhasil Login');
+            return redirect()->to('/auth/loginpetugas');
         }
     }
-    
+
     public function logout()
     {
         //hancurkan session 
         //balikan ke halaman login
         $this->session->destroy();
-        return redirect()->to('/auth/login');
+        return redirect()->to('/');
     }
 
 }

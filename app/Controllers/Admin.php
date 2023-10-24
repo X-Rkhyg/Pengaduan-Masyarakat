@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\PengaduanModel;
 use App\Models\MasyarakatModel;
+use App\Models\PetugasModel;
 
 class Admin extends BaseController
 {
@@ -11,6 +12,7 @@ class Admin extends BaseController
     protected $session;
     protected $pengaduanModel;
     protected $masyarakatModel;
+    protected $petugasModel;
 
     public function __construct()
     {
@@ -19,6 +21,8 @@ class Admin extends BaseController
         $this->pengaduanModel = new PengaduanModel();
 
         $this->masyarakatModel = new MasyarakatModel();
+
+        $this->petugasModel = new PetugasModel();
     }
 
     public function index(): string
@@ -50,6 +54,30 @@ class Admin extends BaseController
             'masyarakat' => $masyarakat
         ];
         return view('admin/masyarakat', $data);
+    }
+
+    public function petugas(): string
+    {
+        $petugas = $this->petugasModel->findAll();
+
+        $data = [
+            'title' => 'Management Petugas',
+            'petugas' => $petugas
+        ];
+        return view('admin/petugas', $data);
+    }
+
+    public function setting(): string
+    {
+
+        $petugas = $this->petugasModel->findAll();
+
+        $data = [
+            'title' => 'Setting',
+            'petugas' => $petugas
+
+        ];
+        return view('admin/setting', $data);
     }
 
 }

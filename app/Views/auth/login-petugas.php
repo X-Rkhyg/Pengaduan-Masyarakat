@@ -11,7 +11,6 @@
         </a>
 
         <nav id="navbar" class="navbar">
-           
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
     </div>
@@ -60,7 +59,7 @@
                                 <input type="password" name="password" id="form3Example3" class="form-control" placeholder="Yourname123" required />
                             </div>
 
-                            
+
 
                             <!-- Submit button -->
                             <button type="submit" class="btn btn-primary btn-block btn-lg mb-4" name="login">

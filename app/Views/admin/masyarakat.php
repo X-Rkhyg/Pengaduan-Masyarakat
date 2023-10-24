@@ -18,7 +18,7 @@
                                 <th>Username</th>
                                 <th>Password</th>
                                 <th>Telepon</th>
-                                <th>Telepon</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -31,8 +31,8 @@
                                     <td><?= $m['password']; ?></td>
                                     <td><?= $m['telepon']; ?></td>
                                     <td>
-                                        <a class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></a>
-                                        <a class="btn btn-danger btn-sm"><i class="bi bi-trash3"></i></a>
+                                        <button class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></button>
+                                        <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')"><i class="bi bi-trash3"></i></button>
                                         <button class="btn btn-warning btn-sm" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal<?= $m['id_masyarakat']; ?>"><i class="bi bi-info-circle"></i></button>
                                     </td>
                                 </tr>
