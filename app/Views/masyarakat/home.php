@@ -89,7 +89,7 @@ $session = session()
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h3 class="fw-bolder mb-75">15 Oktober 2023</h3>
+                                    <h3 class="fw-bolder mb-75"><?= date('d-m-Y'); ?></h3>
                                     <p class="card-text">Date</p>
                                 </div>
                                 <div class="avatar avatar-stats p-50 m-0 bg-light-danger">
@@ -146,11 +146,11 @@ $session = session()
         </div>
         <?php if ($login) { ?>
             <h5 style="color:green"><?php echo $login ?> <?= $session->get('username'); ?>, Anda berhasil Login</h5>
-                <?php } ?>
-                
-                <?php if ($pesan) { ?>
-                    <h5 style="color:green"><?php echo $pesan ?></h5>
-                        <?php } ?>
+        <?php } ?>
+
+        <?php if ($pesan) { ?>
+            <h5 style="color:green"><?php echo $pesan ?></h5>
+        <?php } ?>
     </div>
 </div>
 

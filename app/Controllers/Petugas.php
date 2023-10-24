@@ -64,5 +64,62 @@ class Petugas extends BaseController
         return view('petugas/setting', $data);
     }
 
+    public function edit($id)
+    {
+        $data = [
+            'title' => 'Edit Data Kelahiran',
+            'validation' => \Config\Services::validation(),
+            'masyarakat' => $this->masyarakatModel->getMasyarakat($id)
+        ];
+
+        return view('petugas/edit', $data);
+    }
+
+    public function update($id)
+    {
+
+        if (!$this->validate([
+            'nik' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'NIK harus diisi'
+                ]
+            ],
+            'username' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Username harus diisi'
+                ]
+            ],
+            'password' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Password harus diisi'
+                ]
+            ],
+            'telepon' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Telepon harus diisi'
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            session()->setFlashdata('vall', $validation->listErrors());
+
+            return redirect()->to('/masyarakatp/edit' . $this->request->getVar('id_masyarakat'))->withInput()-> with('validation', $validation);
+        }
+
+        $this->masyarakatModel->save([
+            "id_masyarakat" => $id,
+            "nik" => $this->request->getVar('nik'),
+            "username" => $this->request->getVar('username'),
+            "password" => $this->request->getVar('password'),
+            "telepon" => $this->request->getVar('telepon'),
+        ]);
+        session()->setFlashdata('pesan', 'Data berhasil diedit.');
+        return redirect()->to('/petugas/management');
+    }
+
 
 }

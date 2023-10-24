@@ -31,7 +31,7 @@ $session = session()
         <li class="nav-item active"><a href="/petugas/setting"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="3"></circle>
                     <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                </svg><span class="menu-item text-truncate">Setting</span></a></li>
+                </svg><span class="menu-item text-truncate">Setting Akun</span></a></li>
     </ul>
     <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
         <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
@@ -46,7 +46,7 @@ $session = session()
     <div class="navbar-container d-flex content">
         <div class="bookmark-wrapper d-flex align-items-center">
             <li class="d-none d-lg-block nav-item"><a class="nav-link-style nav-link">
-                    Ganti Password
+                    Pengaturan Akun
                 </a></li>
         </div>
         <ul class="nav navbar-nav align-items-center ms-auto">
@@ -57,6 +57,7 @@ $session = session()
         </ul>
     </div>
 </nav>
+
 <div class="app-content content overflow-hidden">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
@@ -66,38 +67,55 @@ $session = session()
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <form action="/petugas/ganti_password/<?= $session->get('id_petugas'); ?>" method="post">
-                                <?= csrf_field(); ?>
-
+                            <form class="">
                                 <div class="mb-1">
-                                    <label for="password" class="form-label">Password Lama<font color="FF7F7F">*</font></label>
-                                    <input type="text" class="form-control <?= ($validation->hasError('passwordLama')) ? 'is-invalid' : ''; ?>" id="passwordLama" name="passwordLama" placeholder="Password Lama Anda" required>
-                                    <div class="invalid-feedback">
-                                        <?= $validation->getError('passwordLama'); ?>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+
+                                            <form action="/petugas/ganti_password/<?= $session->get('id_petugas'); ?>" method="post">
+                                                <?= csrf_field(); ?>
+
+                                                <div class="mb-1">
+                                                    <label for="nama" class="form-label">Nama <font color="FF7F7F">*</font></label>
+                                                    <input name="nama_petugas" type="text" class="form-control" placeholder="<?= $session->get('nama_petugas'); ?>" >
+                                                </div>
+
+                                                <div class="mb-1">
+                                                    <label for="nama" class="form-label">Username <font color="FF7F7F">*</font></label>
+                                                    <input name="username" type="text" class="form-control" placeholder="<?= $session->get('username'); ?>">
+                                                </div>
+
+                                                <div class="mb-1">
+                                                    <label for="nama" class="form-label">Password Lama</label>
+                                                    <input name="passwordLama" type="text" class="form-control" placeholder="Password Lama Anda">
+                                                </div>
+
+                                                <div class="mb-1">
+                                                    <label for="nama" class="form-label">Password Baru</label>
+                                                    <input name="passwordBaru" type="text" class="form-control" placeholder="Password Baru Anda">
+                                                </div>
+
+                                                <div class="mb-1">
+                                                    <label for="nama" class="form-label">Konfirmasi Password Baru</label>
+                                                    <input name="passwordBaru" type="text" class="form-control" placeholder="Konfirmasi Password Baru Anda">
+                                                </div>
+
+                                                <div class="mb-1">
+                                                    <label for="nama" class="form-label">Level <font color="FF7F7F">*</font></label>
+                                                    <input name="level" type="text" class="form-control" value="<?= $session->get('level'); ?>" readonly>
+                                                </div>
+
+                                                <button type="submit" class="me-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">Simpan Perubahan</button>
+                                                <div class="text-end"><small>
+                                                        <font color="FF7F7F">*</font> required fields
+                                                    </small>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div class="mb-1">
-                                    <label for="password" class="form-label">Password Baru<font color="FF7F7F">*</font></label>
-                                    <input type="password" class="form-control <?= ($validation->hasError('passwordBaru')) ? 'is-invalid' : ''; ?>" id="passwordBaru" name="passwordBaru" placeholder="Password Baru Anda" required>
-                                    <div class="invalid-feedback">
-                                        <?= $validation->getError('passwordBaru'); ?>
-                                    </div>
-                                </div>
-
-                                <div class="mb-1">
-                                    <label for="password" class="form-label">Konfirmasi Password Baru<font color="FF7F7F">*</font></label>
-                                    <input type="password" class="form-control <?= ($validation->hasError('confirm')) ? 'is-invalid' : ''; ?>" id="confirm" name="confirm" placeholder="Konfirmasi Password Baru Anda" required>
-                                    <div class="invalid-feedback">
-                                        <?= $validation->getError('confirm'); ?>
-                                    </div>
-                                </div>
-
-                                    <button type="submit" class="me-1 btn btn-primary mt-2">Ganti Password</button>
-                                    <div class="text-end"><small>
-                                            <font color="FF7F7F">*</font> required fields
-                                        </small>
-                                    </div>
                             </form>
                         </div>
                     </div>

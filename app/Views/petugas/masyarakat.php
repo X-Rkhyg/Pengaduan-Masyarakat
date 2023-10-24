@@ -1,6 +1,10 @@
 <?= $this->extend('layouts/petugas'); ?>
 <?= $this->section('content'); ?>
 
+<?php
+$pesan = session()->getFlashdata('pesan');
+$session = session()
+?>
 
 <div class="shadow-bottom"></div>
 <div class="scrollbar-container main-menu-content ps ps--active-y">
@@ -27,7 +31,7 @@
         <li class="nav-item"><a href="/petugas/setting"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="3"></circle>
                     <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                </svg><span class="menu-item text-truncate">Setting</span></a></li>
+                </svg><span class="menu-item text-truncate">Setting Akun</span></a></li>
     </ul>
     <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
         <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
@@ -59,6 +63,9 @@
     <div class="header-navbar-shadow"></div>
     <div class="container-xxl p-0">
         <div>
+            <?php if ($pesan) { ?>
+                <h5 style="color:green"><?php echo $pesan ?></h5>
+            <?php } ?>
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
@@ -80,8 +87,7 @@
                             <td><?= $m['password']; ?></td>
                             <td><?= $m['telepon']; ?></td>
                             <td>
-                                <a class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></a>
-                                <a class="btn btn-danger btn-sm"><i class="bi bi-trash3"></i></a>
+                                <a class="btn btn-primary btn-sm" href="/masyarakatp/edit/<?= $m['id_masyarakat'] ?>"><i class="bi bi-pencil-square"></i></a>
                                 <button class="btn btn-warning btn-sm" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal<?= $m['id_masyarakat']; ?>"><i class="bi bi-info-circle"></i></button>
                             </td>
                         </tr>
@@ -91,26 +97,26 @@
         </div>
     </div>
     <?php foreach ($masyarakat as $m) : ?>
-            <div class="modal fade" id="Modal<?= $m['id_masyarakat']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Data</h1>
-                        </div>
-                        <div class="modal-body">
-                            <h6>Id : <?= $m['id_masyarakat']; ?></h6>
-                            <h6>NIK : <?= $m['nik']; ?></h6>
-                            <h6>Username : <?= $m['username']; ?></h6>
-                            <h6>Password : <?= $m['password']; ?></h6>
-                            <h6>Telepon : <?= $m['telepon']; ?></h6>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
+        <div class="modal fade" id="Modal<?= $m['id_masyarakat']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Data</h1>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Id : <?= $m['id_masyarakat']; ?></h6>
+                        <h6>NIK : <?= $m['nik']; ?></h6>
+                        <h6>Username : <?= $m['username']; ?></h6>
+                        <h6>Password : <?= $m['password']; ?></h6>
+                        <h6>Telepon : <?= $m['telepon']; ?></h6>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
-        <?php endforeach; ?>
+        </div>
+    <?php endforeach; ?>
 </div>
 
 <?= $this->endSection() ?>

@@ -59,11 +59,6 @@ $errors = $session->getFlashdata('errors');
                             </p>
                                 <?php } ?>
 
-                                <?php if ($password) { ?>
-                                <p style="color:red"><?php echo $password ?>
-                            </p>
-                                <?php } ?>
-
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example3">Username :</label>
                                     <input name="username" id="form3Example3" class="form-control" placeholder="Yourname" required />

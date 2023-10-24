@@ -70,6 +70,19 @@ class Setting extends BaseController
     {
 
         if (!$this->validate([
+            'nama_petugas'=> [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Petugas harus diisi'
+                ]
+            ],
+            'username'=> [
+                "rules" => "required|alpha_numeric",
+                "errors"=> [
+                    "required"=> "Username harus diisi",
+                    "alpha_numeric"=> "Username harus berupa huruf kecil semua"
+                ]
+            ],
             'passwordLama' => [
                 'rules' => 'required',
                 'errors' => [
@@ -97,6 +110,8 @@ class Setting extends BaseController
 
         $this -> petugasModel -> save([
             'id_petugas' => $id,
+            'nama_petugas'=> $this->request->getVar('nama_petugas'),
+            'username'=> $this->request->getVar('username'),
             'password' => $this->request->getVar('passwordBaru'),
         ]);
 

@@ -66,6 +66,7 @@ class AuthPetugas extends BaseController
                     $this->session->set([
                         'id_petugas' => $petugas['id_petugas'], //tambahkan id_petugas ke session
                         'username' => $petugas['username'],
+                        'password' => $petugas['password'], //tambahkan password ke session
                         'nama_petugas' => $petugas['nama_petugas'],
                         'level' => $petugas['level'],
                         'logged_in' => TRUE
@@ -79,8 +80,6 @@ class AuthPetugas extends BaseController
         else{
             //jika username tidak ditemukan, balikkan ke halaman login
             session()->setFlashdata('errors', 'Username tidak ditemukan');
-            // jika password salah kembalikan ke halaman login
-            session()->setFlashdata('password', 'Password salah');
             // mengirimkan pesan
             return redirect()->to('/auth/loginpetugas');
         }

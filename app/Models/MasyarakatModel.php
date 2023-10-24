@@ -11,4 +11,11 @@ class MasyarakatModel extends Model
     protected $allowedFields = ["nik", "username", "password", "telepon"];
     protected $useTimestamps = true;
     
+    public function getMasyarakat($id = false)
+    {
+        if($id == false){
+            return $this->findAll();
+        }
+        return $this->where(['id_masyarakat' => $id])->first();
+    }
 }
