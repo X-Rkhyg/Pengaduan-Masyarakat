@@ -4,12 +4,15 @@ namespace App\Controllers;
 
 use App\Models\PengaduanModel;
 use App\Models\MasyarakatModel;
+use App\Models\TanggapanModel;
 
 class Masyarakat extends BaseController
 {
     protected $session;
     protected $pengaduanModel;
     protected $masyarakatModel;
+    protected $validation;
+    protected $tanggapanModel;
     public function __construct()
     {
         $this->session = session();
@@ -17,6 +20,8 @@ class Masyarakat extends BaseController
         $this->pengaduanModel = new PengaduanModel();
 
         $this->masyarakatModel = new MasyarakatModel();
+
+        $this->tanggapanModel = new TanggapanModel();
     }
     public function index(): string
     {
@@ -39,18 +44,18 @@ class Masyarakat extends BaseController
     }
 
     public function lihat(): string
-    {
-
+    {  
         $aduan = new PengaduanModel();
         $nik = session('nik'); // Ambil username dari session
         $aduan = $aduan->find('nik', $nik);
         $aduan = array();
+        $tanggapan = new TanggapanModel();
+        $tanggapan = $tanggapan->findAll();
+        $tanggapan = array();
+
         $data = [
             'validation' => \Config\Services::validation(),
-            'aduan' => $aduan
-        ];
-        $oke = [
-            'title' => 'testtt'
+            'aduan' => $aduan,
         ];
 
         $data = $this->pengaduanModel->table('pengaduan')
@@ -58,7 +63,10 @@ class Masyarakat extends BaseController
             ->get()
             ->getResult();
 
-        return view('masyarakat/lihat', ['data' => $data]);
+        $data = array_merge($data, $tanggapan);
+        
+
+        return view('masyarakat/lihat', ['data' => $data, 'tanggapan' => $tanggapan]);
     }
 
     public function setting(): string

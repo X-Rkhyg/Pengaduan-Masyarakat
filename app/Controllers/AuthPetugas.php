@@ -78,7 +78,9 @@ class AuthPetugas extends BaseController
         }
         else{
             //jika username tidak ditemukan, balikkan ke halaman login
-            session()->setFlashdata('username', 'Username tidak ditemukan');
+            session()->setFlashdata('errors', 'Username tidak ditemukan');
+            // jika password salah kembalikan ke halaman login
+            session()->setFlashdata('password', 'Password salah');
             // mengirimkan pesan
             return redirect()->to('/auth/loginpetugas');
         }

@@ -6,7 +6,6 @@ $session = \Config\Services::session();
 $errors = $session->getFlashdata('errors');
 ?>
 
-
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -60,7 +59,7 @@ $errors = $session->getFlashdata('errors');
                         <form method="post" action="/auth/valid_login">
 
                             <?php if ($errors) { ?>
-                                <p style="color:red"><?php echo $errors ?><p>
+                                <p style="color:red"><?php echo $errors ?></p>
                                     <?php } ?>
 
                                     <div class="form-outline mb-4">

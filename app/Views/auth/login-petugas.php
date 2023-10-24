@@ -1,6 +1,11 @@
 <?= $this->extend('layouts/auth') ?>
 <?= $this->section('content') ?>
 
+<?php
+$session = \Config\Services::session();
+$errors = $session->getFlashdata('errors');
+?>
+
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -49,22 +54,32 @@
                     <div class="card-body px-4 py-5 px-md-5">
                         <form method="post" action="/authpetugas/valid_login">
 
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="form3Example3">Username :</label>
-                                <input name="username" id="form3Example3" class="form-control" placeholder="Yourname" required />
-                            </div>
+                            <?php if ($errors) { ?>
+                                <p style="color:red"><?php echo $errors ?>
+                            </p>
+                                <?php } ?>
 
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="form3Example3">Password :</label>
-                                <input type="password" name="password" id="form3Example3" class="form-control" placeholder="Yourname123" required />
-                            </div>
+                                <?php if ($password) { ?>
+                                <p style="color:red"><?php echo $password ?>
+                            </p>
+                                <?php } ?>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example3">Username :</label>
+                                    <input name="username" id="form3Example3" class="form-control" placeholder="Yourname" required />
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example3">Password :</label>
+                                    <input type="password" name="password" id="form3Example3" class="form-control" placeholder="Yourname123" required />
+                                </div>
 
 
 
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-block btn-lg mb-4" name="login">
-                                Login
-                            </button>
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary btn-block btn-lg mb-4" name="login">
+                                    Login
+                                </button>
                         </form>
                     </div>
                 </div>

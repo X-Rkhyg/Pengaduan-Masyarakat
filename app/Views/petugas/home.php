@@ -144,11 +144,11 @@ $session = session()
             </div>
         </div>
         <?php if ($login) { ?>
-            <h5 style="color:green"><?php echo $login ?> <?= $session->get('nama_petugas'); ?>, Anda berhasil Login<h5>
+            <h5 style="color:green"><?php echo $login ?> <?= $session->get('nama_petugas'); ?>, Anda berhasil Login</h5>
                 <?php } ?>
 
                 <?php if ($pesan) { ?>
-                    <h5 style="color:green"><?php echo $pesan ?><h5>
+                    <h5 style="color:green"><?php echo $pesan ?></h5>
                         <?php } ?>
     </div>
 </div>
