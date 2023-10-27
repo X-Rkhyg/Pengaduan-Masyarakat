@@ -17,6 +17,6 @@ class TanggapanModel extends Model
             return $this->findAll();
         }
 
-        return $this->where(['id_tanggapan' => $id])->first();
+        return $this->where(['id_pengaduan' => $id])->first();
     }
 }

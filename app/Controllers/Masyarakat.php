@@ -49,9 +49,7 @@ class Masyarakat extends BaseController
         $nik = session('nik'); // Ambil username dari session
         $aduan = $aduan->find('nik', $nik);
         $aduan = array();
-        $tanggapan = new TanggapanModel();
-        $tanggapan = $tanggapan->findAll();
-        $tanggapan = array();
+        
 
         $data = [
             'validation' => \Config\Services::validation(),
@@ -62,11 +60,8 @@ class Masyarakat extends BaseController
             ->where('nik', $nik)
             ->get()
             ->getResult();
-
-        $data = array_merge($data, $tanggapan);
         
-
-        return view('masyarakat/lihat', ['data' => $data, 'tanggapan' => $tanggapan]);
+        return view('masyarakat/lihat', ['data' => $data]);
     }
 
     public function setting(): string

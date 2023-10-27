@@ -101,7 +101,7 @@ $pesan = session()->getFlashdata('pesan');
                                 <a class="btn btn-warning btn-md" href="/pengaduan/edit/<?= $adu->id_pengaduan ?>"><i class="bi bi-pencil-square"></i></a>
                                 <a class="btn btn-danger btn-md" href="<?= base_url(); ?>/delete/<?= $adu->id_pengaduan ?>"><i class="bi bi-trash"></i></a>
                                 <?php if ($adu->status == "2") : ?>
-                                    <button class="btn btn-warning btn-md" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ModalTanggapan<?= $adu->id_pengaduan; ?>"><i class="bi bi-info-circle"></i></button>
+                                    <a class="btn btn-success btn-md" href="/pengaduan/lihattanggapan/<?= $adu->id_pengaduan ?>"><i class="bi bi-pencil-square"></i></a>
                                 <?php endif; ?>
                             </td>
                         </tr>
@@ -110,23 +110,6 @@ $pesan = session()->getFlashdata('pesan');
             </table>
         </div>
     </div>
-    <?php foreach ($tanggapan as $tanggap) : ?>
-        <div class="modal fade" id="ModalTanggapan<?= $tanggap->id_pengaduan; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Data</h1>
-                    </div>
-                    <div class="modal-body">
-                        Pengaduan anda telah ditanggapi oleh petugas dengan detail sebagai berikut : <?= $tanggap->tanggapan; ?>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php endforeach; ?>
 </div>
 
 <?= $this->endSection() ?>

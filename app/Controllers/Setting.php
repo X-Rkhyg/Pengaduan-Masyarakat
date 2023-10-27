@@ -30,6 +30,8 @@ class Setting extends BaseController
     // ganti password masyarakat
     public function ganti_password_masyarakat($id)
     {
+        $currentpassword = session('password');
+        $data = $this->request->getPost();
 
         if (!$this->validate([
             'passwordLama' => [
@@ -47,23 +49,28 @@ class Setting extends BaseController
             ],
             'confirm' => [
                 'rules' => 'required|matches[passwordBaru]',
-                'errors'=> [
-                    'required'=> 'Konfirmasi Password harus diisi',
+                'errors' => [
+                    'required' => 'Konfirmasi Password harus diisi',
                     'matches' => 'Konfirmasi Password tidak sesuai'
                 ]
             ]
         ])) {
             $validation = \Config\Services::validation();
-            return redirect()->to('/masyarakat/setting' . $this->request->getVar('id-masyarakat'))->withInput()-> with('validation', $validation);
+            return redirect()->to('/masyarakat/setting' . $this->request->getVar('id-masyarakat'))->withInput()->with('validation', $validation);
         }
-
-        $this -> masyarakatModel -> save([
-            'id_masyarakat' => $id,
-            'password' => $this->request->getVar('passwordBaru'),
-        ]);
-
-        session()->setFlashdata('pesan', 'Password anda Berhasil diubah');
-        return redirect()->to('/masyarakat');
+        if ($data['passwordLama'] != $currentpassword) {
+            session()->setFlashdata('pesan', 'Password salah');
+            return redirect()->to('/masyarakat/setting');
+        } else {
+            //jika benar, arahkan user masuk ke aplikasi 
+            $this->masyarakatModel->save([
+                'id_masyarakat' => $id,
+                'password' => $this->request->getVar('passwordBaru'),
+            ]);
+    
+            session()->setFlashdata('pesan', 'Password anda Berhasil diubah');
+            return redirect()->to('/masyarakat');
+        }        
     }
 
     public function ganti_password_petugas($id)
@@ -98,17 +105,17 @@ class Setting extends BaseController
             ],
             'confirm' => [
                 'rules' => 'required|matches[passwordBaru]',
-                'errors'=> [
-                    'required'=> 'Konfirmasi Password harus diisi',
+                'errors' => [
+                    'required' => 'Konfirmasi Password harus diisi',
                     'matches' => 'Konfirmasi Password tidak sesuai'
                 ]
             ]
         ])) {
             $validation = \Config\Services::validation();
-            return redirect()->to('/petugas/setting' . $this->request->getVar('id_petugas'))->withInput()-> with('validation', $validation);
+            return redirect()->to('/petugas/setting' . $this->request->getVar('id_petugas'))->withInput()->with('validation', $validation);
         }
 
-        $this -> petugasModel -> save([
+        $this->petugasModel->save([
             'id_petugas' => $id,
             'nama_petugas'=> $this->request->getVar('nama_petugas'),
             'username'=> $this->request->getVar('username'),
@@ -117,6 +124,5 @@ class Setting extends BaseController
 
         session()->setFlashdata('pesan', 'Password anda Berhasil diubah');
         return redirect()->to('/petugas');
-
     }
 }

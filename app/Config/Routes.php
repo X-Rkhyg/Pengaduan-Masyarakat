@@ -27,6 +27,7 @@ $routes->get('/download/(:num)', 'Pengaduan::download/$1');
 $routes->get('/delete/(:num)', 'Pengaduan::delete/$1');
 $routes->get('/pengaduan/edit/(:num)', 'Pengaduan::edit/$1');
 $routes->post('/pengaduan/update/(:num)', 'Pengaduan::update/$1');
+$routes->get('/pengaduan/lihattanggapan/(:num)', 'Pengaduan::lihattanggapan/$1');
 
 //Petugas
 $routes->get('/auth/loginpetugas', 'AuthPetugas::login');

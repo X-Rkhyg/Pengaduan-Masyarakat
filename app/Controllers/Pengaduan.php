@@ -3,10 +3,12 @@
 namespace App\Controllers;
 
 use App\Models\PengaduanModel;
+use App\Models\TanggapanModel;
 
 class Pengaduan extends BaseController
 {
     protected $pengaduanModel;
+    protected $tanggapanModel;
     protected $session;
     protected $helper = ['form', 'url'];
 
@@ -14,6 +16,7 @@ class Pengaduan extends BaseController
     {
         $this->session = session();
         $this->pengaduanModel = new PengaduanModel();
+        $this->tanggapanModel = new TanggapanModel();
     }
 
     public function save()
@@ -126,5 +129,17 @@ class Pengaduan extends BaseController
         ]);
         session()->setFlashdata('pesan', 'Data berhasil diedit.');
         return redirect()->to('/masyarakat/lihat');
+    }
+
+    public function lihattanggapan($id)
+    {
+        
+        $data = [
+            'title' => 'Edit Data Kelahiran',
+            'validation' => \Config\Services::validation(),
+            'tanggapan' => $this->tanggapanModel->getTanggapan($id)
+        ];
+
+        return view('masyarakat/tanggapan', $data);
     }
 }

@@ -68,6 +68,9 @@ $session = session()
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
+                            <?php if ($pesan) { ?>
+                                <?php echo $pesan ?>
+                            <?php } ?>
                             <form action="/masyarakat/ganti_password/<?= $session->get('id_masyarakat'); ?>" method="post">
                                 <?= csrf_field(); ?>
 
@@ -95,11 +98,11 @@ $session = session()
                                     </div>
                                 </div>
 
-                                    <button type="submit" class="me-1 btn btn-primary mt-2">Ganti Password</button>
-                                    <div class="text-end"><small>
-                                            <font color="FF7F7F">*</font> required fields
-                                        </small>
-                                    </div>
+                                <button type="submit" class="me-1 btn btn-primary mt-2">Ganti Password</button>
+                                <div class="text-end"><small>
+                                        <font color="FF7F7F">*</font> required fields
+                                    </small>
+                                </div>
                             </form>
                         </div>
                     </div>
