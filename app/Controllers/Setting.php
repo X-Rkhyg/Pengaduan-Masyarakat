@@ -59,7 +59,7 @@ class Setting extends BaseController
             return redirect()->to('/masyarakat/setting' . $this->request->getVar('id-masyarakat'))->withInput()->with('validation', $validation);
         }
         if ($data['passwordLama'] != $currentpassword) {
-            session()->setFlashdata('pesan', 'Password salah');
+            session()->setFlashdata('pesan', 'Password Lama Tidak Cocok');
             return redirect()->to('/masyarakat/setting');
         } else {
             //jika benar, arahkan user masuk ke aplikasi 
@@ -68,13 +68,15 @@ class Setting extends BaseController
                 'password' => $this->request->getVar('passwordBaru'),
             ]);
     
-            session()->setFlashdata('pesan', 'Password anda Berhasil diubah');
+            session()->setFlashdata('pesan', 'Password Anda Berhasil Diubah');
             return redirect()->to('/masyarakat');
         }        
     }
 
     public function ganti_password_petugas($id)
     {
+        $currentpassword = session('password');
+        $data = $this->request->getPost();
 
         if (!$this->validate([
             'nama_petugas'=> [
@@ -115,14 +117,20 @@ class Setting extends BaseController
             return redirect()->to('/petugas/setting' . $this->request->getVar('id_petugas'))->withInput()->with('validation', $validation);
         }
 
-        $this->petugasModel->save([
-            'id_petugas' => $id,
-            'nama_petugas'=> $this->request->getVar('nama_petugas'),
-            'username'=> $this->request->getVar('username'),
-            'password' => $this->request->getVar('passwordBaru'),
-        ]);
-
-        session()->setFlashdata('pesan', 'Password anda Berhasil diubah');
-        return redirect()->to('/petugas');
+        if ($data['passwordLama'] != $currentpassword) {
+            session()->setFlashdata('pesan', 'Password Lama Tidak Cocok');
+            return redirect()->to('/petugas/setting');
+        } else {
+            //jika benar, arahkan user masuk ke aplikasi 
+            $this->petugasModel->save([
+                'id_petugas' => $id,
+                'nama_petugas'=> $this->request->getVar('nama_petugas'),
+                'username'=> $this->request->getVar('username'),
+                'password' => $this->request->getVar('passwordBaru'),
+            ]);
+    
+            session()->setFlashdata('pesan', 'Password anda Berhasil diubah');
+            return redirect()->to('/petugas/setting');
+        }        
     }
 }

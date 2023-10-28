@@ -101,7 +101,7 @@ $pesan = session()->getFlashdata('pesan');
                                 <a class="btn btn-warning btn-md" href="/pengaduan/edit/<?= $adu->id_pengaduan ?>"><i class="bi bi-pencil-square"></i></a>
                                 <a class="btn btn-danger btn-md" href="<?= base_url(); ?>/delete/<?= $adu->id_pengaduan ?>"><i class="bi bi-trash"></i></a>
                                 <?php if ($adu->status == "2") : ?>
-                                    <a class="btn btn-success btn-md" href="/pengaduan/lihattanggapan/<?= $adu->id_pengaduan ?>"><i class="bi bi-pencil-square"></i></a>
+                                    <a class="btn btn-success btn-md" href="/pengaduan/lihattanggapan/<?= $adu->id_pengaduan ?>"><i class="bi bi-info-circle"></i></a>
                                 <?php endif; ?>
                             </td>
                         </tr>

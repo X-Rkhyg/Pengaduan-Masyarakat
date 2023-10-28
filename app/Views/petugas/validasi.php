@@ -101,7 +101,7 @@ $pesan = session()->getFlashdata('pesan');
                                     <a class="btn btn-primary btn-sm" href="/pengaduanpetugas/validasi/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-check"></i></a>
                                 <?php elseif ($adu['status'] == "1") : ?>
                                     <a class="btn btn-primary btn-sm" href="/pengaduanpetugas/tanggapan/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-envelope"></i></a>
-                                <?php elseif ($adu['status'] == "1") : ?>
+                                <?php elseif ($adu['status'] == "2") : ?>
                                     Selesai
                                 <?php endif; ?>
                             </td>
