@@ -61,9 +61,13 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <?php if ($tanggapan) : ?>
+                            <?php if ($data) : ?>
+                                <?php foreach ($data as $t) : ?>
+                                    Aduan anda telah ditanggapi dengan tanggapan :<br>
+                                    "<?= $t->tanggapan; ?>"
+                                <?php endforeach; ?>
                             <?php else : ?>
-                                Gaada
+                                Tidak ada tanggapan
                             <?php endif; ?>
                         </div>
                     </div>

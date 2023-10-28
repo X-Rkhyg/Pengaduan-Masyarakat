@@ -140,6 +140,12 @@ class Pengaduan extends BaseController
             'tanggapan' => $this->tanggapanModel->getTanggapan($id)
         ];
 
-        return view('masyarakat/tanggapan', $data);
+        $data = $this->tanggapanModel->table('tanggapan')
+            ->where('id_pengaduan', $id)
+            ->get()
+            ->getResult();
+        
+
+        return view('masyarakat/tanggapan', ['data' => $data]);
     }
 }
