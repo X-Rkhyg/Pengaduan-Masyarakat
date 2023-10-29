@@ -84,7 +84,13 @@ $session = session()
                             <td><?= $i++; ?></td>
                             <td><?= $m['nik']; ?></td>
                             <td><?= $m['username']; ?></td>
-                            <td><?= $m['password']; ?></td>
+                            <td>
+                                <?php if ($m['password'] == "defaultpassword") : ?>
+                                    <?= $m['password']; ?>
+                                <?php else : ?>
+                                    ********
+                                <?php endif; ?>
+                            </td>
                             <td><?= $m['telepon']; ?></td>
                             <td>
                                 <a class="btn btn-primary btn-sm" href="/masyarakatp/edit/<?= $m['id_masyarakat'] ?>"><i class="bi bi-pencil-square"></i></a>
