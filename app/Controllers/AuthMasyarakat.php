@@ -14,13 +14,12 @@ class AuthMasyarakat extends BaseController
     {
         //membuat user model untuk konek ke database 
         $this->masyarakatModel = new MasyarakatModel();
-        
+
         //meload validation
         $this->validation = \Config\Services::validation();
-        
+
         //meload session
         $this->session = \Config\Services::session();
-        
     }
 
     public function login()
@@ -45,19 +44,19 @@ class AuthMasyarakat extends BaseController
     {
         //tangkap data dari form 
         $data = $this->request->getPost();
-        
+
         //jalankan validasi
         $this->validation->run($data, 'register');
-        
+
         //cek errornya
         $errors = $this->validation->getErrors();
-        
+
         //jika ada error kembalikan ke halaman register
-        if($errors){
+        if ($errors) {
             session()->setFlashdata('error', $errors);
             return redirect()->to('/auth/daftar');
         }
-        
+
         //jika tdk ada error 
         //masukan data ke database
         $this->masyarakatModel->save([
@@ -66,9 +65,9 @@ class AuthMasyarakat extends BaseController
             'password' => $data['password'],
             'telepon' => $data['telepon'],
 
-            
-            ]);
-        
+
+        ]);
+
         //arahkan ke halaman login
         session()->setFlashdata('login', 'Anda berhasil mendaftar, silahkan login');
         return redirect()->to('/auth/login');
@@ -78,19 +77,18 @@ class AuthMasyarakat extends BaseController
     {
         //ambil data dari form
         $data = $this->request->getPost();
-        
+
         //ambil data user di database yang usernamenya sama 
         $masyarakat = $this->masyarakatModel->where('username', $data['username'])->first();
-        
+
         //cek apakah username ditemukan
-        if($masyarakat){
+        if ($masyarakat) {
             //cek password
             //jika salah arahkan lagi ke halaman login
-            if($masyarakat['password'] != $data['password']){
+            if ($masyarakat['password'] != $data['password']) {
                 session()->setFlashdata('password', 'Password salah');
                 return redirect()->to('/auth/login');
-            }
-            else{
+            } else {
                 //jika benar, arahkan user masuk ke aplikasi 
                 $sessLogin = [
                     'isLogin' => true,
@@ -98,13 +96,17 @@ class AuthMasyarakat extends BaseController
                     'username' => $masyarakat['username'],
                     'password' => $masyarakat['password'],
                     'nik' => $masyarakat['nik'],
-                    ];
+                ];
                 $this->session->set($sessLogin);
-                session()->setFlashdata('login', 'Selamat Datang ');
-                return redirect()->to('/masyarakat');
+                if ($sessLogin['password'] == "defaultpassword") {
+                    session()->setFlashdata('password', 'Ganti Password terlebih dahulu');
+                    return redirect()->to('/masyarakat/defaultchange');
+                } else {
+                    session()->setFlashdata('login', 'Selamat Datang ');
+                    return redirect()->to('/masyarakat');
+                }
             }
-        }
-        else{
+        } else {
             //jika username tidak ditemukan, balikkan ke halaman login
             session()->setFlashdata('errors', 'Username tidak ditemukan');
             // mengirimkan pesan
@@ -120,4 +122,52 @@ class AuthMasyarakat extends BaseController
         return redirect()->to('/auth/login');
     }
 
+    public function defaultchange()
+    {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLogin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-masyarakat', $nologin);
+        }
+
+        $data = [
+            'title' => 'Ganti Password',
+            'validation' => \Config\Services::validation(),
+        ];
+
+        return view('masyarakat/defaultchange', $data);
+    }
+
+    public function defaultchangesave()
+    {
+        $currentpassword = session('password');
+        $data = $this->request->getPost();
+        if (!$this->validate([
+            'passwordBaru' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'required' => 'Password Baru harus diisi',
+                    'min_length' => 'Password Baru minimal 8 karakter'
+                ]
+            ],
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/petugas/setting' . $this->request->getVar('id_petugas'))->withInput()->with('validation', $validation);
+        }
+        if ($data['passwordBaru'] == $currentpassword) {
+            session()->setFlashdata('pesan', 'Password Lama Tidak Cocok');
+            return redirect()->to('/petugas/setting');
+        } else {
+            //jika benar, arahkan user masuk ke aplikasi 
+            $this->masyarakatModel->save([
+                'id_masyarakat' => session('id_masyarakat'),
+                'password' => $this->request->getVar('passwordBaru'),
+            ]);
+    
+            session()->setFlashdata('pesan', 'Password Baru Anda Berhasil Disimpan');
+            return redirect()->to('/masyarakat');
+        }        
+    }
 }

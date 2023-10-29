@@ -28,6 +28,8 @@ $routes->get('/delete/(:num)', 'Pengaduan::delete/$1');
 $routes->get('/pengaduan/edit/(:num)', 'Pengaduan::edit/$1');
 $routes->post('/pengaduan/update/(:num)', 'Pengaduan::update/$1');
 $routes->get('/pengaduan/lihattanggapan/(:num)', 'Pengaduan::lihattanggapan/$1');
+$routes->get('/masyarakat/defaultchange', 'AuthMasyarakat::defaultchange');
+$routes->post('/masyarakat/defaultchange/save', 'AuthMasyarakat::defaultchangesave');
 
 //Petugas
 $routes->get('/auth/loginpetugas', 'AuthPetugas::login');
