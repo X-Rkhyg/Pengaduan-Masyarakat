@@ -37,6 +37,7 @@ $routes->get('/petugas', 'Petugas::index');
 $routes->get('/petugas/validasi', 'Petugas::validasi');
 $routes->get('/petugas/management', 'Petugas::management');
 $routes->get('/petugas/setting', 'Petugas::setting');
+$routes->get('/petugas/defaultpass/(:num)', 'Petugas::defaultpass/$1');
 
 $routes->post('/petugas/ganti_password/(:num)', 'Setting::ganti_password_petugas/$1');
 $routes->get('/masyarakatp/edit/(:num)', 'Petugas::edit/$1');

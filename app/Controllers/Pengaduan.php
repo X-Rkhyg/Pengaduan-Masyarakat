@@ -21,6 +21,14 @@ class Pengaduan extends BaseController
 
     public function save()
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLogin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-masyarakat', $nologin);
+        }
+
         $nik = session('nik'); // Ambil nik dari session
         if (!$this->validate([
             'isi_laporan' => [
@@ -63,6 +71,14 @@ class Pengaduan extends BaseController
 
     public function download($id)
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLogin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-masyarakat', $nologin);
+        }
+
         $foto = new PengaduanModel();
         $dataFile = $foto->find($id);
         return $this->response->download('foto_storage/' .$dataFile['foto'], null );
@@ -70,6 +86,14 @@ class Pengaduan extends BaseController
 
     public function delete($id)
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLogin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-masyarakat', $nologin);
+        }
+
         $this->pengaduanModel->delete($id);
         session()->setFlashdata('pesan', 'Data berhasil dihapus.');
         return redirect()->to('/masyarakat/lihat');
@@ -77,6 +101,14 @@ class Pengaduan extends BaseController
 
     public function edit($id)
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLogin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-masyarakat', $nologin);
+        }
+
         $data = [
             'title' => 'Edit Data Kelahiran',
             'validation' => \Config\Services::validation(),
@@ -88,6 +120,14 @@ class Pengaduan extends BaseController
 
     public function update($id)
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLogin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-masyarakat', $nologin);
+        }
+
         $nik = session('nik'); // Ambil nik dari session
         if (!$this->validate([
             'isi_laporan' => [
@@ -133,6 +173,13 @@ class Pengaduan extends BaseController
 
     public function lihattanggapan($id)
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLogin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-masyarakat', $nologin);
+        }
         
         $data = [
             'title' => 'Edit Data Kelahiran',

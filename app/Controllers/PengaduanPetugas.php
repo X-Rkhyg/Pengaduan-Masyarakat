@@ -22,6 +22,14 @@ class PengaduanPetugas extends BaseController
 
     public function download($id)
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginPetugas')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+
         $foto = new PengaduanModel();
         $dataFile = $foto->find($id);
         return $this->response->download('foto_storage/' .$dataFile['foto'], null );
@@ -29,6 +37,14 @@ class PengaduanPetugas extends BaseController
 
     public function validasi($id)
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginPetugas')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+
         $tervalidasi = '1';
         $this->pengaduanModel->save([
             'id_pengaduan' => $id,
@@ -41,6 +57,14 @@ class PengaduanPetugas extends BaseController
 
     public function tanggapan($id)
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginPetugas')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+
         $data = [
             'title' => 'Beri Tanggapan',
             'aduan' => $this->pengaduanModel->getPengaduan($id)

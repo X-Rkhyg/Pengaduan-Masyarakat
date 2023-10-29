@@ -25,11 +25,27 @@ class Petugas extends BaseController
     }
     public function index(): string
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginPetugas')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+
         return view('petugas/home');
     }
 
     public function validasi(): string
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginPetugas')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+
         $pengaduan = $this->pengaduanModel->findAll();
 
         $data = [
@@ -42,6 +58,14 @@ class Petugas extends BaseController
 
     public function management(): string
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginPetugas')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+
         $masyarakat = $this->masyarakatModel->findAll();
         $data = [
             'title' => 'Data Kelahiran Sleman',
@@ -53,6 +77,14 @@ class Petugas extends BaseController
 
     public function setting(): string
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginPetugas')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+
         $petugas = $this->petugasModel->findAll();
 
         $data = [
@@ -66,6 +98,14 @@ class Petugas extends BaseController
 
     public function edit($id)
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginPetugas')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+
         $data = [
             'title' => 'Edit Data Kelahiran',
             'validation' => \Config\Services::validation(),
@@ -77,6 +117,13 @@ class Petugas extends BaseController
 
     public function update($id)
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginPetugas')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
 
         if (!$this->validate([
             'nik' => [
@@ -118,6 +165,25 @@ class Petugas extends BaseController
             "telepon" => $this->request->getVar('telepon'),
         ]);
         session()->setFlashdata('pesan', 'Data berhasil diedit.');
+        return redirect()->to('/petugas/management');
+    }
+
+    public function defaultpass($id)
+    { 
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginPetugas')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+        
+        $default = 'defaultpassword';
+        $this->masyarakatModel->save([
+            "id_masyarakat" => $id,
+            "password" => $default,
+        ]);
+        session()->setFlashdata('pesan', 'Password berhasil diubah ke default.');
         return redirect()->to('/petugas/management');
     }
 

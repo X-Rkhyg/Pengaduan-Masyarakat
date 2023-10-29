@@ -22,19 +22,33 @@ class Masyarakat extends BaseController
         $this->masyarakatModel = new MasyarakatModel();
 
         $this->tanggapanModel = new TanggapanModel();
+
     }
     public function index(): string
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLogin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-masyarakat', $nologin);
+        }
 
         $data = [
             'title' => 'Dashboard'
         ];
-
         return view('masyarakat/home', $data);
     }
 
     public function tambah(): string
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLogin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-masyarakat', $nologin);
+        }
 
         $data = [
             'title' => 'Tambah Data Pengaduan'
@@ -44,7 +58,15 @@ class Masyarakat extends BaseController
     }
 
     public function lihat(): string
-    {  
+    {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLogin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-masyarakat', $nologin);
+        }
+        
         $aduan = new PengaduanModel();
         $nik = session('nik'); // Ambil username dari session
         $aduan = $aduan->find('nik', $nik);
@@ -66,6 +88,14 @@ class Masyarakat extends BaseController
 
     public function setting(): string
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLogin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-masyarakat', $nologin);
+        }
+
         $masyarakat = $this->masyarakatModel->findAll();
 
         $data = [

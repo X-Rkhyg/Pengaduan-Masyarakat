@@ -56,7 +56,7 @@ class AuthPetugas extends BaseController
                         'username' => $petugas['username'],
                         'nama_petugas' => $petugas['nama_petugas'],
                         'level' => $petugas['level'],
-                        'logged_in' => TRUE
+                        'isLoginAdmin' => true,
                     ]);
                     //kembalikan ke halaman admin
                     session()->setFlashdata('login', 'Selamat Datang ');
@@ -69,7 +69,7 @@ class AuthPetugas extends BaseController
                         'password' => $petugas['password'], //tambahkan password ke session
                         'nama_petugas' => $petugas['nama_petugas'],
                         'level' => $petugas['level'],
-                        'logged_in' => TRUE
+                        'isLoginPetugas' => true,
                     ]);
                     //kembalikan ke halaman petugas
                     session()->setFlashdata('login', 'Selamat Datang ');
