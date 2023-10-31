@@ -3,6 +3,7 @@
 
 <?php
 $pesan = session()->getFlashdata('pesan');
+$pesanError = session()->getFlashdata('pesanError');
 $session = session()
 ?>
 
@@ -70,8 +71,11 @@ $session = session()
                             <div class="mb-1">
                                 <div class="row">
                                     <div class="col-sm-12">
+                                        <?php if ($pesanError) { ?>
+                                            <h3 for="nama" class="form-label mb-1" style="color: red;"><?php echo $pesanError ?></h3>
+                                        <?php } ?>
                                         <?php if ($pesan) { ?>
-                                            <?php echo $pesan ?>
+                                            <h3 for="nama" class="form-label mb-1" style="color: green;"><?php echo $pesan ?></h3>
                                         <?php } ?>
                                         <form action="/petugas/ganti_password/<?= $session->get('id_petugas'); ?>" method="post">
                                             <?= csrf_field(); ?>
@@ -87,25 +91,25 @@ $session = session()
                                             </div>
 
                                             <div class="mb-1">
-                                                <label for="passwordLama" class="form-label">Password Lama</label>
+                                                <label for="passwordLama" class="form-label">Password Lama <font color="FF7F7F">*</font></label>
                                                 <input name="passwordLama" type="password" class="form-control" autocomplete="off" placeholder="Password Lama Anda">
                                             </div>
 
                                             <div class="mb-1">
-                                                <label for="passwordBaru" class="form-label">Password Baru</label>
+                                                <label for="passwordBaru" class="form-label">Password Baru <font color="FF7F7F">*</font></label>
                                                 <input name="passwordBaru" type="password" class="form-control" autocomplete="off" placeholder="Password Baru Anda">
                                             </div>
 
                                             <div class="mb-1">
-                                                <label for="confirm" class="form-label">Konfirmasi Password Baru</label>
+                                                <label for="confirm" class="form-label">Konfirmasi Password Baru <font color="FF7F7F">*</font></label>
                                                 <input name="confirm" type="password" class="form-control" placeholder="Konfirmasi Password Baru Anda">
                                             </div>
 
                                             <div class="mb-1">
-                                                <label for="nama" class="form-label">Level <font color="FF7F7F">*</font></label>
-                                                <input name="level" type="text" class="form-control" value="<?= $session->get('level'); ?>" readonly>
+                                                <label for="nama" class="form-label">Level</label>
+                                                <input name="level" style="text-transform: capitalize;" type="text" class="form-control" value="<?= $session->get('level'); ?>" readonly>
                                             </div>
-
+                                            
                                             <button type="submit" class="me-1 btn btn-primary">Simpan Perubahan</button>
                                             <div class="text-end"><small>
                                                     <font color="FF7F7F">*</font> required fields

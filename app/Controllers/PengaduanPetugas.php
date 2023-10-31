@@ -82,7 +82,14 @@ class PengaduanPetugas extends BaseController
             "status" => $selesai,
             "tanggapan" => $this->request->getVar('tanggapan'),
             'id_petugas' => $petugas,
+            'tanggal_tanggapan' => date('Y-m-d'),
 
+            
+        ]);
+
+        $this->pengaduanModel->save([
+            'id_pengaduan' => $id,
+            "status" => $selesai,
             
         ]);
         session()->setFlashdata('pesan', 'Data berhasil ditanggapi.');

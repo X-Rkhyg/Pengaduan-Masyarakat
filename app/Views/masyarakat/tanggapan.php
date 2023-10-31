@@ -41,7 +41,7 @@
     <div class="navbar-container d-flex content">
         <div class="bookmark-wrapper d-flex align-items-center">
             <li class="d-none d-lg-block nav-item"><a class="nav-link-style nav-link">
-                    Edit Pengaduan
+                    Tanggapan
                 </a></li>
         </div>
         <ul class="nav navbar-nav align-items-center ms-auto">

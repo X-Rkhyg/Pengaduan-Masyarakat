@@ -30,6 +30,7 @@ class Setting extends BaseController
     // ganti password masyarakat
     public function ganti_password_masyarakat($id)
     {
+        $newpassword = $this->request->getPost();
         $currentpassword = session('password');
         $data = $this->request->getPost();
 
@@ -67,14 +68,24 @@ class Setting extends BaseController
                 'id_masyarakat' => $id,
                 'password' => $this->request->getVar('passwordBaru'),
             ]);
+
+            $this->session->set([
+                'id_petugas' => session('id_petugas'), //tambahkan id_petugas ke session
+                'username' => session('username'),
+                'password' => $newpassword['passwordBaru'], //tambahkan password ke session
+                'nama_petugas' => session('nama_petugas'),
+                'level' => session('level'),
+                'isLogin' => true,
+            ]);
     
             session()->setFlashdata('pesan', 'Password Anda Berhasil Diubah');
             return redirect()->to('/masyarakat');
-        }        
+        } 
     }
 
     public function ganti_password_petugas($id)
     {
+        $newpassword = $this->request->getPost();
         $currentpassword = session('password');
         $data = $this->request->getPost();
 
@@ -118,7 +129,7 @@ class Setting extends BaseController
         }
 
         if ($data['passwordLama'] != $currentpassword) {
-            session()->setFlashdata('pesan', 'Password Lama Tidak Cocok');
+            session()->setFlashdata('pesanError', 'Password Lama Tidak Cocok');
             return redirect()->to('/petugas/setting');
         } else {
             //jika benar, arahkan user masuk ke aplikasi 
@@ -128,6 +139,15 @@ class Setting extends BaseController
                 'username'=> $this->request->getVar('username'),
                 'password' => $this->request->getVar('passwordBaru'),
             ]);
+
+            $this->session->set([
+                'id_petugas' => session('id_petugas'), //tambahkan id_petugas ke session
+                'username' => session('username'),
+                'password' => $newpassword['passwordBaru'], //tambahkan password ke session
+                'nama_petugas' => session('nama_petugas'),
+                'level' => session('level'),
+                'isLoginPetugas' => true,
+            ]);
     
             session()->setFlashdata('pesan', 'Password anda Berhasil diubah');
             return redirect()->to('/petugas/setting');
@@ -136,6 +156,7 @@ class Setting extends BaseController
 
     public function ganti_password_admin($id)
     {
+        $newpassword = $this->request->getPost();
         $currentpassword = session('password');
         $data = $this->request->getPost();
 
@@ -188,6 +209,15 @@ class Setting extends BaseController
                 'nama_petugas'=> $this->request->getVar('nama_petugas'),
                 'username'=> $this->request->getVar('username'),
                 'password' => $this->request->getVar('passwordBaru'),
+            ]);
+
+            $this->session->set([
+                'id_petugas' => session('id_petugas'), //tambahkan id_petugas ke session
+                'username' => session('username'),
+                'password' => $newpassword['passwordBaru'], //tambahkan password ke session
+                'nama_petugas' => session('nama_petugas'),
+                'level' => session('level'),
+                'isLoginAdmin' => true,
             ]);
     
             session()->setFlashdata('pesan', 'Password anda Berhasil diubah');
