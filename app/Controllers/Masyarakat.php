@@ -35,7 +35,8 @@ class Masyarakat extends BaseController
         }
 
         $data = [
-            'title' => 'Dashboard'
+            'title' => 'Dashboard',
+            'jumlah' => $this->pengaduanModel->countAll(),
         ];
         return view('masyarakat/home', $data);
     }

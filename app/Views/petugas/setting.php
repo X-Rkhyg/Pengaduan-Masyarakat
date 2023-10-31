@@ -106,7 +106,7 @@ $session = session()
                                                 <input name="level" type="text" class="form-control" value="<?= $session->get('level'); ?>" readonly>
                                             </div>
 
-                                            <button type="submit" class="me-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">Simpan Perubahan</button>
+                                            <button type="submit" class="me-1 btn btn-primary">Simpan Perubahan</button>
                                             <div class="text-end"><small>
                                                     <font color="FF7F7F">*</font> required fields
                                                 </small>
