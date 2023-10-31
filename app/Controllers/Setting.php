@@ -114,12 +114,12 @@ class Setting extends BaseController
             ]
         ])) {
             $validation = \Config\Services::validation();
-            return redirect()->to('/admin/setting' . $this->request->getVar('id_petugas'))->withInput()->with('validation', $validation);
+            return redirect()->to('/petugas/setting' . $this->request->getVar('id_petugas'))->withInput()->with('validation', $validation);
         }
 
         if ($data['passwordLama'] != $currentpassword) {
             session()->setFlashdata('pesan', 'Password Lama Tidak Cocok');
-            return redirect()->to('/admin/setting');
+            return redirect()->to('/petugas/setting');
         } else {
             //jika benar, arahkan user masuk ke aplikasi 
             $this->petugasModel->save([
