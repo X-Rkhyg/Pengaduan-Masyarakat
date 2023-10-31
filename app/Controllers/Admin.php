@@ -13,7 +13,6 @@ class Admin extends BaseController
     protected $pengaduanModel;
     protected $masyarakatModel;
     protected $petugasModel;
-
     public function __construct()
     {
         $this->session = session();
@@ -24,60 +23,169 @@ class Admin extends BaseController
 
         $this->petugasModel = new PetugasModel();
     }
-
     public function index(): string
     {
-
-        $data = [
-            'title' => 'Dashboard'
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
         ];
-        return view('admin/home', $data);
+        if (!session()->get('isLoginAdmin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+
+        return view('petugas/home');
     }
 
     public function validasi(): string
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginAdmin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+
         $pengaduan = $this->pengaduanModel->findAll();
 
         $data = [
-            'title' => 'Validasi Pengaduan',
+            'title' => 'Data Kelahiran Sleman',
             'aduan' => $pengaduan
         ];
-        return view('admin/validasi', $data);
+
+        return view('petugas/validasi', $data);
     }
 
-    public function masyarakat(): string
+    public function management(): string
     {
-        $masyarakat = $this->masyarakatModel->findAll();
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginAdmin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
 
+        $masyarakat = $this->masyarakatModel->findAll();
         $data = [
-            'title' => 'Management Masyarakat',
+            'title' => 'Data Kelahiran Sleman',
             'masyarakat' => $masyarakat
         ];
-        return view('admin/masyarakat', $data);
-    }
 
-    public function petugas(): string
-    {
-        $petugas = $this->petugasModel->findAll();
-
-        $data = [
-            'title' => 'Management Petugas',
-            'petugas' => $petugas
-        ];
-        return view('admin/petugas', $data);
+        return view('petugas/masyarakat', $data);
     }
 
     public function setting(): string
     {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginAdmin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
 
         $petugas = $this->petugasModel->findAll();
 
         $data = [
             'title' => 'Setting',
-            'petugas' => $petugas
-
+            'petugas' => $petugas,
+            'validation' => \Config\Services::validation()
         ];
-        return view('admin/setting', $data);
+
+        return view('petugas/setting', $data);
     }
+
+    public function edit($id)
+    {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginAdmin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+
+        $data = [
+            'title' => 'Edit Data Kelahiran',
+            'validation' => \Config\Services::validation(),
+            'masyarakat' => $this->masyarakatModel->getMasyarakat($id)
+        ];
+
+        return view('petugas/edit', $data);
+    }
+
+    public function update($id)
+    {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginAdmin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+
+        if (!$this->validate([
+            'nik' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'NIK harus diisi'
+                ]
+            ],
+            'username' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Username harus diisi'
+                ]
+            ],
+            'password' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Password harus diisi'
+                ]
+            ],
+            'telepon' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Telepon harus diisi'
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            session()->setFlashdata('vall', $validation->listErrors());
+
+            return redirect()->to('/masyarakatp/edit' . $this->request->getVar('id_masyarakat'))->withInput()-> with('validation', $validation);
+        }
+
+        $this->masyarakatModel->save([
+            "id_masyarakat" => $id,
+            "nik" => $this->request->getVar('nik'),
+            "username" => $this->request->getVar('username'),
+            "password" => $this->request->getVar('password'),
+            "telepon" => $this->request->getVar('telepon'),
+        ]);
+        session()->setFlashdata('pesan', 'Data berhasil diedit.');
+        return redirect()->to('/petugas/management');
+    }
+
+    public function defaultpass($id)
+    { 
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginAdmin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+        
+        $default = 'defaultpassword';
+        $this->masyarakatModel->save([
+            "id_masyarakat" => $id,
+            "password" => $default,
+        ]);
+        session()->setFlashdata('pesan', 'Password berhasil diubah ke default.');
+        return redirect()->to('/petugas/management');
+    }
+
 
 }

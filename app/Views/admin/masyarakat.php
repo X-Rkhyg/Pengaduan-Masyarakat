@@ -28,11 +28,17 @@
                                     <td><?= $i++; ?></td>
                                     <td><?= $m['nik']; ?></td>
                                     <td><?= $m['username']; ?></td>
-                                    <td><?= $m['password']; ?></td>
+                                    <td>
+                                        <?php if ($m['password'] == "defaultpassword") : ?>
+                                            <?= $m['password']; ?>
+                                        <?php else : ?>
+                                            ********
+                                        <?php endif; ?>
+                                    </td>
                                     <td><?= $m['telepon']; ?></td>
                                     <td>
-                                        <button class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></button>
-                                        <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')"><i class="bi bi-trash3"></i></button>
+                                        <a class="btn btn-primary btn-sm" href="/masyarakatp/edit/<?= $m['id_masyarakat'] ?>"><i class="bi bi-pencil-square"></i></a>
+                                        <a class="btn btn-primary btn-sm" href="/petugas/defaultpass/<?= $m['id_masyarakat'] ?>">Password Reset</i></a>
                                         <button class="btn btn-warning btn-sm" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal<?= $m['id_masyarakat']; ?>"><i class="bi bi-info-circle"></i></button>
                                     </td>
                                 </tr>

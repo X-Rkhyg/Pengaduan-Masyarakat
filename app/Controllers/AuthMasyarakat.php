@@ -157,8 +157,8 @@ class AuthMasyarakat extends BaseController
             return redirect()->to('/petugas/setting' . $this->request->getVar('id_petugas'))->withInput()->with('validation', $validation);
         }
         if ($data['passwordBaru'] == $currentpassword) {
-            session()->setFlashdata('pesan', 'Password Lama Tidak Cocok');
-            return redirect()->to('/petugas/setting');
+            session()->setFlashdata('pesan', 'Password Baru tidak boleh default');
+            return redirect()->to('/masyarakat/defaultchange');
         } else {
             //jika benar, arahkan user masuk ke aplikasi 
             $this->masyarakatModel->save([
