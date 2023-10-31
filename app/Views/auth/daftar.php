@@ -6,7 +6,7 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
         <a href="/" class="logo d-flex align-items-center">
-            <img src="/assets/img/logo.png" alt="">
+            <img src="/assets/img/okee.png" alt="">
             <span>Aplikasi Pengaduan Masyarakat</span>
         </a>
 
@@ -42,7 +42,6 @@
             <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
                 <h1 class="my-5 display-5 fw-bold ls-tight teks-color">
                     Selamat Datang Di Aplikasi Pendataan Penduduk<br>
-                    Silahkan Register Untuk Dapat Login
                 </h1>
             </div>
 

@@ -11,8 +11,8 @@ $errors = $session->getFlashdata('errors');
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
         <a href="/" class="logo d-flex align-items-center">
-            <img src="/assets/img/logo.png" alt="">
-            <span>Aplikasi Pendataan Penduduk</span>
+            <img src="/assets/img/okee.png" alt="">
+            <span>Aplikasi Pengaduan Masyarakat</span>
         </a>
 
         <nav id="navbar" class="navbar">
@@ -45,8 +45,7 @@ $errors = $session->getFlashdata('errors');
         <div class="row gx-lg-5 align-items-center mb-5 mt-5">
             <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
                 <h1 class="my-5 display-5 fw-bold ls-tight teks-color">
-                    Selamat Datang Di Aplikasi Pendataan Penduduk<br>
-                    Silahkan Login Untuk Melanjutkan
+                    Selamat Datang Di Aplikasi Pengaduan Masyarakat<br>
                 </h1>
             </div>
 

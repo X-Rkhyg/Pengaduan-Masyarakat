@@ -84,7 +84,7 @@ $pesan = session()->getFlashdata('pesan');
                             <td><?= $i++; ?></td>
                             <td><?= $adu->isi_laporan; ?></td>
                             <td>
-                                <img src="/foto_storage/<?= $adu->foto ?>" alt="Image" style="width: 200px; height: 130px;">
+                                <a href="<?= base_url(); ?>/download/<?= $adu->id_pengaduan ?>"><?= $adu->foto; ?></a>
                             </td>
 
                             <td>
