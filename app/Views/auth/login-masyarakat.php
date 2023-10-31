@@ -6,6 +6,8 @@ $session = \Config\Services::session();
 $errors = $session->getFlashdata('errors');
 ?>
 
+<body style="background-image: url(/assets/img/hero-bg.png);">
+
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">

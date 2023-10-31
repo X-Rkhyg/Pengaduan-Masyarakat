@@ -107,7 +107,8 @@ $session = session()
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h3 class="fw-bolder mb-75">4</h3>
+                                    <!-- ambil jumlah data dari id pengaduan yang paling bawah -->
+                                    <h3 class="fw-bolder mb-75"><?= $jumlah; ?></h3>
                                     <p class="card-text">Jumlah Laporan</p>
                                 </div>
                                 <div class="avatar avatar-stats p-50 m-0 bg-light-success">

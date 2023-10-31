@@ -33,7 +33,12 @@ class Petugas extends BaseController
             return view('/auth/login-petugas', $nologin);
         }
 
-        return view('petugas/home');
+        $data = [
+            'jumlah' => $this->pengaduanModel->countAll(),
+            'pengaduan' => $this->pengaduanModel->findAll()
+        ];
+
+        return view('petugas/home', $data);
     }
 
     public function validasi(): string
