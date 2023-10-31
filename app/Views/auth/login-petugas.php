@@ -6,64 +6,47 @@ $session = \Config\Services::session();
 $errors = $session->getFlashdata('errors');
 ?>
 
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+        <a href="/" class="logo d-flex align-items-center">
+            <img src="/assets/img/okee.png" alt="">
+            <span style="color: hsl(218, 81%, 95%)">Aplikasi Pengaduan Masyarakat</span>
+        </a>
+
+        <nav id="navbar" class="navbar">
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+    </div>
+</header><!-- End Header -->
+
 <!-- Section: Design Block -->
 <section class="background-radial-gradient overflow-hidden">
     <style>
-        .background-radial-gradient {
-            background-color: hsl(218, 41%, 15%);
-            background-image: radial-gradient(650px circle at 0% 0%,
-                    hsl(218, 41%, 35%) 15%,
-                    hsl(218, 41%, 30%) 35%,
-                    hsl(218, 41%, 20%) 75%,
-                    hsl(218, 41%, 19%) 80%,
-                    transparent 100%),
-                radial-gradient(1250px circle at 100% 100%,
-                    hsl(218, 41%, 45%) 15%,
-                    hsl(218, 41%, 30%) 35%,
-                    hsl(218, 41%, 20%) 75%,
-                    hsl(218, 41%, 19%) 80%,
-                    transparent 100%);
-            background-size: cover;
-        }
-
-        #radius-shape-1 {
-            height: 220px;
-            width: 220px;
-            top: -60px;
-            left: -130px;
-            background: radial-gradient(#44006b, #ad1fff);
-            overflow: hidden;
-        }
-
-        #radius-shape-2 {
-            border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
-            bottom: -60px;
-            right: -110px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(#44006b, #ad1fff);
-            overflow: hidden;
+        .teks-color {
+            /* make a gradient text color */
+            background: rgb(255, 255, 255);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(0, 253, 255, 1) 100%, rgba(201, 0, 255, 0) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .bg-glass {
-            background-color: hsla(0, 0%, 100%, 0.9) !important;
+            background-color: hsla(0, 0%, 100%, 0.8) !important;
             backdrop-filter: saturate(200%) blur(25px);
         }
     </style>
 
     <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
-        <div class="row gx-lg-5 align-items-center mb-5">
+        <div class="row gx-lg-5 align-items-center mb-5 mt-5">
             <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-                <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-                    The best offer <br />
-                    <span style="color: hsl(218, 81%, 75%)">for your business</span>
+                <h1 class="my-5 display-5 fw-bold ls-tight teks-color" style="color: hsl(218, 81%, 95%)">
+                    Selamat Datang Di Aplikasi Pendataan Penduduk<br>
                 </h1>
-                <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Temporibus, expedita iusto veniam atque, magni tempora mollitia
-                    dolorum consequatur nulla, neque debitis eos reprehenderit quasi
-                    ab ipsum nisi dolorem modi. Quos?
-                </p>
+                <h3 class="my-5 display-5 fw-bold ls-tight teks-color" style="color: hsl(218, 81%, 95%)">
+                    Tools
+                </h3>
             </div>
 
             <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
@@ -72,67 +55,29 @@ $errors = $session->getFlashdata('errors');
 
                 <div class="card bg-glass">
                     <div class="card-body px-4 py-5 px-md-5">
-                        <form>
-                            <!-- 2 column grid layout with text inputs for the first and last names -->
-                            <div class="row">
-                                <div class="col-md-6 mb-4">
-                                    <div class="form-outline">
-                                        <input type="text" id="form3Example1" class="form-control" />
-                                        <label class="form-label" for="form3Example1">First name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="form-outline">
-                                        <input type="text" id="form3Example2" class="form-control" />
-                                        <label class="form-label" for="form3Example2">Last name</label>
-                                    </div>
-                                </div>
-                            </div>
+                        <form method="post" action="/authpetugas/valid_login">
 
-                            <!-- Email input -->
+                            <?php if ($errors) { ?>
+                                <p style="color:red"><?php echo $errors ?>
+                                </p>
+                            <?php } ?>
+
                             <div class="form-outline mb-4">
-                                <input type="email" id="form3Example3" class="form-control" />
-                                <label class="form-label" for="form3Example3">Email address</label>
+                                <label class="form-label" for="form3Example3">Username :</label>
+                                <input name="username" id="form3Example3" class="form-control" placeholder="Yourname" required />
                             </div>
 
-                            <!-- Password input -->
                             <div class="form-outline mb-4">
-                                <input type="password" id="form3Example4" class="form-control" />
-                                <label class="form-label" for="form3Example4">Password</label>
+                                <label class="form-label" for="form3Example3">Password :</label>
+                                <input type="password" name="password" id="form3Example3" class="form-control" placeholder="Yourname123" required />
                             </div>
 
-                            <!-- Checkbox -->
-                            <div class="form-check d-flex justify-content-center mb-4">
-                                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
-                                <label class="form-check-label" for="form2Example33">
-                                    Subscribe to our newsletter
-                                </label>
-                            </div>
+
 
                             <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-block mb-4">
-                                Sign up
+                            <button type="submit" class="btn btn-primary btn-block btn-lg mb-4" name="login">
+                                Login
                             </button>
-
-                            <!-- Register buttons -->
-                            <div class="text-center">
-                                <p>or sign up with:</p>
-                                <button type="button" class="btn btn-link btn-floating mx-1">
-                                    <i class="fab fa-facebook-f"></i>
-                                </button>
-
-                                <button type="button" class="btn btn-link btn-floating mx-1">
-                                    <i class="fab fa-google"></i>
-                                </button>
-
-                                <button type="button" class="btn btn-link btn-floating mx-1">
-                                    <i class="fab fa-twitter"></i>
-                                </button>
-
-                                <button type="button" class="btn btn-link btn-floating mx-1">
-                                    <i class="fab fa-github"></i>
-                                </button>
-                            </div>
                         </form>
                     </div>
                 </div>
