@@ -28,7 +28,9 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600">
-    <title>Pengaduan Masyarakat</title>
+    <title>
+        <?= $title; ?>
+    </title>
     <link href="/static/css/5.ef8dc25e.chunk.css" rel="stylesheet">
     <link href="/static/css/main.64ba4cbd.chunk.css" rel="stylesheet">
     <style id="_goober">

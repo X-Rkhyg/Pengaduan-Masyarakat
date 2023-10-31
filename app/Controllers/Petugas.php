@@ -34,6 +34,7 @@ class Petugas extends BaseController
         }
 
         $data = [
+            'title' => 'Home - Aplikasi Pengaduan Masyarakat',
             'jumlah' => $this->pengaduanModel->countAll(),
             'pengaduan' => $this->pengaduanModel->findAll()
         ];
@@ -54,7 +55,7 @@ class Petugas extends BaseController
         $pengaduan = $this->pengaduanModel->findAll();
 
         $data = [
-            'title' => 'Data Kelahiran Sleman',
+            'title' => 'Validasi - Aplikasi Pengaduan Masyarakat',
             'aduan' => $pengaduan
         ];
 

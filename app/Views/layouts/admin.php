@@ -38,7 +38,7 @@
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="/auth/logout">Logout</a></li>
+                    <li><a class="dropdown-item" href="/auth/logoutpetugas">Logout</a></li>
                 </ul>
             </li>
         </ul>
