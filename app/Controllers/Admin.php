@@ -30,7 +30,7 @@ class Admin extends BaseController
         ];
         if (!session()->get('isLoginAdmin')) {
             // Jika belum login, arahkan pengguna ke halaman login
-            return view('/auth/login-admin', $nologin);
+            return view('/auth/login-petugas', $nologin);
         }
         $data = [
             'title' => 'Data Kelahiran Sleman'
@@ -45,7 +45,7 @@ class Admin extends BaseController
         ];
         if (!session()->get('isLoginAdmin')) {
             // Jika belum login, arahkan pengguna ke halaman login
-            return view('/auth/login-admin', $nologin);
+            return view('/auth/login-petugas', $nologin);
         }
 
         $pengaduan = $this->pengaduanModel->findAll();
@@ -65,7 +65,7 @@ class Admin extends BaseController
         ];
         if (!session()->get('isLoginAdmin')) {
             // Jika belum login, arahkan pengguna ke halaman login
-            return view('/auth/login-admin', $nologin);
+            return view('/auth/login-petugas', $nologin);
         }
 
         $masyarakat = $this->masyarakatModel->findAll();
@@ -84,7 +84,7 @@ class Admin extends BaseController
         ];
         if (!session()->get('isLoginAdmin')) {
             // Jika belum login, arahkan pengguna ke halaman login
-            return view('/auth/login-admin', $nologin);
+            return view('/auth/login-petugas', $nologin);
         }
 
         $petugas = $this->petugasModel->findAll();
@@ -103,7 +103,7 @@ class Admin extends BaseController
         ];
         if (!session()->get('isLoginAdmin')) {
             // Jika belum login, arahkan pengguna ke halaman login
-            return view('/auth/login-admin', $nologin);
+            return view('/auth/login-petugas', $nologin);
         }
 
         $petugas = $this->petugasModel->findAll();
@@ -124,7 +124,7 @@ class Admin extends BaseController
         ];
         if (!session()->get('isLoginAdmin')) {
             // Jika belum login, arahkan pengguna ke halaman login
-            return view('/auth/login-admin', $nologin);
+            return view('/auth/login-petugas', $nologin);
         }
 
         $data = [
@@ -196,7 +196,7 @@ class Admin extends BaseController
         ];
         if (!session()->get('isLoginAdmin')) {
             // Jika belum login, arahkan pengguna ke halaman login
-            return view('/auth/login-admin', $nologin);
+            return view('/auth/login-petugas', $nologin);
         }
         
         $default = 'defaultpassword';
