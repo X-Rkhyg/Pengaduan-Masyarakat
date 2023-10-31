@@ -159,7 +159,7 @@ $session = session()
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h3 class="fw-bolder mb-75"><?= $jumlah; ?></h3>
-                                    <p class="card-text">Jumlah Laporan</p>
+                                    <p class="card-text">Total Jumlah Laporan</p>
                                 </div>
                                 <div class="avatar avatar-stats p-50 m-0 bg-light-success">
                                     <div class="avatar-content"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

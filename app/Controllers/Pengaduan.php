@@ -62,6 +62,7 @@ class Pengaduan extends BaseController
         $this->pengaduanModel->save([
             "isi_laporan" => $this->request->getVar('isi_laporan'),
             'nik' => $nik,
+            'tanggal_pengaduan' => date('Y-m-d'),
             'foto' => $newName,
         ]);
 

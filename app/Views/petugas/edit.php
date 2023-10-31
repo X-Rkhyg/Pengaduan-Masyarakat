@@ -85,14 +85,6 @@
                                 </div>
 
                                 <div class="mb-1">
-                                    <label for="password" class="form-label">Password <font color="FF7F7F">*</font></label>
-                                    <input type="text" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" id="password" name="password" value="<?= (old('password')) ? old('password') : $masyarakat['password']; ?>">
-                                    <div class="invalid-feedback">
-                                        <?= $validation->getError('password'); ?>
-                                    </div>
-                                </div>
-
-                                <div class="mb-1">
                                     <label for="telepon" class="form-label">Telepon <font color="FF7F7F">*</font></label>
                                     <input type="text" class="form-control <?= ($validation->hasError('telepon')) ? 'is-invalid' : ''; ?>" id="telepon" name="telepon" value="<?= (old('telepon')) ? old('telepon') : $masyarakat['telepon']; ?>">
                                     <div class="invalid-feedback">

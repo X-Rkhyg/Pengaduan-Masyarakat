@@ -4,6 +4,7 @@ namespace Config;
 
 use CodeIgniter\Config\AutoloadConfig;
 
+
 /**
  * -------------------------------------------------------------------
  * AUTOLOADER CONFIGURATION
@@ -22,6 +23,7 @@ use CodeIgniter\Config\AutoloadConfig;
  */
 class Autoload extends AutoloadConfig
 {
+    
     /**
      * -------------------------------------------------------------------
      * Namespaces
@@ -87,6 +89,7 @@ class Autoload extends AutoloadConfig
      */
     public $files = [];
 
+    
     /**
      * -------------------------------------------------------------------
      * Helpers

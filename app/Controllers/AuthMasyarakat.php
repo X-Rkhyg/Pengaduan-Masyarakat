@@ -146,6 +146,7 @@ class AuthMasyarakat extends BaseController
 
     public function defaultchangesave()
     {
+        $newpassword = $this->request->getPost();
         $currentpassword = session('password');
         $data = $this->request->getPost();
         if (!$this->validate([
@@ -168,6 +169,15 @@ class AuthMasyarakat extends BaseController
             $this->masyarakatModel->save([
                 'id_masyarakat' => session('id_masyarakat'),
                 'password' => $this->request->getVar('passwordBaru'),
+            ]);
+
+            $this->session->set([
+                'id_petugas' => session('id_petugas'), //tambahkan id_petugas ke session
+                'username' => session('username'),
+                'password' => $newpassword['passwordBaru'], //tambahkan password ke session
+                'nama_petugas' => session('nama_petugas'),
+                'level' => session('level'),
+                'isLogin' => true,
             ]);
     
             session()->setFlashdata('pesan', 'Password Baru Anda Berhasil Disimpan');

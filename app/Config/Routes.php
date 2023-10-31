@@ -46,6 +46,7 @@ $routes->get('/petugas/masyarakat/edit/(:num)', 'Petugas::edit/$1');
 $routes->post('/petugas/masyarakat/update/(:num)', 'Petugas::update/$1');
 
 $routes->get('/pengaduanpetugas/validasi/(:num)', 'PengaduanPetugas::validasi/$1');
+$routes->get('/pengaduanpetugas/tolak/(:num)', 'PengaduanPetugas::tolak/$1');
 $routes->get('/pengaduanpetugas/tanggapan/(:num)', 'PengaduanPetugas::tanggapan/$1');
 $routes->post('/pengaduanpetugas/updatetanggapan/(:num)', 'PengaduanPetugas::updatetanggapan/$1');
 $routes->get('/petugas/download/(:num)', 'PengaduanPetugas::download/$1');

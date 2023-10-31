@@ -71,6 +71,7 @@ $pesan = session()->getFlashdata('pesan');
                 <thead>
                     <tr>
                         <th>NO</th>
+                        <th>Tanggal</th>
                         <th>Isi Laporan</th>
                         <th>Foto</th>
                         <th>Status</th>
@@ -82,6 +83,7 @@ $pesan = session()->getFlashdata('pesan');
                     <?php foreach ($data as $adu) : ?>
                         <tr>
                             <td><?= $i++; ?></td>
+                            <td><?= date('d F Y', strtotime($adu->tanggal_pengaduan)); ?></td>
                             <td><?= $adu->isi_laporan; ?></td>
                             <td>
                                 <a href="<?= base_url(); ?>/download/<?= $adu->id_pengaduan ?>"><?= $adu->foto; ?></a>
@@ -94,6 +96,8 @@ $pesan = session()->getFlashdata('pesan');
                                     Proses
                                 <?php elseif ($adu->status == "2") : ?>
                                     Selesai
+                                <?php elseif ($adu->status == "3") : ?>
+                                    Pending
                                 <?php endif; ?>
                             </td>
                             <td>

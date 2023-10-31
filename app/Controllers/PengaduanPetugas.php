@@ -51,7 +51,27 @@ class PengaduanPetugas extends BaseController
             "status" => $tervalidasi,
             
         ]);
-        session()->setFlashdata('pesan', 'Data berhasil diedit.');
+        session()->setFlashdata('pesan', 'Data berhasil divalidasi.');
+        return redirect()->to('/petugas/validasi');
+    }
+
+    public function tolak($id)
+    {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginPetugas')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+
+        $ditolak = '3';
+        $this->pengaduanModel->save([
+            'id_pengaduan' => $id,
+            "status" => $ditolak,
+            
+        ]);
+        session()->setFlashdata('pesan', 'Data berhasil ditolak.');
         return redirect()->to('/petugas/validasi');
     }
 

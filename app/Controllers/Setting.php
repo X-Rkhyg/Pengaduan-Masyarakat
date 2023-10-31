@@ -79,7 +79,7 @@ class Setting extends BaseController
             ]);
     
             session()->setFlashdata('pesan', 'Password Anda Berhasil Diubah');
-            return redirect()->to('/masyarakat');
+            return redirect()->to('/masyarakat/setting');
         } 
     }
 

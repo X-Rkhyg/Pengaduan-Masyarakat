@@ -70,6 +70,7 @@ $pesan = session()->getFlashdata('pesan');
                 <thead>
                     <tr>
                         <th>NO</th>
+                        <th>Tanggal</th>
                         <th>Isi Laporan</th>
                         <th>Foto</th>
                         <th>Status</th>
@@ -81,9 +82,10 @@ $pesan = session()->getFlashdata('pesan');
                     <?php foreach ($aduan as $adu) : ?>
                         <tr>
                             <td><?= $i++; ?></td>
+                            <td><?= date('d F Y', strtotime($adu['tanggal_pengaduan'])); ?></td>
                             <td><?= $adu['isi_laporan']; ?></td>
                             <td>
-                                <a href="<?= base_url(); ?>/petugas/download/<?= $adu['id_pengaduan'] ?>"><?= $adu['foto'] ?></a>
+                                <a href="<?= base_url(); ?>/petugas/download/<?= $adu['id_pengaduan'] ?>">Download foto</a>
                             </td>
                             <td>
                                 <?php if ($adu['status'] == "0") : ?>
@@ -92,17 +94,22 @@ $pesan = session()->getFlashdata('pesan');
                                     Proses
                                 <?php elseif ($adu['status'] == "2") : ?>
                                     Selesai
+                                <?php elseif ($adu['status'] == "3") : ?>
+                                    Ditolak
                                 <?php endif; ?>
                             </td>
 
 
                             <td>
                                 <?php if ($adu['status'] == "0") : ?>
-                                    <a class="btn btn-primary btn-sm" href="/pengaduanpetugas/validasi/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-check"></i></a>
+                                    <a class="btn btn-danger btn-sm" href="/pengaduanpetugas/tolak/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-x-lg"></i></a>
+                                    <a class="btn btn-primary btn-sm" href="/pengaduanpetugas/validasi/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-check-lg"></i></a>
                                 <?php elseif ($adu['status'] == "1") : ?>
                                     <a class="btn btn-primary btn-sm" href="/pengaduanpetugas/tanggapan/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-envelope"></i></a>
                                 <?php elseif ($adu['status'] == "2") : ?>
                                     Selesai
+                                <?php elseif ($adu['status'] == "3") : ?>
+                                    Ditolak
                                 <?php endif; ?>
                             </td>
 

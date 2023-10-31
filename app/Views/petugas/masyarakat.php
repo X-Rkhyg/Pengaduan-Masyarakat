@@ -103,7 +103,6 @@ $session = session()
                             <td>
                                 <a class="btn btn-primary btn-sm" href="/petugas/masyarakat/edit/<?= $m['id_masyarakat'] ?>"><i class="bi bi-pencil-square"></i></a>
                                 <a class="btn btn-secondary btn-sm" href="/petugas/defaultpass/<?= $m['id_masyarakat'] ?>"><i class="bi bi-key"></i></i></a>
-                                <button class="btn btn-warning btn-sm" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal<?= $m['id_masyarakat']; ?>"><i class="bi bi-info-circle"></i></button>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -111,27 +110,6 @@ $session = session()
             </table>
         </div>
     </div>
-    <?php foreach ($masyarakat as $m) : ?>
-        <div class="modal fade" id="Modal<?= $m['id_masyarakat']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Data</h1>
-                    </div>
-                    <div class="modal-body">
-                        <h6>Id : <?= $m['id_masyarakat']; ?></h6>
-                        <h6>NIK : <?= $m['nik']; ?></h6>
-                        <h6>Username : <?= $m['username']; ?></h6>
-                        <h6>Password : <?= $m['password']; ?></h6>
-                        <h6>Telepon : <?= $m['telepon']; ?></h6>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php endforeach; ?>
 </div>
 
 <?= $this->endSection() ?>

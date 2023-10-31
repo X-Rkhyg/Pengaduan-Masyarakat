@@ -167,7 +167,6 @@ class Petugas extends BaseController
             "id_masyarakat" => $id,
             "nik" => $this->request->getVar('nik'),
             "username" => $this->request->getVar('username'),
-            "password" => $this->request->getVar('password'),
             "telepon" => $this->request->getVar('telepon'),
         ]);
         session()->setFlashdata('pesan', 'Data berhasil diedit.');

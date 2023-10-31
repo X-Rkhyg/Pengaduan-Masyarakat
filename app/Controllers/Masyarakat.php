@@ -2,9 +2,11 @@
 
 namespace App\Controllers;
 
+
 use App\Models\PengaduanModel;
 use App\Models\MasyarakatModel;
 use App\Models\TanggapanModel;
+use Carbon\Carbon;
 
 class Masyarakat extends BaseController
 {
@@ -72,6 +74,7 @@ class Masyarakat extends BaseController
         $nik = session('nik'); // Ambil username dari session
         $aduan = $aduan->find('nik', $nik);
         $aduan = array();
+        
         
 
         $data = [
