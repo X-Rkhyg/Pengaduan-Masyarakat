@@ -61,3 +61,5 @@ $routes->get('/admin/managementpetugas', 'Admin::managementpetugas');
 $routes->get('/admin/petugas', 'Admin::petugas');
 $routes->get('/admin/setting', 'Admin::setting');
 $routes->post('/admin/ganti_password/(:num)', 'Setting::ganti_password_admin/$1');
+
+$routes->get('/generate', 'PdfGenerate::generatePDF');
