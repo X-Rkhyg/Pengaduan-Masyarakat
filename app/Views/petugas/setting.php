@@ -75,7 +75,7 @@ $session = session()
                                             <h3 for="nama" class="form-label mb-1" style="color: red;"><?php echo $pesanError ?></h3>
                                         <?php } ?>
                                         <?php if ($pesan) { ?>
-                                            <h3 for="nama" class="form-label mb-1" style="color: green;"><?php echo $pesan ?></h3>
+                                            <h3 for="nama" class="form-label mb-1" style="color: red;" ><?php echo $pesan ?></h3>
                                         <?php } ?>
                                         <form action="/petugas/ganti_password/<?= $session->get('id_petugas'); ?>" method="post">
                                             <?= csrf_field(); ?>

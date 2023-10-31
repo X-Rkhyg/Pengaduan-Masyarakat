@@ -259,8 +259,8 @@
     <link rel="stylesheet" type="text/css" href="/static/css/14.61c41349.chunk.css">
     <script charset="utf-8" src="/static/js/14.6643e635.chunk.js"></script>
 
-    <link href="/assets/img/okee.png" rel="icon" />
-    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <!-- icon header page -->
+    <link rel="icon" href="/assets/img/icon.png" type="image/png" />
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />

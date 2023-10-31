@@ -36,7 +36,7 @@ class Masyarakat extends BaseController
 
         $data = [
             'title' => 'Dashboard',
-            'jumlah' => $this->pengaduanModel->countAll(),
+            'jumlah' => $this->pengaduanModel->where('nik', session('nik'))->countAllResults(),
         ];
         return view('masyarakat/home', $data);
     }

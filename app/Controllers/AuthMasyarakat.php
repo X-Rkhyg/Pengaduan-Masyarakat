@@ -53,7 +53,11 @@ class AuthMasyarakat extends BaseController
 
         //jika ada error kembalikan ke halaman register
         if ($errors) {
-            session()->setFlashdata('error', $errors);
+            session()->setFlashdata('username', $this->validation->getError('username'));
+            session()->setFlashdata('nik', $this->validation->getError('nik'));
+            session()->setFlashdata('password', $this->validation->getError('password'));
+            session()->setFlashdata('confirm', $this->validation->getError('confirm'));
+            session()->setFlashdata('telepon', $this->validation->getError('telepon'));
             return redirect()->to('/auth/daftar');
         }
 
