@@ -9,7 +9,7 @@ class TanggapanModel extends Model
     protected $table      = 'tanggapan';
     protected $useAutoIncrement = true;
     protected $primaryKey = 'id_tanggapan';
-    protected $allowedFields = ['id_pengaduan', 'tanggapan', 'id_petugas'];
+    protected $allowedFields = ['id_pengaduan', 'tanggapan', 'id_petugas', 'tanggal_tanggapan', 'status'];
 
     public function getTanggapan($id = false)
     {
