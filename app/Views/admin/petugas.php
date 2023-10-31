@@ -1,6 +1,11 @@
 <?php $this->extend('layouts/admin'); ?>
 <?php $this->section('content'); ?>
 
+<?php
+$pesan = session()->getFlashdata('pesan');
+$session = session()
+?>
+
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">

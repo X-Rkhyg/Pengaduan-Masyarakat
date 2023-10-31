@@ -58,6 +58,8 @@ $session = session()
     </div>
 </nav>
 
+
+
 <div class="app-content content overflow-hidden">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
@@ -88,7 +90,13 @@ $session = session()
                                 <?php if ($m['password'] == "defaultpassword") : ?>
                                     <?= $m['password']; ?>
                                 <?php else : ?>
-                                    ********
+                                    <?php
+                                    $password = $m['password'];
+                                    $password = str_split($password);
+                                    $password = array_fill(0, count($password), '*');
+                                    $password = implode($password);
+                                    echo $password;
+                                    ?>
                                 <?php endif; ?>
                             </td>
                             <td><?= $m['telepon']; ?></td>
