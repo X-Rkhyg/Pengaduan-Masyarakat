@@ -60,11 +60,11 @@
                             Validasi
                         </a>
                         <div class="sb-sidenav-menu-heading">Management Account</div>
-                        <a class="nav-link" href="/admin/masyarakat">
+                        <a class="nav-link" href="/admin/management">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Management Masyarakat
                         </a>
-                        <a class="nav-link" href="/admin/petugas">
+                        <a class="nav-link" href="/admin/managementpetugas">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Management Petugas
                         </a>

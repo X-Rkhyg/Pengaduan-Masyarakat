@@ -154,7 +154,7 @@ class Petugas extends BaseController
             $validation = \Config\Services::validation();
             session()->setFlashdata('vall', $validation->listErrors());
 
-            return redirect()->to('/masyarakatp/edit' . $this->request->getVar('id_masyarakat'))->withInput()-> with('validation', $validation);
+            return redirect()->to('/petugas/masyarakat/edit' . $this->request->getVar('id_masyarakat'))->withInput()-> with('validation', $validation);
         }
 
         $this->masyarakatModel->save([

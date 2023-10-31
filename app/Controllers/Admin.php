@@ -30,10 +30,12 @@ class Admin extends BaseController
         ];
         if (!session()->get('isLoginAdmin')) {
             // Jika belum login, arahkan pengguna ke halaman login
-            return view('/auth/login-petugas', $nologin);
+            return view('/auth/login-admin', $nologin);
         }
-
-        return view('petugas/home');
+        $data = [
+            'title' => 'Data Kelahiran Sleman'
+        ];
+        return view('admin/home', $data);
     }
 
     public function validasi(): string
@@ -43,7 +45,7 @@ class Admin extends BaseController
         ];
         if (!session()->get('isLoginAdmin')) {
             // Jika belum login, arahkan pengguna ke halaman login
-            return view('/auth/login-petugas', $nologin);
+            return view('/auth/login-admin', $nologin);
         }
 
         $pengaduan = $this->pengaduanModel->findAll();
@@ -53,7 +55,7 @@ class Admin extends BaseController
             'aduan' => $pengaduan
         ];
 
-        return view('petugas/validasi', $data);
+        return view('admin/validasi', $data);
     }
 
     public function management(): string
@@ -63,7 +65,7 @@ class Admin extends BaseController
         ];
         if (!session()->get('isLoginAdmin')) {
             // Jika belum login, arahkan pengguna ke halaman login
-            return view('/auth/login-petugas', $nologin);
+            return view('/auth/login-admin', $nologin);
         }
 
         $masyarakat = $this->masyarakatModel->findAll();
@@ -72,7 +74,26 @@ class Admin extends BaseController
             'masyarakat' => $masyarakat
         ];
 
-        return view('petugas/masyarakat', $data);
+        return view('admin/masyarakat', $data);
+    }
+
+    public function managementpetugas(): string
+    {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginAdmin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-admin', $nologin);
+        }
+
+        $petugas = $this->petugasModel->findAll();
+        $data = [
+            'title' => 'Data Kelahiran Sleman',
+            'petugas' => $petugas
+        ];
+
+        return view('admin/petugas', $data);
     }
 
     public function setting(): string
@@ -82,7 +103,7 @@ class Admin extends BaseController
         ];
         if (!session()->get('isLoginAdmin')) {
             // Jika belum login, arahkan pengguna ke halaman login
-            return view('/auth/login-petugas', $nologin);
+            return view('/auth/login-admin', $nologin);
         }
 
         $petugas = $this->petugasModel->findAll();
@@ -93,7 +114,7 @@ class Admin extends BaseController
             'validation' => \Config\Services::validation()
         ];
 
-        return view('petugas/setting', $data);
+        return view('admin/setting', $data);
     }
 
     public function edit($id)
@@ -103,7 +124,7 @@ class Admin extends BaseController
         ];
         if (!session()->get('isLoginAdmin')) {
             // Jika belum login, arahkan pengguna ke halaman login
-            return view('/auth/login-petugas', $nologin);
+            return view('/auth/login-admin', $nologin);
         }
 
         $data = [
@@ -112,7 +133,7 @@ class Admin extends BaseController
             'masyarakat' => $this->masyarakatModel->getMasyarakat($id)
         ];
 
-        return view('petugas/edit', $data);
+        return view('admin/edit', $data);
     }
 
     public function update($id)
@@ -154,7 +175,7 @@ class Admin extends BaseController
             $validation = \Config\Services::validation();
             session()->setFlashdata('vall', $validation->listErrors());
 
-            return redirect()->to('/masyarakatp/edit' . $this->request->getVar('id_masyarakat'))->withInput()-> with('validation', $validation);
+            return redirect()->to('/petugas/masyarakat/edit' . $this->request->getVar('id_masyarakat'))->withInput()-> with('validation', $validation);
         }
 
         $this->masyarakatModel->save([
@@ -165,7 +186,7 @@ class Admin extends BaseController
             "telepon" => $this->request->getVar('telepon'),
         ]);
         session()->setFlashdata('pesan', 'Data berhasil diedit.');
-        return redirect()->to('/petugas/management');
+        return redirect()->to('/admin/management');
     }
 
     public function defaultpass($id)
@@ -175,7 +196,7 @@ class Admin extends BaseController
         ];
         if (!session()->get('isLoginAdmin')) {
             // Jika belum login, arahkan pengguna ke halaman login
-            return view('/auth/login-petugas', $nologin);
+            return view('/auth/login-admin', $nologin);
         }
         
         $default = 'defaultpassword';
@@ -184,7 +205,7 @@ class Admin extends BaseController
             "password" => $default,
         ]);
         session()->setFlashdata('pesan', 'Password berhasil diubah ke default.');
-        return redirect()->to('/petugas/management');
+        return redirect()->to('/admin/management');
     }
 
 

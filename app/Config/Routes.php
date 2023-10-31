@@ -42,8 +42,8 @@ $routes->get('/petugas/setting', 'Petugas::setting');
 $routes->get('/petugas/defaultpass/(:num)', 'Petugas::defaultpass/$1');
 
 $routes->post('/petugas/ganti_password/(:num)', 'Setting::ganti_password_petugas/$1');
-$routes->get('/masyarakatp/edit/(:num)', 'Petugas::edit/$1');
-$routes->post('/masyarakatp/update/(:num)', 'Petugas::update/$1');
+$routes->get('/petugas/masyarakat/edit/(:num)', 'Petugas::edit/$1');
+$routes->post('/petugas/masyarakat/update/(:num)', 'Petugas::update/$1');
 
 $routes->get('/pengaduanpetugas/validasi/(:num)', 'PengaduanPetugas::validasi/$1');
 $routes->get('/pengaduanpetugas/tanggapan/(:num)', 'PengaduanPetugas::tanggapan/$1');
@@ -54,6 +54,7 @@ $routes->post('/loginadmin', 'LoginPetugas::index');
 
 $routes->get('/admin', 'Admin::index');
 $routes->get('/admin/validasi', 'Admin::validasi');
-$routes->get('/admin/masyarakat', 'Admin::masyarakat');
+$routes->get('/admin/management', 'Admin::management');
+$routes->get('/admin/managementpetugas', 'Admin::managementpetugas');
 $routes->get('/admin/petugas', 'Admin::petugas');
 $routes->get('/admin/setting', 'Admin::setting');

@@ -66,7 +66,7 @@
                             <?php if (session()->getFlashdata('vall')) : ?>
                                 <?= session()->getFlashdata('vall'); ?>
                             <?php endif; ?>
-                            <form action="/masyarakatp/update/<?= $masyarakat['id_masyarakat']; ?>" method="post" enctype="multipart/form-data">
+                            <form action="/petugas/masyarakat/update/<?= $masyarakat['id_masyarakat']; ?>" method="post" enctype="multipart/form-data">
                                 <?= csrf_field(); ?>
                                 <div class="mb-1">
                                     <label for="nik" class="form-label">NIK <font color="FF7F7F">*</font></label>

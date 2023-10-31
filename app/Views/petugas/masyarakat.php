@@ -93,7 +93,7 @@ $session = session()
                             </td>
                             <td><?= $m['telepon']; ?></td>
                             <td>
-                                <a class="btn btn-primary btn-sm" href="/masyarakatp/edit/<?= $m['id_masyarakat'] ?>"><i class="bi bi-pencil-square"></i></a>
+                                <a class="btn btn-primary btn-sm" href="/petugas/masyarakat/edit/<?= $m['id_masyarakat'] ?>"><i class="bi bi-pencil-square"></i></a>
                                 <a class="btn btn-primary btn-sm" href="/petugas/defaultpass/<?= $m['id_masyarakat'] ?>">Password Reset</i></a>
                                 <button class="btn btn-warning btn-sm" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal<?= $m['id_masyarakat']; ?>"><i class="bi bi-info-circle"></i></button>
                             </td>
