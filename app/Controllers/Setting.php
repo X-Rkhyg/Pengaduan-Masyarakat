@@ -35,6 +35,19 @@ class Setting extends BaseController
         $data = $this->request->getPost();
 
         if (!$this->validate([
+            'username' => [
+                "rules" => "required|alpha_numeric",
+                "errors" => [
+                    "required" => "Username harus diisi",
+                    "alpha_numeric" => "Username harus berupa huruf kecil semua"
+                ]
+            ],
+            'nik'=> [
+                "rules" => "required",
+                "errors"=> [
+                    "required"=> "Username harus diisi",
+                ]
+            ],
             'passwordLama' => [
                 'rules' => 'required',
                 'errors' => [
@@ -77,10 +90,10 @@ class Setting extends BaseController
                 'level' => session('level'),
                 'isLogin' => true,
             ]);
-    
+
             session()->setFlashdata('pesan', 'Password Anda Berhasil Diubah');
             return redirect()->to('/masyarakat/setting');
-        } 
+        }
     }
 
     public function ganti_password_petugas($id)
@@ -90,17 +103,17 @@ class Setting extends BaseController
         $data = $this->request->getPost();
 
         if (!$this->validate([
-            'nama_petugas'=> [
+            'nama_petugas' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Nama Petugas harus diisi'
                 ]
             ],
-            'username'=> [
+            'username' => [
                 "rules" => "required|alpha_numeric",
-                "errors"=> [
-                    "required"=> "Username harus diisi",
-                    "alpha_numeric"=> "Username harus berupa huruf kecil semua"
+                "errors" => [
+                    "required" => "Username harus diisi",
+                    "alpha_numeric" => "Username harus berupa huruf kecil semua"
                 ]
             ],
             'passwordLama' => [
@@ -135,8 +148,8 @@ class Setting extends BaseController
             //jika benar, arahkan user masuk ke aplikasi 
             $this->petugasModel->save([
                 'id_petugas' => $id,
-                'nama_petugas'=> $this->request->getVar('nama_petugas'),
-                'username'=> $this->request->getVar('username'),
+                'nama_petugas' => $this->request->getVar('nama_petugas'),
+                'username' => $this->request->getVar('username'),
                 'password' => $this->request->getVar('passwordBaru'),
             ]);
 
@@ -148,10 +161,10 @@ class Setting extends BaseController
                 'level' => session('level'),
                 'isLoginPetugas' => true,
             ]);
-    
+
             session()->setFlashdata('pesan', 'Password anda Berhasil diubah');
             return redirect()->to('/petugas/setting');
-        }        
+        }
     }
 
     public function ganti_password_admin($id)
@@ -161,17 +174,17 @@ class Setting extends BaseController
         $data = $this->request->getPost();
 
         if (!$this->validate([
-            'nama_petugas'=> [
+            'nama_petugas' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Nama Petugas harus diisi'
                 ]
             ],
-            'username'=> [
+            'username' => [
                 "rules" => "required|alpha_numeric",
-                "errors"=> [
-                    "required"=> "Username harus diisi",
-                    "alpha_numeric"=> "Username harus berupa huruf kecil semua"
+                "errors" => [
+                    "required" => "Username harus diisi",
+                    "alpha_numeric" => "Username harus berupa huruf kecil semua"
                 ]
             ],
             'passwordLama' => [
@@ -206,8 +219,8 @@ class Setting extends BaseController
             //jika benar, arahkan user masuk ke aplikasi 
             $this->petugasModel->save([
                 'id_petugas' => $id,
-                'nama_petugas'=> $this->request->getVar('nama_petugas'),
-                'username'=> $this->request->getVar('username'),
+                'nama_petugas' => $this->request->getVar('nama_petugas'),
+                'username' => $this->request->getVar('username'),
                 'password' => $this->request->getVar('passwordBaru'),
             ]);
 
@@ -219,9 +232,9 @@ class Setting extends BaseController
                 'level' => session('level'),
                 'isLoginAdmin' => true,
             ]);
-    
+
             session()->setFlashdata('pesan', 'Password anda Berhasil diubah');
             return redirect()->to('/admin/setting');
-        }        
+        }
     }
 }

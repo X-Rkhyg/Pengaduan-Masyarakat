@@ -75,6 +75,16 @@ $session = session()
                                 <?= csrf_field(); ?>
 
                                 <div class="mb-1">
+                                    <label for="username" class="form-label">Username <font color="FF7F7F">*</font></label>
+                                    <input name="username" type="text" class="form-control" autocomplete="off" placeholder="Masukan Username Baru" value="<?= $session->get('username'); ?>">
+                                </div>
+
+                                <div class="mb-1">
+                                    <label for="nama" class="form-label">NIK <font color="FF7F7F">*</font></label>
+                                    <input name="nik" type="text" class="form-control" autocomplete="off" placeholder="Masukan Nama Baru" value="<?= $session->get('nik'); ?>">
+                                </div>
+
+                                <div class="mb-1">
                                     <label for="password" class="form-label">Password Lama<font color="FF7F7F">*</font></label>
                                     <input type="text" class="form-control <?= ($validation->hasError('passwordLama')) ? 'is-invalid' : ''; ?>" id="passwordLama" name="passwordLama" placeholder="Password Lama Anda" autocomplete="off" required>
                                     <div class="invalid-feedback">

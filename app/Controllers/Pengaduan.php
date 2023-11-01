@@ -113,7 +113,7 @@ class Pengaduan extends BaseController
         $data = [
             'title' => 'Edit Data Kelahiran',
             'validation' => \Config\Services::validation(),
-            'aduan' => $this->pengaduanModel->getPengaduan($id)
+            'aduan' => $this->pengaduanModel->getPengaduan($id),
         ];
 
         return view('masyarakat/edit', $data);

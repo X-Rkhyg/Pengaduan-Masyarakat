@@ -172,11 +172,10 @@ class AuthMasyarakat extends BaseController
             ]);
 
             $this->session->set([
-                'id_petugas' => session('id_petugas'), //tambahkan id_petugas ke session
+                'id_masyarakat' => session('id_masyarakat'), //tambahkan id_petugas ke session
                 'username' => session('username'),
                 'password' => $newpassword['passwordBaru'], //tambahkan password ke session
-                'nama_petugas' => session('nama_petugas'),
-                'level' => session('level'),
+                'nik' => session('nik'),
                 'isLogin' => true,
             ]);
     
