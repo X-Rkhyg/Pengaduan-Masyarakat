@@ -40,8 +40,9 @@
 <nav class="header-navbar navbar align-items-center floating-nav container-xxl navbar-shadow navbar navbar-expand-lg navbar-light">
     <div class="navbar-container d-flex content">
         <div class="bookmark-wrapper d-flex align-items-center">
-            <li class="d-none d-lg-block nav-item"><a class="nav-link-style nav-link">
-                    Edit Pengaduan
+            <li class="d-none d-lg-block nav-item"><a class="nav-link-style nav-link" href="/masyarakat/lihat" >
+            <i class="bi bi-arrow-left-circle me-1"></i>
+            Back
                 </a></li>
         </div>
         <ul class="nav navbar-nav align-items-center ms-auto">

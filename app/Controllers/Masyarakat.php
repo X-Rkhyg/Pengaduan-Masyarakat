@@ -73,6 +73,7 @@ class Masyarakat extends BaseController
         $aduan = new PengaduanModel();
         $nik = session('nik'); // Ambil username dari session
         $aduan = $aduan->find('nik', $nik);
+        $aduan = $this->pengaduanModel->findAll();
         $aduan = array();
         
         
