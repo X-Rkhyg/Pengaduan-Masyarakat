@@ -28,6 +28,7 @@ class Admin extends BaseController
         $nologin = [
             'title' => 'Login - Aplikasi Pengaduan Masyarakat'
         ];
+        
         if (!session()->get('isLoginAdmin')) {
             // Jika belum login, arahkan pengguna ke halaman login
             return view('/auth/login-petugas', $nologin);
@@ -315,6 +316,15 @@ class Admin extends BaseController
         ]);
         session()->setFlashdata('pesan', 'Password berhasil diubah ke default.');
         return redirect()->to('/admin/managementpetugas');
+    }
+
+    public function donglot()
+    {
+        $data = [
+            'title' => 'Download Laporan Pengaduan',
+        ];
+
+        return view('admin/donglot', $data);
     }
 
 }

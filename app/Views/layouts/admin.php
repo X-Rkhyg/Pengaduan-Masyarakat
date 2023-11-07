@@ -68,6 +68,11 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Management Petugas
                         </a>
+                        <div class="sb-sidenav-menu-heading">Laporan Pengaduan</div>
+                        <a class="nav-link" href="/admin/donglot">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Download Laporan Pengaduan
+                        </a>
                         <div class="sb-sidenav-menu-heading">Setting</div>
                         <a class="nav-link" href="/admin/setting">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>

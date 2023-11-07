@@ -2,7 +2,7 @@
 <?php $this->section('content'); ?>
 
 <?php
-$pesan = session()->getFlashdata('pesan');
+$login = session()->getFlashdata('login');
 $session = session()
 ?>
 
@@ -14,7 +14,9 @@ $session = session()
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">Dashboard</li>
             </ol>
-            Selamat Datang <?= $session->get('nama_petugas'); ?>
+            <?php if ($login) { ?>
+                <h5 style="color:green"><?php echo $login ?> <?= $session->get('username'); ?>, Anda berhasil Login</h5>
+            <?php } ?>
     </main>
 
     <?php $this->endSection(); ?>

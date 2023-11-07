@@ -81,4 +81,5 @@ $routes->post('/pengaduanadmin/updatetanggapan/(:num)', 'PengaduanAdmin::updatet
 
 $routes->get('/admin/download/(:num)', 'PengaduanAdmin::download/$1');
 
+$routes->get('/admin/donglot', 'Admin::donglot');
 $routes->get('/generate', 'PdfGenerate::generatePDF');
