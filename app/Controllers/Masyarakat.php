@@ -38,7 +38,7 @@ class Masyarakat extends BaseController
 
         $data = [
             'title' => 'Dashboard',
-            'jumlah' => $this->pengaduanModel->where('nik', session('nik'))->countAllResults(),
+            'jumlah' => $this->pengaduanModel->where('id_masyarakat', session('id_masyarakat'))->countAllResults(),
         ];
         return view('masyarakat/home', $data);
     }
@@ -71,8 +71,8 @@ class Masyarakat extends BaseController
         }
         
         $aduan = new PengaduanModel();
-        $nik = session('nik'); // Ambil username dari session
-        $aduan = $aduan->find('nik', $nik);
+        $idmasyarakat = session('id_masyarakat'); // Ambil username dari session
+        $aduan = $aduan->find('id_masyarakat', $idmasyarakat);
         $aduan = $this->pengaduanModel->findAll();
         $aduan = array();
         
@@ -84,7 +84,7 @@ class Masyarakat extends BaseController
         ];
 
         $data = $this->pengaduanModel->table('pengaduan')
-            ->where('nik', $nik)
+            ->where('id_masyarakat', $idmasyarakat)
             ->get()
             ->getResult();
         

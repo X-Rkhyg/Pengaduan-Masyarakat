@@ -42,9 +42,9 @@ $session = session()
                                     </td>
                                     <td><?= $m['telepon']; ?></td>
                                     <td>
-                                        <a class="btn btn-primary btn-sm" href="/petugas/masyarakat/edit/<?= $m['id_masyarakat'] ?>"><i class="bi bi-pencil-square"></i></a>
-                                        <a class="btn btn-primary btn-sm" href="/petugas/defaultpass/<?= $m['id_masyarakat'] ?>">Password Reset</i></a>
-                                        <button class="btn btn-warning btn-sm" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal<?= $m['id_masyarakat']; ?>"><i class="bi bi-info-circle"></i></button>
+                                        <a class="btn btn-primary btn-md" href="/admin/masyarakat/edit/<?= $m['id_masyarakat'] ?>"><i class="bi bi-pencil-square"></i></a>
+                                        <a class="btn btn-warning btn-md" href="/admin/defaultpass/<?= $m['id_masyarakat'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Mereset Password Akun Ini?')"><i class="bi bi-key"></i></a>
+                                        <a class="btn btn-danger btn-md" href="/admin/masyarakat/delete/<?= $m['id_masyarakat'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')"><i class="bi bi-trash3"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -53,27 +53,7 @@ $session = session()
                 </div>
             </div>
         </div>
-        <?php foreach ($masyarakat as $m) : ?>
-            <div class="modal fade" id="Modal<?= $m['id_masyarakat']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Data</h1>
-                        </div>
-                        <div class="modal-body">
-                            <h6>Id : <?= $m['id_masyarakat']; ?></h6>
-                            <h6>NIK : <?= $m['nik']; ?></h6>
-                            <h6>Username : <?= $m['username']; ?></h6>
-                            <h6>Password : <?= $m['password']; ?></h6>
-                            <h6>Telepon : <?= $m['telepon']; ?></h6>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php endforeach; ?>
+        
     </main>
 
     <?php $this->endSection(); ?>

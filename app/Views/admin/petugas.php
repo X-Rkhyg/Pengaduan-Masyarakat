@@ -36,13 +36,18 @@ $session = session()
                                     <td><?= $p['id_petugas']; ?></td>
                                     <td><?= $p['nama_petugas']; ?></td>
                                     <td><?= $p['username']; ?></td>
-                                    <td><?= $p['password']; ?></td>
+                                    <td>
+                                        <?php if ($p['password'] == "defaultpassword") : ?>
+                                            <?= $p['password']; ?>
+                                        <?php else : ?>
+                                            ********
+                                        <?php endif; ?></td>
                                     <td><?= $p['telepon']; ?></td>
                                     <td><?= $p['level']; ?></td>
                                     <td>
-                                        <button class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></button>
-                                        <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')"><i class="bi bi-trash3"></i></button>
-                                        <button class="btn btn-warning btn-sm" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Modal<?= $p['id_petugas']; ?>"><i class="bi bi-info-circle"></i></button>
+                                        <a class="btn btn-primary btn-sm" href="/admin/petugas/edit/<?= $p['id_petugas'] ?>"><i class="bi bi-pencil-square"></i></a>
+                                        <a class="btn btn-warning btn-sm" href="/admin/defaultpasspetugas/<?= $p['id_petugas'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Mereset Data Ini?')"><i class="bi bi-key"></i></a>
+                                        <a class="btn btn-danger btn-sm" href="/admin/petugas/delete/<?= $p['id_petugas'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')"><i class="bi bi-trash3"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -51,28 +56,6 @@ $session = session()
                 </div>
             </div>
         </div>
-        <?php foreach ($petugas as $p) : ?>
-            <div class="modal fade" id="Modal<?= $p['id_petugas']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Data</h1>
-                        </div>
-                        <div class="modal-body">
-                            <h6>Id Petugas : <?= $p['id_petugas']; ?></h6>
-                            <h6>Nama Petugas : <?= $p['nama_petugas']; ?></h6>
-                            <h6>Username : <?= $p['username']; ?></h6>
-                            <h6>Password : <?= $p['password']; ?></h6>
-                            <h6>Telepon : <?= $p['telepon']; ?></h6>
-                            <h6>Level : <?= $p['level']; ?></h6>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php endforeach; ?>
     </main>
 
     <?php $this->endSection(); ?>

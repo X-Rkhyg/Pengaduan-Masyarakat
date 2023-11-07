@@ -72,7 +72,7 @@ $pesan = session()->getFlashdata('pesan');
                         <th>NO</th>
                         <th>Tanggal</th>
                         <th>Isi Laporan</th>
-                        <th>Foto</th>
+                       
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -84,9 +84,6 @@ $pesan = session()->getFlashdata('pesan');
                             <td><?= $i++; ?></td>
                             <td><?= date('d F Y', strtotime($adu['tanggal_pengaduan'])); ?></td>
                             <td><?= $adu['isi_laporan']; ?></td>
-                            <td>
-                                <a href="<?= base_url(); ?>/petugas/download/<?= $adu['id_pengaduan'] ?>">Download foto</a>
-                            </td>
                             <td>
                                 <?php if ($adu['status'] == "0") : ?>
                                     Pending
@@ -102,10 +99,11 @@ $pesan = session()->getFlashdata('pesan');
 
                             <td>
                                 <?php if ($adu['status'] == "0") : ?>
-                                    <a class="btn btn-danger btn-sm" href="/pengaduanpetugas/tolak/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-x-lg"></i></a>
-                                    <a class="btn btn-primary btn-sm" href="/pengaduanpetugas/validasi/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-check-lg"></i></a>
+                                    <a class="btn btn-info btn-md" type="button" data-bs-toggle="modal" data-bs-target="#Modal<?= $adu['id_pengaduan'] ?>"><i class="bi bi-card-image"></i></a>
+                                    <a class="btn btn-danger btn-md" href="/pengaduanpetugas/tolak/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-x-lg"></i></a>
+                                    <a class="btn btn-primary btn-md" href="/pengaduanpetugas/validasi/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-check-lg"></i></a>
                                 <?php elseif ($adu['status'] == "1") : ?>
-                                    <a class="btn btn-primary btn-sm" href="/pengaduanpetugas/tanggapan/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-envelope"></i></a>
+                                    <a class="btn btn-primary btn-md" href="/pengaduanpetugas/tanggapan/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-envelope"></i></a>
                                 <?php elseif ($adu['status'] == "2") : ?>
                                     Selesai
                                 <?php elseif ($adu['status'] == "3") : ?>
@@ -121,5 +119,24 @@ $pesan = session()->getFlashdata('pesan');
         </div>
     </div>
 </div>
+
+<?php foreach ($aduan as $adu) : ?>
+    <div class="modal fade" id="Modal<?= $adu['id_pengaduan'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Foto</h1>
+                </div>
+                <div class="modal-body">
+                    <!-- foto pengaduan -->
+                    <img src="/foto_storage/<?= $adu['foto'] ?>" alt="Image" style="width: auto; height: auto; max-width: 100%; max-height: 100%;">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
 
 <?= $this->endSection() ?>

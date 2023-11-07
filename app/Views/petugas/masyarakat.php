@@ -101,8 +101,10 @@ $session = session()
                             </td>
                             <td><?= $m['telepon']; ?></td>
                             <td>
+                                <a class="btn btn-secondary btn-sm" href="/petugas/defaultpass/<?= $m['id_masyarakat'] ?>"><i class="bi bi-key"></i></a>
                                 <a class="btn btn-primary btn-sm" href="/petugas/masyarakat/edit/<?= $m['id_masyarakat'] ?>"><i class="bi bi-pencil-square"></i></a>
-                                <a class="btn btn-secondary btn-sm" href="/petugas/defaultpass/<?= $m['id_masyarakat'] ?>"><i class="bi bi-key"></i></i></a>
+                                <a class="btn btn-danger btn-sm" href="/petugas/masyarakat/delete/<?= $m['id_masyarakat'] ?>"><i class="bi bi-trash"></i></a>
+
                             </td>
                         </tr>
                     <?php endforeach; ?>

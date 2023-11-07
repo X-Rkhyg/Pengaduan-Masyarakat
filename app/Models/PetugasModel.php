@@ -11,4 +11,11 @@ class PetugasModel extends Model
     protected $allowedFields = ["nama_petugas", "username", "password", "telepon", "level"];
     protected $useTimestamps = true;
     
+    public function getPetugas($id = false)
+    {
+        if($id == false){
+            return $this->findAll();
+        }
+        return $this->where(['id_petugas' => $id])->first();
+    }
 }

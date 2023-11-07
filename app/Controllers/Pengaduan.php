@@ -29,7 +29,7 @@ class Pengaduan extends BaseController
             return view('/auth/login-masyarakat', $nologin);
         }
 
-        $nik = session('nik'); // Ambil nik dari session
+        $idmasyarakat = session('id_masyarakat'); // Ambil nik dari session
         if (!$this->validate([
             'isi_laporan' => [
                 'rules' => 'required',
@@ -61,7 +61,7 @@ class Pengaduan extends BaseController
 
         $this->pengaduanModel->save([
             "isi_laporan" => $this->request->getVar('isi_laporan'),
-            'nik' => $nik,
+            'id_masyarakat' => $idmasyarakat,
             'tanggal_pengaduan' => date('Y-m-d'),
             'foto' => $newName,
         ]);

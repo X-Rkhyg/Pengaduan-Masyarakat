@@ -100,7 +100,7 @@ $pesan = session()->getFlashdata('pesan');
                                 <a class="btn btn-warning btn-md" href="/pengaduan/edit/<?= $adu->id_pengaduan ?>"><i class="bi bi-pencil-square"></i></a>
                                 <a class="btn btn-danger btn-md" href="<?= base_url(); ?>/delete/<?= $adu->id_pengaduan ?>"><i class="bi bi-trash"></i></a>
                                 <!-- info button -->
-                                <a class="btn btn-info btn-md" type="button" data-bs-toggle="modal" data-bs-target="#Modal<?= $adu->id_pengaduan ?>"><i class="bi bi-info-circle"></i></a>
+                                <a class="btn btn-info btn-md" type="button" data-bs-toggle="modal" data-bs-target="#Modal<?= $adu->id_pengaduan ?>"><i class="bi bi-card-image"></i></a>
                                 <?php if ($adu->status == "2") : ?>
                                     <a class="btn btn-success btn-md" href="/pengaduan/lihattanggapan/<?= $adu->id_pengaduan ?>"><i class="bi bi-info-circle"></i></a>
                                 <?php endif; ?>
@@ -118,11 +118,11 @@ $pesan = session()->getFlashdata('pesan');
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Data</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Foto</h1>
                 </div>
                 <div class="modal-body">
                     <!-- foto pengaduan -->
-                    <img src="/foto_storage/<?= $adu->foto ?>" alt="Image" style="width: auto; height: auto;">
+                    <img src="/foto_storage/<?= $adu->foto ?>" alt="Image" style="width: auto; height: auto; max-width: 100%; max-height: 100%;">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

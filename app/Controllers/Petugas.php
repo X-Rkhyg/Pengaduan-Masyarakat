@@ -102,6 +102,21 @@ class Petugas extends BaseController
         return view('petugas/setting', $data);
     }
 
+    public function delete($id)
+    {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginPetugas')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+
+        $this->masyarakatModel->delete($id);
+        session()->setFlashdata('pesan', 'Data berhasil dihapus.');
+        return redirect()->to('/petugas/management');
+    }
+
     public function edit($id)
     {
         $nologin = [
@@ -144,12 +159,6 @@ class Petugas extends BaseController
                     'required' => 'Username harus diisi'
                 ]
             ],
-            'password' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Password harus diisi'
-                ]
-            ],
             'telepon' => [
                 'rules' => 'required',
                 'errors' => [
@@ -160,7 +169,7 @@ class Petugas extends BaseController
             $validation = \Config\Services::validation();
             session()->setFlashdata('vall', $validation->listErrors());
 
-            return redirect()->to('/petugas/masyarakat/edit' . $this->request->getVar('id_masyarakat'))->withInput()-> with('validation', $validation);
+            return redirect()->back()->withInput()-> with('validation', $validation);
         }
 
         $this->masyarakatModel->save([
