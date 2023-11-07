@@ -1,79 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        .mt-3 {
+            margin-top: 3rem;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        table {
-            width: 100%;
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
-            margin-top: 20px;
+            width: 100%;
         }
 
-        table, th, td {
-            border: 1px solid black;
+        #customers td,
+        #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
         }
 
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
+        #customers tr:nth-child(even) {
             background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Laporan Pengaduan</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Tanggal</th>
-                    <th>Produk</th>
-                    <th>Jumlah</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>2023-11-01</td>
-                    <td>Produk A</td>
-                    <td>10</td>
-                    <td>500.00</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>2023-11-02</td>
-                    <td>Produk B</td>
-                    <td>8</td>
-                    <td>400.00</td>
-                </tr>
-                <!-- Tambahkan baris data sesuai kebutuhan -->
-            </tbody>
-        </table>
-    </div>
+
+    <center>
+        <div class="row">
+            <div class="col-12">
+                <h1>LAPORAN PENGADUAN MASYARAKAT TAHUN 2023</h1>
+                <hr />
+            </div>
+        </div>
+    </center>
+
+    <table id="customers" class="mt-3">
+        <tr>
+            <th>NO</th>
+            <th>Tanggal</th>
+            <th>Isi Laporan</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <?php $i = 1; ?>
+            <?php foreach ($pengaduan as $p) : ?>
+        <tr>
+            <td><?= $i++; ?></td>
+            <td><?= date('d F Y', strtotime($p['tanggal_pengaduan'])); ?></td>
+            <td><?= $p['isi_laporan']; ?></td>
+            <td>
+                <?php if ($p['status'] == "0") : ?>
+                    Pending
+                <?php elseif ($p['status'] == "1") : ?>
+                    Proses
+                <?php elseif ($p['status'] == "2") : ?>
+                    Selesai
+                <?php elseif ($p['status'] == "3") : ?>
+                    Ditolak
+                <?php endif; ?>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tr>
+    </table>
+
 </body>
 
 </html>

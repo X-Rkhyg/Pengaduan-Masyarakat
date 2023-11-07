@@ -4,16 +4,28 @@ namespace App\Controllers;
 
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use App\Models\PengaduanModel;
 
 class PdfGenerate extends BaseController
 {
 
+    protected $PengaduanModel;
+
+    public function __construct()
+    {
+        $this->PengaduanModel = new PengaduanModel();
+    }
+
     public function generatePDF()
     {
+
+        $pengaduan = $this->PengaduanModel->findAll();
+
         // Load data into view if needed
         $data = [
             'title' => 'PDF Title',
             'content' => 'PDF Content',
+            'pengaduan' => $pengaduan,
         ];
 
         // Load the view into a variable
@@ -34,7 +46,7 @@ class PdfGenerate extends BaseController
         $dompdf->render();
 
         // Output the generated PDF to browser
-        $dompdf->stream("hwehwe.pdf", ['Attachment' => false]);
+        $dompdf->stream("Laporan Pengaduan Masyarakat Tahun 2023.pdf", ['Attachment' => false]);
     }
 
 
