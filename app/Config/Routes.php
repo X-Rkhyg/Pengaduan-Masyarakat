@@ -8,6 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 
 
  $routes->get('/', 'Home::index');
+ $routes->get('/ydwayvdayvdawduvawdauiu', 'Okee::index');
 
  //Masyarakat
 $routes->get('/auth/login', 'AuthMasyarakat::login');
