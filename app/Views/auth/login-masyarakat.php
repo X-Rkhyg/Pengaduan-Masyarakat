@@ -65,7 +65,7 @@ $errors = $session->getFlashdata('errors');
 
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example3">Username :</label>
-                                        <input name="username" id="form3Example3" class="form-control" placeholder="Yourname" required />
+                                        <input type="text" name="username" id="form3Example3" class="form-control" placeholder="Yourname" required />
                                     </div>
 
                                     <div class="form-outline mb-4">

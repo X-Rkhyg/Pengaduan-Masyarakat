@@ -128,7 +128,7 @@ class Petugas extends BaseController
         }
 
         $data = [
-            'title' => 'Edit Data Kelahiran',
+            'title' => 'Edit Data Masyarakat',
             'validation' => \Config\Services::validation(),
             'masyarakat' => $this->masyarakatModel->getMasyarakat($id)
         ];

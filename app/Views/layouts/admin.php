@@ -68,6 +68,10 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Management Petugas
                         </a>
+                        <a class="nav-link" href="/admin/tambahpetugas">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Tambah Petugas
+                        </a>
                         <div class="sb-sidenav-menu-heading">Laporan Pengaduan</div>
                         <a class="nav-link" href="/admin/donglot">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>

@@ -13,11 +13,15 @@ class Admin extends BaseController
     protected $pengaduanModel;
     protected $masyarakatModel;
     protected $petugasModel;
+
+    protected $validation;
     public function __construct()
     {
         $this->session = session();
 
         $this->pengaduanModel = new PengaduanModel();
+
+        $this->validation = \Config\Services::validation();
 
         $this->masyarakatModel = new MasyarakatModel();
 
@@ -28,7 +32,7 @@ class Admin extends BaseController
         $nologin = [
             'title' => 'Login - Aplikasi Pengaduan Masyarakat'
         ];
-        
+
         if (!session()->get('isLoginAdmin')) {
             // Jika belum login, arahkan pengguna ke halaman login
             return view('/auth/login-petugas', $nologin);
@@ -78,6 +82,61 @@ class Admin extends BaseController
         return view('admin/masyarakat', $data);
     }
 
+    public function tambahPetugas(): string
+    {
+        $nologin = [
+            'title' => 'Login - Aplikasi Pengaduan Masyarakat'
+        ];
+        if (!session()->get('isLoginAdmin')) {
+            // Jika belum login, arahkan pengguna ke halaman login
+            return view('/auth/login-petugas', $nologin);
+        }
+
+        $data = [
+            'validation' => \Config\Services::validation(),
+            'title' => 'Tambah Petugas',
+        ];
+
+        return view('admin/tambah', $data);
+    }
+
+    public function savePetugas()
+    {
+        //tangkap data dari form 
+        $data = $this->request->getPost();
+
+        //jalankan validasi
+        $this->validation->run($data, 'tambah_petugas');
+
+        //cek errornya
+        $errors = $this->validation->getErrors();
+
+        //jika ada error kembalikan ke halaman register
+        if ($errors) {
+            session()->setFlashdata('username', $this->validation->getError('nama_petugas'));
+            session()->setFlashdata('nik', $this->validation->getError('username'));
+            session()->setFlashdata('password', $this->validation->getError('password'));
+            session()->setFlashdata('confirm', $this->validation->getError('confirm'));
+            session()->setFlashdata('telepon', $this->validation->getError('telepon'));
+            return redirect()->to('/admin/tambahpetugas');
+        }
+
+        //jika tdk ada error 
+        //masukan data ke database
+        $this->masyarakatModel->save([
+            'nama_petugas' => $data['nama_petugas'],
+            'username' => $data['username'],
+            'password' => $data['password'],
+            'telepon' => $data['telepon'],
+            'level' => $data['level'],
+
+
+        ]);
+
+        //arahkan ke halaman login
+        session()->setFlashdata('login', 'Anda berhasil mendaftar, silahkan login');
+        return redirect()->to('/admin/managementpetugas');
+    }
     public function managementpetugas(): string
     {
         $nologin = [
@@ -170,7 +229,7 @@ class Admin extends BaseController
             $validation = \Config\Services::validation();
             session()->setFlashdata('vall', $validation->listErrors());
 
-            return redirect()->back()->withInput()-> with('validation', $validation);
+            return redirect()->back()->withInput()->with('validation', $validation);
         }
 
         $this->masyarakatModel->save([
@@ -246,12 +305,18 @@ class Admin extends BaseController
                 'errors' => [
                     'required' => 'Telepon harus diisi'
                 ]
+            ],
+            'level' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Level harus diisi'
+                ]
             ]
         ])) {
             $validation = \Config\Services::validation();
             session()->setFlashdata('vall', $validation->listErrors());
 
-            return redirect()->back()->withInput()-> with('validation', $validation);
+            return redirect()->back()->withInput()->with('validation', $validation);
         }
 
         $this->petugasModel->save([
@@ -260,6 +325,7 @@ class Admin extends BaseController
             "username" => $this->request->getVar('username'),
             "password" => $this->request->getVar('password'),
             "telepon" => $this->request->getVar('telepon'),
+            "level" => $this->request->getVar('level'),
         ]);
         session()->setFlashdata('pesan', 'Data berhasil diedit.');
         return redirect()->to('/admin/managementpetugas');
@@ -281,7 +347,7 @@ class Admin extends BaseController
     }
 
     public function defaultpassMasyarakat($id)
-    { 
+    {
         $nologin = [
             'title' => 'Login - Aplikasi Pengaduan Masyarakat'
         ];
@@ -289,7 +355,7 @@ class Admin extends BaseController
             // Jika belum login, arahkan pengguna ke halaman login
             return view('/auth/login-petugas', $nologin);
         }
-        
+
         $default = 'defaultpassword';
         $this->masyarakatModel->save([
             "id_masyarakat" => $id,
@@ -300,7 +366,7 @@ class Admin extends BaseController
     }
 
     public function defaultpassPetugas($id)
-    { 
+    {
         $nologin = [
             'title' => 'Login - Aplikasi Pengaduan Masyarakat'
         ];
@@ -308,7 +374,7 @@ class Admin extends BaseController
             // Jika belum login, arahkan pengguna ke halaman login
             return view('/auth/login-petugas', $nologin);
         }
-        
+
         $default = 'defaultpassword';
         $this->petugasModel->save([
             "id_petugas" => $id,
@@ -326,5 +392,4 @@ class Admin extends BaseController
 
         return view('admin/donglot', $data);
     }
-
 }
