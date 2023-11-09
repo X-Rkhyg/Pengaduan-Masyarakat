@@ -128,7 +128,7 @@ class Admin extends BaseController
             'username' => $data['username'],
             'password' => $data['password'],
             'telepon' => $data['telepon'],
-            'level' => $data['level'],
+            'level' => $data['levelo'],
 
 
         ]);
