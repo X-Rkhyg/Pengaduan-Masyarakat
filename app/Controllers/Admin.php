@@ -123,12 +123,12 @@ class Admin extends BaseController
 
         //jika tdk ada error 
         //masukan data ke database
-        $this->masyarakatModel->save([
+        $this->petugasModel->save([
             'nama_petugas' => $data['nama_petugas'],
             'username' => $data['username'],
             'password' => $data['password'],
             'telepon' => $data['telepon'],
-            'level' => $data['levelo'],
+            'level' => $data['level'],
 
 
         ]);
