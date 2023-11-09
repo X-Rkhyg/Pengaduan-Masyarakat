@@ -9,7 +9,7 @@ $session = session()
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Tambah Petugas</h1>
+            <h1 class="mt-4">Edit Data Petugas</h1>
             <!-- form ganti Password -->
             <div class="card mb-4">
                 <div class="card-body">
@@ -59,19 +59,20 @@ $session = session()
                             </div>
                         </div>
 
-                        
-
                         <div class="mb-1">
-                            <label for="nama" class="form-label">Level</label>
+                            <label for="nama" class="form-label">Level <font color="FF7F7F">*</font></label>
                             <select class="form-select" name="level" aria-label="Default select example">
                                 <option value="petugas" selected>Petugas</option>
                                 <option value="admin">Admin</option>
+                            </select>
                         </div>
-                        <div class="mb-1">
-                        <button type="submit" class="me-1 btn btn-primary">Tambahkan</button>
+
+                        <button type="submit" class="me-1 btn btn-primary">Simpan Perubahan</button>
+                        <div class="text-end"><small>
+                                <font color="FF7F7F">*</font> required fields
+                            </small>
                         </div>
-                        
-                        
+
                     </form>
                 </div>
             </div>
