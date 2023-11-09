@@ -59,7 +59,7 @@ $session = session()
                             </div>
                         </div>
 
-                        <div class="mb-1">
+                        <div class="mb-3">
                             <label for="nama" class="form-label">Level <font color="FF7F7F">*</font></label>
                             <select class="form-select" name="level" aria-label="Default select example">
                                 <option value="petugas" selected>Petugas</option>
