@@ -159,7 +159,7 @@ class AuthMasyarakat extends BaseController
             ],
         ])) {
             $validation = \Config\Services::validation();
-            return redirect()->to('/petugas/setting' . $this->request->getVar('id_petugas'))->withInput()->with('validation', $validation);
+            return redirect()->to('/masyarakat/defaultchange' . $this->request->getVar('id_masyarakat'))->withInput()->with('validation', $validation);
         }
         if ($data['passwordBaru'] == $currentpassword) {
             session()->setFlashdata('pesan', 'Password Baru tidak boleh default');

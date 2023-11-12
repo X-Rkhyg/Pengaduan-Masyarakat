@@ -48,6 +48,7 @@ $session = session()
                             <select class="form-select" name="level" aria-label="Default select example">
                                 <option value="admin" <?php if ($petugas['level'] == 'admin') echo 'selected'; ?>>Admin</option>
                                 <option value="petugas" <?php if ($petugas['level'] == 'petugas') echo 'selected'; ?>>Petugas</option>
+                            </select>
                         </div>
 
                         <button type="submit" class="me-1 btn btn-primary">Simpan Perubahan</button>

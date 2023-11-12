@@ -55,6 +55,7 @@ class AuthPetugas extends BaseController
                         'id_petugas' => $petugas['id_petugas'], //tambahkan id_petugas ke session
                         'username' => $petugas['username'],
                         'nama_petugas' => $petugas['nama_petugas'],
+                        'password' => $petugas['password'],
                         'level' => $petugas['level'],
                         'isLoginAdmin' => true,
                     ]);

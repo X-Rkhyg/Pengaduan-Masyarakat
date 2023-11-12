@@ -16,11 +16,11 @@ $session = session()
                     <?php if (session()->getFlashdata('vall')) : ?>
                         <?= session()->getFlashdata('vall'); ?>
                     <?php endif; ?>
-                    <form action="/admin/savePetugas" method="post" enctype="multipart/form-data">
+                    <form action="/admin/savepetugas" method="post" enctype="multipart/form-data">
                         <?= csrf_field(); ?>
 
                         <div class="mb-1">
-                            <label for="nama" class="form-label">Nama Petugas <font color="FF7F7F">*</font></label>
+                            <label for="nama_petugas" class="form-label">Nama Petugas <font color="FF7F7F">*</font></label>
                             <input type="text" class="form-control <?= ($validation->hasError('nama_petugas')) ? 'is-invalid' : ''; ?>" id="nama_petugas" name="nama_petugas">
                             <div class="invalid-feedback">
                                 <?= $validation->getError('nama_petugas'); ?>
@@ -36,23 +36,23 @@ $session = session()
                         </div>
 
                         <div class="mb-1">
-                            <label for="nama" class="form-label">Password <font color="FF7F7F">*</font></label>
-                            <input type="text" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" id="password" name="password">
+                            <label for="password" class="form-label">Password <font color="FF7F7F">*</font></label>
+                            <input type="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" id="password" name="password">
                             <div class="invalid-feedback">
                                 <?= $validation->getError('password'); ?>
                             </div>
                         </div>
 
                         <div class="mb-1">
-                            <label for="nama" class="form-label">Confirm <font color="FF7F7F">*</font></label>
-                            <input type="text" class="form-control <?= ($validation->hasError('confirm')) ? 'is-invalid' : ''; ?>" id="confirm" name="confirm">
+                            <label for="confirm" class="form-label">Confirm <font color="FF7F7F">*</font></label>
+                            <input type="password" class="form-control <?= ($validation->hasError('confirm')) ? 'is-invalid' : ''; ?>" id="confirm" name="confirm">
                             <div class="invalid-feedback">
                                 <?= $validation->getError('confirm'); ?>
                             </div>
                         </div>
 
                         <div class="mb-1">
-                            <label for="passwordLama" class="form-label">Telepon <font color="FF7F7F">*</font></label>
+                            <label for="telepon" class="form-label">Telepon <font color="FF7F7F">*</font></label>
                             <input type="text" class="form-control <?= ($validation->hasError('telepon')) ? 'is-invalid' : ''; ?>" id="telepon" name="telepon">
                             <div class="invalid-feedback">
                                 <?= $validation->getError('telepon'); ?>

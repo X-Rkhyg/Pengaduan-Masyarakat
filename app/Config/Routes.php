@@ -69,7 +69,7 @@ $routes->post('/admin/ganti_password/(:num)', 'Setting::ganti_password_admin/$1'
 $routes->get('/admin/masyarakat/edit/(:num)', 'Admin::editMasyarakat/$1');
 $routes->post('/admin/masyarakat/update/(:num)', 'Admin::updateMasyarakat/$1');
 $routes->get('/admin/masyarakat/delete/(:num)', 'Admin::deleteMasyarakat/$1');
-$routes->get('/petugas/defaultpasspetugas/(:num)', 'Admin::defaultpassMasyarakat/$1');
+$routes->get('/admin/defaultpasspetugas/(:num)', 'Admin::defaultpassPetugas/$1');
 
 $routes->get('/admin/petugas/edit/(:num)', 'Admin::editPetugas/$1');
 $routes->post('/admin/petugas/update/(:num)', 'Admin::updatePetugas/$1');
@@ -86,4 +86,5 @@ $routes->post('/pengaduanadmin/updatetanggapan/(:num)', 'PengaduanAdmin::updatet
 $routes->get('/admin/download/(:num)', 'PengaduanAdmin::download/$1');
 
 $routes->get('/admin/donglot', 'Admin::donglot');
-$routes->get('/generate', 'PdfGenerate::generatePDF');
+$routes->get('/generatemonthly', 'PdfGenerate::generatePDFmonthly');
+$routes->get('/generatedaily', 'PdfGenerate::generatePDFdaily');

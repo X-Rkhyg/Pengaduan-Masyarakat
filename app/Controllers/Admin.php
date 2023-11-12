@@ -113,8 +113,8 @@ class Admin extends BaseController
 
         //jika ada error kembalikan ke halaman register
         if ($errors) {
-            session()->setFlashdata('username', $this->validation->getError('nama_petugas'));
-            session()->setFlashdata('nik', $this->validation->getError('username'));
+            session()->setFlashdata('nama_petugas', $this->validation->getError('nama_petugas'));
+            session()->setFlashdata('username', $this->validation->getError('username'));
             session()->setFlashdata('password', $this->validation->getError('password'));
             session()->setFlashdata('confirm', $this->validation->getError('confirm'));
             session()->setFlashdata('telepon', $this->validation->getError('telepon'));
@@ -319,11 +319,12 @@ class Admin extends BaseController
             return redirect()->back()->withInput()->with('validation', $validation);
         }
 
+        $password = session('password');
         $this->petugasModel->save([
             "id_petugas" => $id,
             "nama_petugas" => $this->request->getVar('nama_petugas'),
             "username" => $this->request->getVar('username'),
-            "password" => $this->request->getVar('password'),
+            "password" => $password,
             "telepon" => $this->request->getVar('telepon'),
             "level" => $this->request->getVar('level'),
         ]);
