@@ -29,12 +29,25 @@ class Pengaduan extends BaseController
             return view('/auth/login-masyarakat', $nologin);
         }
 
-        
+
         if (!$this->validate([
+            'judul' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Isi laporan harus diisi'
+                ]
+            ],
             'isi_laporan' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Isi laporan harus diisi'
+                ]
+            ],
+            
+            'lokasi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Lokasi laporan harus diisi'
                 ]
             ],
             'foto' => [
@@ -43,7 +56,7 @@ class Pengaduan extends BaseController
                     'uploaded' => 'File harus ditambahkan',
                     'max_size' => 'Ukuran file harus kurang dari 10MB',
                 ]
-            ]
+            ],
         ])) {
             $validation = \Config\Services::validation();
             session()->setFlashdata('vall', $validation->listErrors());
@@ -57,12 +70,14 @@ class Pengaduan extends BaseController
         $fileDokumen->move('foto_storage', $newName);
 
         // ambil nama file sampul
-        $idmasyarakat = session('id_masyarakat'); 
+        $idmasyarakat = session('id_masyarakat');
 
         $this->pengaduanModel->save([
             "isi_laporan" => $this->request->getVar('isi_laporan'),
             'id_masyarakat' => $idmasyarakat,
+            'judul' => $this->request->getVar('judul'),
             'tanggal_pengaduan' => date('Y-m-d'),
+            'lokasi' => $this->request->getVar('lokasi'),
             'foto' => $newName,
         ]);
 
@@ -82,7 +97,7 @@ class Pengaduan extends BaseController
 
         $foto = new PengaduanModel();
         $dataFile = $foto->find($id);
-        return $this->response->download('foto_storage/' .$dataFile['foto'], null );
+        return $this->response->download('foto_storage/' . $dataFile['foto'], null);
     }
 
     public function delete($id)
@@ -95,7 +110,11 @@ class Pengaduan extends BaseController
             return view('/auth/login-masyarakat', $nologin);
         }
 
-        $this->pengaduanModel->delete($id);
+        $deleted = 'deleted';
+        $this->pengaduanModel->save([
+            'id_pengaduan' => $id,
+            "status" => $deleted,
+        ]);
         session()->setFlashdata('pesan', 'Data berhasil dihapus.');
         return redirect()->to('/masyarakat/lihat');
     }
@@ -147,7 +166,7 @@ class Pengaduan extends BaseController
             $validation = \Config\Services::validation();
             session()->setFlashdata('vall', $validation->listErrors());
 
-            return redirect()->to('/pengaduan/edit/' . $this->request->getVar('id_pengaduan'))->withInput()-> with('validation', $validation);
+            return redirect()->to('/pengaduan/edit/' . $this->request->getVar('id_pengaduan'))->withInput()->with('validation', $validation);
         }
 
         // ambil gambar
@@ -181,7 +200,7 @@ class Pengaduan extends BaseController
             // Jika belum login, arahkan pengguna ke halaman login
             return view('/auth/login-masyarakat', $nologin);
         }
-        
+
         $data = [
             'title' => 'Edit Data Kelahiran',
             'validation' => \Config\Services::validation(),
@@ -192,7 +211,7 @@ class Pengaduan extends BaseController
             ->where('id_pengaduan', $id)
             ->get()
             ->getResult();
-        
+
 
         return view('masyarakat/tanggapan', ['data' => $data]);
     }

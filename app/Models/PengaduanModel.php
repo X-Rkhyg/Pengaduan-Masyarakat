@@ -24,4 +24,17 @@ class PengaduanModel extends Model
     {
         return $this->db->table('pengaduan')->select('foto')->where('id_pengaduan', $id)->get()->getRowArray();
     }
+
+    public function getDataNonDeleted()
+    {
+        return $this->where('status !=', 'deleted')->findAll();
+    }
+
+    public function getDataWithTwoConditions($idmasyarakat, $deleted)
+    {
+        // Menggunakan metode where untuk menambahkan dua kondisi
+        return $this->where('id_masyarakat', $idmasyarakat)
+                    ->where('status !=', $deleted)
+                    ->findAll();
+    }
 }

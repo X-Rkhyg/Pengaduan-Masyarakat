@@ -70,23 +70,18 @@ class Masyarakat extends BaseController
             return view('/auth/login-masyarakat', $nologin);
         }
         
-        $aduan = new PengaduanModel();
+        $pengaduanModel = new PengaduanModel();
+        $deleted = 'deleted';
         $idmasyarakat = session('id_masyarakat'); // Ambil username dari session
-        $aduan = $aduan->find('id_masyarakat', $idmasyarakat);
-        $aduan = $this->pengaduanModel->findAll();
-        $aduan = array();
-        
         
 
         $data = [
             'validation' => \Config\Services::validation(),
-            'aduan' => $aduan,
         ];
+        
 
-        $data = $this->pengaduanModel->table('pengaduan')
-            ->where('id_masyarakat', $idmasyarakat)
-            ->get()
-            ->getResult();
+        $data = $pengaduanModel->getDataWithTwoConditions($idmasyarakat, $deleted);
+
         
         return view('masyarakat/lihat', ['data' => $data]);
     }

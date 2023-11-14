@@ -82,27 +82,27 @@ $pesan = session()->getFlashdata('pesan');
                     <?php foreach ($data as $adu) : ?>
                         <tr>
                             <td><?= $i++; ?></td>
-                            <td><?= date('d F Y', strtotime($adu->tanggal_pengaduan)); ?></td>
-                            <td><?= $adu->isi_laporan; ?></td>
+                            <td><?= date('d F Y', strtotime($adu['tanggal_pengaduan'])); ?></td>
+                            <td><?= $adu['isi_laporan']; ?></td>
                             <td>
-                                <?php if ($adu->status == "0") : ?>
+                                <?php if ($adu['status'] == "0") : ?>
                                     Pending
-                                <?php elseif ($adu->status == "1") : ?>
+                                <?php elseif ($adu['status'] == "1") : ?>
                                     Proses
-                                <?php elseif ($adu->status == "2") : ?>
+                                <?php elseif ($adu['status'] == "2") : ?>
                                     Selesai
-                                <?php elseif ($adu->status == "3") : ?>
+                                <?php elseif ($adu['status'] == "3") : ?>
                                     Pending
                                 <?php endif; ?>
                             </td>
                             <td>
-                                <a class="btn btn-primary btn-md" href="<?= base_url(); ?>/download/<?= $adu->id_pengaduan ?>"><i class="bi bi-file-earmark-arrow-down"></i></a>
-                                <a class="btn btn-warning btn-md" href="/pengaduan/edit/<?= $adu->id_pengaduan ?>"><i class="bi bi-pencil-square"></i></a>
-                                <a class="btn btn-danger btn-md" href="<?= base_url(); ?>/delete/<?= $adu->id_pengaduan ?>"><i class="bi bi-trash"></i></a>
+                                <a class="btn btn-primary btn-md" href="<?= base_url(); ?>/download/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-file-earmark-arrow-down"></i></a>
+                                <a class="btn btn-warning btn-md" href="/pengaduan/edit/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-pencil-square"></i></a>
+                                <a class="btn btn-danger btn-md" href="<?= base_url(); ?>/delete/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-trash"></i></a>
                                 <!-- info button -->
-                                <a class="btn btn-info btn-md" type="button" data-bs-toggle="modal" data-bs-target="#Modal<?= $adu->id_pengaduan ?>"><i class="bi bi-card-image"></i></a>
-                                <?php if ($adu->status == "2") : ?>
-                                    <a class="btn btn-success btn-md" href="/pengaduan/lihattanggapan/<?= $adu->id_pengaduan ?>"><i class="bi bi-info-circle"></i></a>
+                                <a class="btn btn-info btn-md" type="button" data-bs-toggle="modal" data-bs-target="#Modal<?= $adu['id_pengaduan'] ?>"><i class="bi bi-card-image"></i></a>
+                                <?php if ($adu['status'] == "2") : ?>
+                                    <a class="btn btn-success btn-md" href="/pengaduan/lihattanggapan/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-info-circle"></i></a>
                                 <?php endif; ?>
                             </td>
                         </tr>
@@ -114,7 +114,7 @@ $pesan = session()->getFlashdata('pesan');
 </div>
 
 <?php foreach ($data as $adu) : ?>
-    <div class="modal fade" id="Modal<?= $adu->id_pengaduan ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="Modal<?= $adu['id_pengaduan'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -122,7 +122,7 @@ $pesan = session()->getFlashdata('pesan');
                 </div>
                 <div class="modal-body">
                     <!-- foto pengaduan -->
-                    <img src="/foto_storage/<?= $adu->foto ?>" alt="Image" style="width: auto; height: auto; max-width: 100%; max-height: 100%;">
+                    <img src="/foto_storage/<?= $adu['foto'] ?>" alt="Image" style="width: auto; height: auto; max-width: 100%; max-height: 100%;">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
