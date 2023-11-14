@@ -123,10 +123,11 @@ class Admin extends BaseController
 
         //jika tdk ada error 
         //masukan data ke database
+        $hashedpass = md5($data['password']);
         $this->petugasModel->save([
             'nama_petugas' => $data['nama_petugas'],
             'username' => $data['username'],
-            'password' => $data['password'],
+            'password' => $hashedpass,
             'telepon' => $data['telepon'],
             'level' => $data['level'],
 

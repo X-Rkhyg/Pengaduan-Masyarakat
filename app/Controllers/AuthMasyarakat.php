@@ -51,6 +51,9 @@ class AuthMasyarakat extends BaseController
         //cek errornya
         $errors = $this->validation->getErrors();
 
+        //hash password
+        
+
         //jika ada error kembalikan ke halaman register
         if ($errors) {
             session()->setFlashdata('username', $this->validation->getError('username'));
@@ -61,12 +64,13 @@ class AuthMasyarakat extends BaseController
             return redirect()->to('/auth/daftar');
         }
 
+        $hashedpass = md5($data['password']);
         //jika tdk ada error 
         //masukan data ke database
         $this->masyarakatModel->save([
             'username' => $data['username'],
             'nik' => $data['nik'],
-            'password' => $data['password'],
+            'password' => $hashedpass,
             'telepon' => $data['telepon'],
 
 
@@ -89,7 +93,7 @@ class AuthMasyarakat extends BaseController
         if ($masyarakat) {
             //cek password
             //jika salah arahkan lagi ke halaman login
-            if ($masyarakat['password'] != $data['password']) {
+            if ($masyarakat['password'] != md5($data['password'])) {
                 session()->setFlashdata('password', 'Password salah');
                 return redirect()->to('/auth/login');
             } else {
@@ -165,6 +169,7 @@ class AuthMasyarakat extends BaseController
             session()->setFlashdata('pesan', 'Password Baru tidak boleh default');
             return redirect()->to('/masyarakat/defaultchange');
         } else {
+            $hashedpass = md5($newpassword['passwordBaru']);
             //jika benar, arahkan user masuk ke aplikasi 
             $this->masyarakatModel->save([
                 'id_masyarakat' => session('id_masyarakat'),
@@ -174,7 +179,7 @@ class AuthMasyarakat extends BaseController
             $this->session->set([
                 'id_masyarakat' => session('id_masyarakat'), //tambahkan id_petugas ke session
                 'username' => session('username'),
-                'password' => $newpassword['passwordBaru'], //tambahkan password ke session
+                'password' => $hashedpass, //tambahkan password ke session
                 'nik' => session('nik'),
                 'isLogin' => true,
             ]);

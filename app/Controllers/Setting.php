@@ -141,22 +141,23 @@ class Setting extends BaseController
             return redirect()->to('/petugas/setting' . $this->request->getVar('id_petugas'))->withInput()->with('validation', $validation);
         }
 
-        if ($data['passwordLama'] != $currentpassword) {
+        if (md5($data['passwordLama']) != $currentpassword) {
             session()->setFlashdata('pesanError', 'Password Lama Tidak Cocok');
             return redirect()->to('/petugas/setting');
         } else {
-            //jika benar, arahkan user masuk ke aplikasi 
+            //jika benar, arahkan user masuk ke aplikasi
+            $hashedpass = md5($newpassword['passwordBaru']); 
             $this->petugasModel->save([
                 'id_petugas' => $id,
                 'nama_petugas' => $this->request->getVar('nama_petugas'),
                 'username' => $this->request->getVar('username'),
-                'password' => $this->request->getVar('passwordBaru'),
+                'password' => $hashedpass,
             ]);
 
             $this->session->set([
                 'id_petugas' => session('id_petugas'), //tambahkan id_petugas ke session
                 'username' => session('username'),
-                'password' => $newpassword['passwordBaru'], //tambahkan password ke session
+                'password' => $hashedpass, //tambahkan password ke session
                 'nama_petugas' => session('nama_petugas'),
                 'level' => session('level'),
                 'isLoginPetugas' => true,
@@ -212,22 +213,23 @@ class Setting extends BaseController
             return redirect()->to('/admin/setting' . $this->request->getVar('id_petugas'))->withInput()->with('validation', $validation);
         }
 
-        if ($data['passwordLama'] != $currentpassword) {
+        if (md5($data['passwordLama']) != $currentpassword) {
             session()->setFlashdata('pesan', 'Password Lama Tidak Cocok');
             return redirect()->to('/admin/setting');
         } else {
             //jika benar, arahkan user masuk ke aplikasi 
+            $hashedpass = md5($newpassword['passwordBaru']);
             $this->petugasModel->save([
                 'id_petugas' => $id,
                 'nama_petugas' => $this->request->getVar('nama_petugas'),
                 'username' => $this->request->getVar('username'),
-                'password' => $this->request->getVar('passwordBaru'),
+                'password' => $hashedpass,
             ]);
 
             $this->session->set([
                 'id_petugas' => session('id_petugas'), //tambahkan id_petugas ke session
                 'username' => session('username'),
-                'password' => $newpassword['passwordBaru'], //tambahkan password ke session
+                'password' => $hashedpass, //tambahkan password ke session
                 'nama_petugas' => session('nama_petugas'),
                 'level' => session('level'),
                 'isLoginAdmin' => true,

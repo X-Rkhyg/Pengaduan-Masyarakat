@@ -44,18 +44,19 @@ class AuthPetugas extends BaseController
         if($petugas){
             //cek password
             //jika salah arahkan lagi ke halaman login
-            if($petugas['password'] != $data['password']){
+            if($petugas['password'] != md5($data['password'])){
                 session()->setFlashdata('password', 'Password salah');
                 return redirect()->to('/auth/loginpetugas');
             }
             else{
                 if ($petugas['level'] == 'admin') {
                     //jika benar, buat session
+                    $hashedpass = md5($petugas['password']);
                     $this->session->set([
                         'id_petugas' => $petugas['id_petugas'], //tambahkan id_petugas ke session
                         'username' => $petugas['username'],
                         'nama_petugas' => $petugas['nama_petugas'],
-                        'password' => $petugas['password'],
+                        'password' => $hashedpass,
                         'level' => $petugas['level'],
                         'isLoginAdmin' => true,
                     ]);
@@ -64,10 +65,11 @@ class AuthPetugas extends BaseController
                     return redirect()->to('/admin');
                 } else {
                     //jika benar, buat session
+                    $hashedpass = md5($petugas['password']);
                     $this->session->set([
                         'id_petugas' => $petugas['id_petugas'], //tambahkan id_petugas ke session
                         'username' => $petugas['username'],
-                        'password' => $petugas['password'], //tambahkan password ke session
+                        'password' => $hashedpass, //tambahkan password ke session
                         'nama_petugas' => $petugas['nama_petugas'],
                         'level' => $petugas['level'],
                         'isLoginPetugas' => true,
