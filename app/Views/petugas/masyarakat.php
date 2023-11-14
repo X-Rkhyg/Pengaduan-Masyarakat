@@ -76,7 +76,7 @@ $session = session()
                         <th>Username</th>
                         <th>Password</th>
                         <th>Telepon</th>
-                        <th>Telepon</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>

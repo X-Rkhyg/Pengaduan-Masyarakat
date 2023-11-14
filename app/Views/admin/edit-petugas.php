@@ -29,7 +29,7 @@ $session = session()
 
                         <div class="mb-1">
                             <label for="username" class="form-label">Username <font color="FF7F7F">*</font></label>
-                            <input type="text" class="form-control <?= ($validation->hasError('username')) ? 'is-invalid' : ''; ?>" id="username" name="username" value="<?= (old('username')) ? old('username') : $petugas['username']; ?>">
+                            <input type="text" class="form-control <?= ($validation->hasError('username')) ? 'is-invalid' : ''; ?>" id="username" name="username" value="<?= (old('username')) ? old('username') : $petugas['username']; ?>" readonly>
                             <div class="invalid-feedback">
                                 <?= $validation->getError('username'); ?>
                             </div>

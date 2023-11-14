@@ -2,9 +2,12 @@
 <?= $this->section('content'); ?>
 
 <?php
-$pesan = session()->getFlashdata('pesan');
+$a = session()->getFlashdata('a');
+$b = session()->getFlashdata('b');
+$c = session()->getFlashdata('c');
 $session = session()
 ?>
+<?php $validation = \Config\Services::validation(); ?>
 
 <div class="shadow-bottom"></div>
 <div class="scrollbar-container main-menu-content ps ps--active-y">
@@ -68,25 +71,31 @@ $session = session()
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <?php if ($pesan) { ?>
-                                <?php echo $pesan ?>
+                            <?php if ($a) { ?>
+                                <p style="color: red;"> <?php echo $a ?> </p>
+                            <?php } ?>
+                            <?php if ($b) { ?>
+                                <p style="color: red;"> <?php echo $b ?> </p>
+                            <?php } ?>
+                            <?php if ($c) { ?>
+                                <p style="color: red;"> <?php echo $c ?> </p>
                             <?php } ?>
                             <form action="/masyarakat/ganti_password/<?= $session->get('id_masyarakat'); ?>" method="post">
                                 <?= csrf_field(); ?>
 
-                                <div class="mb-1">
+                                <div class="mb-1 mt-1">
                                     <label for="username" class="form-label">Username <font color="FF7F7F">*</font></label>
-                                    <input name="username" type="text" class="form-control" autocomplete="off" placeholder="Masukan Username Baru" value="<?= $session->get('username'); ?>">
+                                    <input name="username" type="text" class="form-control" autocomplete="off" placeholder="Masukan Username Baru" value="<?= $session->get('username'); ?>" readonly>
                                 </div>
 
                                 <div class="mb-1">
                                     <label for="nama" class="form-label">NIK <font color="FF7F7F">*</font></label>
-                                    <input name="nik" type="text" class="form-control" autocomplete="off" placeholder="Masukan Nama Baru" value="<?= $session->get('nik'); ?>">
+                                    <input name="nik" type="text" class="form-control" autocomplete="off" placeholder="Masukan Nama Baru" value="<?= $session->get('nik'); ?>" readonly>
                                 </div>
 
                                 <div class="mb-1">
                                     <label for="password" class="form-label">Password Lama<font color="FF7F7F">*</font></label>
-                                    <input type="text" class="form-control <?= ($validation->hasError('passwordLama')) ? 'is-invalid' : ''; ?>" id="passwordLama" name="passwordLama" placeholder="Password Lama Anda" autocomplete="off" required>
+                                    <input type="password" class="form-control <?= ($validation->hasError('passwordLama')) ? 'is-invalid' : ''; ?>" id="passwordLama" name="passwordLama" placeholder="Password Lama Anda" autocomplete="off" required>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('passwordLama'); ?>
                                     </div>
@@ -108,12 +117,15 @@ $session = session()
                                     </div>
                                 </div>
 
-                                <button type="submit" class="me-1 btn btn-primary mt-2">Ganti Password</button>
-                                <div class="text-end"><small>
-                                        <font color="FF7F7F">*</font> required fields
-                                    </small>
-                                </div>
+                                <button type="submit" class="me-1 btn btn-primary mt-2">Simpan Perubahan</button>
                             </form>
+                            <a href="/masyarakat">
+                                <button class="me-1 btn btn-outline-primary">Cancel</button>
+                            </a>
+                            <div class="text-end"><small>
+                                    <font color="FF7F7F">*</font> required fields
+                                </small>
+                            </div>
                         </div>
                     </div>
                 </div>

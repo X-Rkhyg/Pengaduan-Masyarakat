@@ -5,6 +5,7 @@
 $pesan = session()->getFlashdata('pesan');
 $session = session()
 ?>
+<?php $validation = \Config\Services::validation(); ?>
 
 <div id="layoutSidenav_content">
     <main>
@@ -22,6 +23,7 @@ $session = session()
                         <div class="mb-1">
                             <label for="nama" class="form-label">NIK <font color="FF7F7F">*</font></label>
                             <input type="text" class="form-control <?= ($validation->hasError('nik')) ? 'is-invalid' : ''; ?>" id="nik" name="nik" value="<?= (old('nik')) ? old('nik') : $masyarakat['nik']; ?>">
+                            <!-- validation NIK get from validation -->
                             <div class="invalid-feedback">
                                 <?= $validation->getError('nik'); ?>
                             </div>
@@ -29,7 +31,7 @@ $session = session()
 
                         <div class="mb-1">
                             <label for="username" class="form-label">Username <font color="FF7F7F">*</font></label>
-                            <input type="text" class="form-control <?= ($validation->hasError('username')) ? 'is-invalid' : ''; ?>" id="username" name="username" value="<?= (old('username')) ? old('username') : $masyarakat['username']; ?>">
+                            <input type="text" class="form-control <?= ($validation->hasError('username')) ? 'is-invalid' : ''; ?>" id="username" name="username" value="<?= (old('username')) ? old('username') : $masyarakat['username']; ?>" readonly>
                             <div class="invalid-feedback">
                                 <?= $validation->getError('username'); ?>
                             </div>

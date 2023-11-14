@@ -35,19 +35,6 @@ class Setting extends BaseController
         $data = $this->request->getPost();
 
         if (!$this->validate([
-            'username' => [
-                "rules" => "required|alpha_numeric",
-                "errors" => [
-                    "required" => "Username harus diisi",
-                    "alpha_numeric" => "Username harus berupa huruf kecil semua"
-                ]
-            ],
-            'nik'=> [
-                "rules" => "required",
-                "errors"=> [
-                    "required"=> "Username harus diisi",
-                ]
-            ],
             'passwordLama' => [
                 'rules' => 'required',
                 'errors' => [
@@ -60,20 +47,25 @@ class Setting extends BaseController
                     'required' => 'Password Baru harus diisi',
                     'min_length' => 'Password Baru minimal 8 karakter'
                 ]
-            ],
-            'confirm' => [
-                'rules' => 'required|matches[passwordBaru]',
-                'errors' => [
-                    'required' => 'Konfirmasi Password harus diisi',
-                    'matches' => 'Konfirmasi Password tidak sesuai'
-                ]
             ]
         ])) {
             $validation = \Config\Services::validation();
             return redirect()->to('/masyarakat/setting' . $this->request->getVar('id-masyarakat'))->withInput()->with('validation', $validation);
         }
-        if ($data['passwordLama'] != $currentpassword) {
-            session()->setFlashdata('pesan', 'Password Lama Tidak Cocok');
+        // get error validation
+        if (md5($data['passwordLama']) != $currentpassword) {
+            // ambil pesan error dari $validation
+            $pesanLama = $this->validation->getError('passwordLama');
+            session()->setFlashdata('a', 'Password Lama Tidak Cocok');
+            return redirect()->to('/masyarakat/setting');
+        }
+        if (md5($data['passwordBaru']) == $currentpassword) {
+            session()->setFlashdata('b', 'Password Baru Tidak Boleh Sama Dengan Password Lama');
+            return redirect()->to('/masyarakat/setting');
+        }
+        // confirm password tidak sesuai dengan password baru
+        if ($data['confirm'] != $newpassword['passwordBaru']) {
+            session()->setFlashdata('c', 'Konfirmasi Password Tidak Sesuai');
             return redirect()->to('/masyarakat/setting');
         } else {
             //jika benar, arahkan user masuk ke aplikasi 
@@ -83,11 +75,12 @@ class Setting extends BaseController
             ]);
 
             $this->session->set([
-                'id_petugas' => session('id_petugas'), //tambahkan id_petugas ke session
+                'id_masyarakat' => session('id_masyarakat'), //tambahkan id_masyarakat ke session
                 'username' => session('username'),
                 'password' => $newpassword['passwordBaru'], //tambahkan password ke session
-                'nama_petugas' => session('nama_petugas'),
-                'level' => session('level'),
+                'nik' => session('nik'),
+                'nama' => session('nama'),
+                'telp' => session('telp'),
                 'isLogin' => true,
             ]);
 

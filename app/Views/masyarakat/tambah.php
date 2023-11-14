@@ -67,7 +67,10 @@
                                 <?= session()->getFlashdata('vall'); ?>
                             <?php endif; ?>
                             <form action="/masyarakat/save" method="post" enctype="multipart/form-data">
-                                <div class="mb-1"><label for="name" class="form-label form-label">Isi Laporan<font color="FF7F7F">*</font></label><input name="isi_laporan" placeholder="Laporan Anda" type="text" class="form-control"></div>
+                                <div class="mb-1"><label for="judul" class="form-label form-label">Judul<font color="FF7F7F">*</font></label><input name="judul" placeholder="Judul Laporan Anda" type="text" class="form-control"></div>
+                                <div class="mb-1"><label for="isi_laporan" class="form-label form-label">Isi Laporan<font color="FF7F7F">*</font></label><textarea name="isi_laporan" placeholder="Laporan Anda" type="text" class="form-control"></textarea></div>
+                                <!-- lokasi -->
+                                <div class="mb-1"><label for="lokasi" class="form-label form-label">Lokasi<font color="FF7F7F">*</font></label><input name="lokasi" placeholder="Lokasi Laporan Anda" type="text" class="form-control"></div>
                                 <!-- upload foto -->
                                 <div class="mb-1"><label for="name" class="form-label form-label">Foto<font color="FF7F7F">*</font></label><input name="foto" placeholder="Laporan Anda" type="file" class="form-control"></div>
                                 <button type="submit" class="me-1 btn btn-primary">Submit</button>

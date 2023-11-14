@@ -43,7 +43,7 @@ class Validation extends BaseConfig
 
     public $register = [
         'username' => [
-            'rules' => 'alpha_numeric|is_unique[masyarakat.username]',
+            'rules' => 'alpha_numeric|is_unique[masyarakat.username]',  
             'errors' => [
                 'alpha_numeric' => 'Username hanya boleh mengandung huruf dan angka',
                 'is_unique' => 'Username sudah dipakai'

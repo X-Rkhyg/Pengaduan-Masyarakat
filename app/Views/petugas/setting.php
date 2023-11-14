@@ -87,7 +87,7 @@ $session = session()
 
                                             <div class="mb-1">
                                                 <label for="username" class="form-label">Username <font color="FF7F7F">*</font></label>
-                                                <input name="username" type="text" class="form-control" autocomplete="off" placeholder="Masukan Username Baru" value="<?= $session->get('username'); ?>">
+                                                <input name="username" type="text" class="form-control" autocomplete="off" placeholder="Masukan Username Baru" value="<?= $session->get('username'); ?>" readonly>
                                             </div>
 
                                             <div class="mb-1">

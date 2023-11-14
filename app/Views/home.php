@@ -74,7 +74,7 @@
                     <div class="count-box justify-content-center">
                         <i class="bi bi-info-circle"></i>
                         <div>
-                            <span data-purecounter-start="0" data-purecounter-end="831776" data-purecounter-duration="1" class="purecounter">831776</span>
+                            <span data-purecounter-start="0" data-purecounter-end="<?= $jumlah; ?>" data-purecounter-duration="1" class="purecounter"><?= $jumlah; ?></span>
                             <p>JUMLAH LAPORAN SEKARANG</p>
                         </div>
                     </div>
