@@ -66,7 +66,9 @@
                             <?= session()->getFlashdata('vall'); ?>
                         <?php endif; ?>
                             <form action="/pengaduan/update/<?= $aduan['id_pengaduan']; ?>" method="post" enctype="multipart/form-data">
+                                <div class="mb-1"><label for="name" class="form-label form-label">Judul Laporan <font color="FF7F7F">*</font></label><input name="judul" placeholder="Laporan Anda" value="<?= (old('judul')) ? old('judul') : $aduan['judul'] ?>" type="text" class="form-control"></div>
                                 <div class="mb-1"><label for="name" class="form-label form-label">Isi Laporan <font color="FF7F7F">*</font></label><input name="isi_laporan" placeholder="Laporan Anda" value="<?= (old('isi_laporan')) ? old('isi_laporan') : $aduan['isi_laporan'] ?>" type="text" class="form-control"></div>
+                                <div class="mb-1"><label for="name" class="form-label form-label">Lokasi <font color="FF7F7F">*</font></label><input name="lokasi" placeholder="Laporan Anda" value="<?= (old('lokasi')) ? old('lokasi') : $aduan['lokasi'] ?>" type="text" class="form-control"></div>
                                 <!-- upload foto -->
                                 <div class="mb-1"><label for="foto" class="form-label form-label">Foto</label><input name="foto" placeholder="Laporan Anda" value="<?= (old('foto')) ? old('foto') : $aduan['foto'] ?>" type="file" class="form-control"></div>
                                 <button type="submit" class="me-1 btn btn-primary">Submit</button>

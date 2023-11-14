@@ -34,7 +34,7 @@ class Pengaduan extends BaseController
             'judul' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Isi laporan harus diisi'
+                    'required' => 'Judul laporan harus diisi'
                 ]
             ],
             'isi_laporan' => [
@@ -43,7 +43,7 @@ class Pengaduan extends BaseController
                     'required' => 'Isi laporan harus diisi'
                 ]
             ],
-            
+
             'lokasi' => [
                 'rules' => 'required',
                 'errors' => [
@@ -150,6 +150,18 @@ class Pengaduan extends BaseController
 
         $idmasyarakat = session('id_masyarakat'); // Ambil nik dari session
         if (!$this->validate([
+            'judul' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Judul laporan harus diisi'
+                ]
+            ],
+            'lokasi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Lokasi laporan harus diisi'
+                ]
+            ],
             'isi_laporan' => [
                 'rules' => 'required',
                 'errors' => [
@@ -183,7 +195,9 @@ class Pengaduan extends BaseController
 
         $this->pengaduanModel->save([
             'id_pengaduan' => $id,
+            'judul' => $this->request->getVar('judul'),
             "isi_laporan" => $this->request->getVar('isi_laporan'),
+            'lokasi' => $this->request->getVar('lokasi'),
             'id_masyarakat' => $idmasyarakat,
             'foto' => $newName,
         ]);

@@ -67,7 +67,7 @@ $pesan = session()->getFlashdata('pesan');
     <div class="header-navbar-shadow"></div>
     <div class="container-xxl p-0">
         <div>
-            <table id="example" class="table table-striped" style="width:100%">
+            <table id="example" class="table table-striped" style="width:100%;">
                 <thead>
                     <tr>
                         <th>NO</th>
@@ -86,7 +86,7 @@ $pesan = session()->getFlashdata('pesan');
                             <td><?= $i++; ?></td>
                             <td><?= date('d F Y', strtotime($adu['tanggal_pengaduan'])); ?></td>
                             <td><?= $adu['judul']; ?></td>
-                            <td style="max-width: 10px;" ><?= $adu['isi_laporan']; ?></td>
+                            <td style="max-width: 10px;"><?= $adu['isi_laporan']; ?></td>
                             <td><?= $adu['lokasi']; ?></td>
                             <td>
                                 <?php if ($adu['status'] == "0") : ?>
