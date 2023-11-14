@@ -10,7 +10,7 @@ class PengaduanModel extends Model
     protected $useAutoIncrement = true;
     protected $primaryKey = 'id_pengaduan';
     protected $useTimestamps = true;
-    protected $allowedFields = ['isi_laporan', 'foto', 'status', 'tanggal_pengaduan', 'id_masyarakat'];
+    protected $allowedFields = ['judul','isi_laporan','lokasi', 'foto', 'status', 'tanggal_pengaduan', 'id_masyarakat'];
 
     public function getPengaduan($id = false)
     {
