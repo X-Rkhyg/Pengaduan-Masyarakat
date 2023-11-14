@@ -51,13 +51,14 @@ class Petugas extends BaseController
             // Jika belum login, arahkan pengguna ke halaman login
             return view('/auth/login-petugas', $nologin);
         }
-
-        $pengaduan = $this->pengaduanModel->findAll();
-
+        $pengaduanModel = new PengaduanModel();
+        $deleted = 'deleted';
         $data = [
-            'title' => 'Validasi - Aplikasi Pengaduan Masyarakat',
-            'aduan' => $pengaduan
+            'validation' => \Config\Services::validation(),
         ];
+        
+
+        $data = $pengaduanModel->getDataWithOneConditions($deleted);
 
         return view('petugas/validasi', $data);
     }

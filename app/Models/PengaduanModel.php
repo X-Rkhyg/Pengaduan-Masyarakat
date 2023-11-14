@@ -37,4 +37,11 @@ class PengaduanModel extends Model
                     ->where('status !=', $deleted)
                     ->findAll();
     }
+
+    public function getDataWithOneConditions($deleted)
+    {
+        // Menggunakan metode where untuk menambahkan dua kondisi
+        return $this->where('status !=', $deleted)
+                    ->findAll();
+    }
 }
