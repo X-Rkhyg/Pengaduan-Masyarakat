@@ -43,7 +43,7 @@ $session = session()
                                             ********
                                         <?php endif; ?></td>
                                     <td><?= $p['telepon']; ?></td>
-                                    <td><?= $p['level']; ?></td>
+                                    <td><p style="text-transform: capitalize;"><?= $p['level']; ?></p></td>
                                     <td>
                                         <a class="btn btn-primary btn-sm" href="/admin/petugas/edit/<?= $p['id_petugas'] ?>"><i class="bi bi-pencil-square"></i></a>
                                         <a class="btn btn-warning btn-sm" href="/admin/defaultpasspetugas/<?= $p['id_petugas'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Mereset Data Ini?')"><i class="bi bi-key"></i></a>

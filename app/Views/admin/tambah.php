@@ -67,7 +67,7 @@ $session = session()
                             </select>
                         </div>
 
-                        <button type="submit" class="me-1 btn btn-primary">Simpan Perubahan</button>
+                        <button type="submit" class="me-1 btn btn-primary">Tambahkan</button>
                         <div class="text-end"><small>
                                 <font color="FF7F7F">*</font> required fields
                             </small>
