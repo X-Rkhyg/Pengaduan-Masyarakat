@@ -86,7 +86,7 @@ $pesan = session()->getFlashdata('pesan');
                             <td><?= $i++; ?></td>
                             <td><?= date('d F Y', strtotime($adu['tanggal_pengaduan'])); ?></td>
                             <td><?= $adu['judul']; ?></td>
-                            <td><?= $adu['isi_laporan']; ?></td>
+                            <td style="max-width: 10px;" ><?= $adu['isi_laporan']; ?></td>
                             <td><?= $adu['lokasi']; ?></td>
                             <td>
                                 <?php if ($adu['status'] == "0") : ?>
@@ -102,7 +102,7 @@ $pesan = session()->getFlashdata('pesan');
                             <td>
                                 <a class="btn btn-primary btn-md" href="<?= base_url(); ?>/download/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-file-earmark-arrow-down"></i></a>
                                 <a class="btn btn-warning btn-md" href="/pengaduan/edit/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-pencil-square"></i></a>
-                                <a class="btn btn-danger btn-md" href="<?= base_url(); ?>/delete/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-trash"></i></a>
+                                <a class="btn btn-danger btn-md" href="<?= base_url(); ?>/delete/<?= $adu['id_pengaduan'] ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="bi bi-trash"></i></a>
                                 <!-- info button -->
                                 <a class="btn btn-info btn-md" type="button" data-bs-toggle="modal" data-bs-target="#Modal<?= $adu['id_pengaduan'] ?>"><i class="bi bi-card-image"></i></a>
                                 <?php if ($adu['status'] == "2") : ?>
