@@ -53,13 +53,12 @@ class Petugas extends BaseController
         }
         $pengaduanModel = new PengaduanModel();
         $deleted = 'deleted';
+        $aduan = $pengaduanModel->getDataWithOneConditions($deleted);
         $data = [
+            'title' => 'Validasi Pengaduan',
             'validation' => \Config\Services::validation(),
-        ];
-        
-
-        $data = $pengaduanModel->getDataWithOneConditions($deleted);
-
+            'aduan' => $aduan,
+        ]; 
         return view('petugas/validasi', $data);
     }
 
@@ -196,7 +195,7 @@ class Petugas extends BaseController
         $default = 'defaultpassword';
         $this->masyarakatModel->save([
             "id_masyarakat" => $id,
-            "password" => $default,
+            "password" => md5($default),
         ]);
         session()->setFlashdata('pesan', 'Password berhasil diubah ke default.');
         return redirect()->to('/petugas/management');

@@ -53,6 +53,8 @@ $routes->get('/pengaduanpetugas/tolak/(:num)', 'PengaduanPetugas::tolak/$1');
 $routes->get('/pengaduanpetugas/tanggapan/(:num)', 'PengaduanPetugas::tanggapan/$1');
 $routes->post('/pengaduanpetugas/updatetanggapan/(:num)', 'PengaduanPetugas::updatetanggapan/$1');
 $routes->get('/petugas/download/(:num)', 'PengaduanPetugas::download/$1');
+$routes->get('/petugas/defaultchange', 'AuthPetugas::defaultchangePetugas');
+$routes->post('/petugas/defaultchange/save', 'AuthPetugas::defaultchangesavePetugas');
 
 
 //Admin
@@ -82,8 +84,9 @@ $routes->get('/pengaduanadmin/validasi/(:num)', 'PengaduanAdmin::validasi/$1');
 $routes->get('/pengaduanadmin/tolak/(:num)', 'PengaduanAdmin::tolak/$1');
 $routes->get('/pengaduanadmin/tanggapan/(:num)', 'PengaduanAdmin::tanggapan/$1');
 $routes->post('/pengaduanadmin/updatetanggapan/(:num)', 'PengaduanAdmin::updatetanggapan/$1');
-
 $routes->get('/admin/download/(:num)', 'PengaduanAdmin::download/$1');
+$routes->get('/admin/defaultchange', 'AuthPetugas::defaultchangeAdmin');
+$routes->post('/admin/defaultchange/save', 'AuthPetugas::defaultchangesaveAdmin');
 
 $routes->get('/admin/donglot', 'Admin::donglot');
 $routes->get('/generatemonthly', 'PdfGenerate::generatePDFmonthly');

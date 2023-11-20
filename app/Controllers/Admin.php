@@ -361,7 +361,7 @@ class Admin extends BaseController
         $default = 'defaultpassword';
         $this->masyarakatModel->save([
             "id_masyarakat" => $id,
-            "password" => $default,
+            "password" => md5($default),
         ]);
         session()->setFlashdata('pesan', 'Password berhasil diubah ke default.');
         return redirect()->to('/admin/management');
@@ -380,7 +380,7 @@ class Admin extends BaseController
         $default = 'defaultpassword';
         $this->petugasModel->save([
             "id_petugas" => $id,
-            "password" => $default,
+            "password" => md5($default),
         ]);
         session()->setFlashdata('pesan', 'Password berhasil diubah ke default.');
         return redirect()->to('/admin/managementpetugas');
