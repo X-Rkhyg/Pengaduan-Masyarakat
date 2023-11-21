@@ -37,8 +37,8 @@ $session = session()
                                     <td><?= $p['nama_petugas']; ?></td>
                                     <td><?= $p['username']; ?></td>
                                     <td>
-                                        <?php if ($p['password'] == "defaultpassword") : ?>
-                                            <?= $p['password']; ?>
+                                    <?php if ($p['password'] == md5("defaultpassword")) : ?>
+                                            <p style="color: FF8400;">defaultpassword</p>
                                         <?php else : ?>
                                             ********
                                         <?php endif; ?></td>

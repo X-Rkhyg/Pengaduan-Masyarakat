@@ -43,8 +43,8 @@ class Admin extends BaseController
 
         $jumlah = $this->pengaduanModel->countAll();
         $jumlahBelumValidasi = $this->pengaduanModel->where('status', '0')->countAllResults();
-        $jumlahSudahTanggapi = $this->pengaduanModel->where('status', 'proses')->countAllResults();
-        $jumlahSudahValidasi = $this->pengaduanModel->where('status', 'selesai')->countAllResults();
+        $jumlahSudahTanggapi = $this->pengaduanModel->where('status', '1')->countAllResults();
+        $jumlahSudahValidasi = $this->pengaduanModel->where('status', '2')->countAllResults();
 
         $data = [
             'title' => 'Data Kelahiran Sleman',
