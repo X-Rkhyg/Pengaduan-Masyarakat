@@ -111,6 +111,10 @@ class Admin extends BaseController
         $novemberY = $novemberT + $novemberV;
         $desemberY = $desemberT + $desemberV;
 
+        $tanggal = date('Y-m-d');
+        $totaly = $this->pengaduanModel->where('tanggal_pengaduan', $tanggal)->countAllResults();
+        $pengaduan = $this->pengaduanModel->where('tanggal_pengaduan', $tanggal)->findAll();
+
 
         $data = [
             'title' => 'Data Kelahiran Sleman',
@@ -157,6 +161,9 @@ class Admin extends BaseController
             'oktoberY' => $oktoberY,
             'novemberY' => $novemberY,
             'desemberY' => $desemberY,
+
+            'aduan' => $pengaduan,
+            'totaly' => $totaly
         ];
         return view('admin/home', $data);
     }

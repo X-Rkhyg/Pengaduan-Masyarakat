@@ -137,9 +137,55 @@ $session = session()
                     </div>
                 </div>
             </div>
-            <figure class="highcharts-figure">
-                <div id="container"></div>
-            </figure>
+            <div class="card mb-4 mt-4">
+                <h4 class="mt-2 ms-3">Daftar Pengaduan hari Ini - <?= $totaly; ?> Pengaduan</h4>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>NO</th>
+                                <th>Tanggal Laporan</th>
+                                <th>Judul Laporan</th>
+                                <th>Isi Laporan</th>
+                                <th>Lokasi</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1; ?>
+                            <?php foreach ($aduan as $adu) : ?>
+                                <tr>
+                                    <td><?= $i++; ?></td>
+                                    <td><?= $adu['tanggal_pengaduan'] ?></td>
+                                    <td><?= $adu['judul'] ?></td>
+                                    <td>
+                                        <p style="width: 600px; word-wrap:break-word;"><?= $adu['isi_laporan']; ?></p>
+                                    </td>
+                                    <td><?= $adu['lokasi'] ?></td>
+                                    <td>
+                                        <?php if ($adu['status'] == "0") : ?>
+                                            Pending
+                                        <?php elseif ($adu['status'] == "1") : ?>
+                                            Proses
+                                        <?php elseif ($adu['status'] == "2") : ?>
+                                            Selesai
+                                        <?php elseif ($adu['status'] == "3") : ?>
+                                            Ditolak
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card mb-4 mt-4">
+                <div class="card-body">
+                    <figure class="highcharts-figure">
+                        <div id="container"></div>
+                    </figure>
+                </div>
+            </div>
         </div>
     </main>
 
