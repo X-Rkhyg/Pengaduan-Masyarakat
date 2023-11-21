@@ -106,7 +106,7 @@ class AuthMasyarakat extends BaseController
                     'nik' => $masyarakat['nik'],
                 ];
                 $this->session->set($sessLogin);
-                if ($sessLogin['password'] == "defaultpassword") {
+                if ($sessLogin['password'] == md5("defaultpassword")) {
                     session()->setFlashdata('password', 'Ganti Password terlebih dahulu');
                     return redirect()->to('/masyarakat/defaultchange');
                 } else {
