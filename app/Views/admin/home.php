@@ -11087,7 +11087,7 @@ $session = session()
         Highcharts.chart('container', {
 
             title: {
-                text: 'Jumlah Laporan Pertahun',
+                text: 'Jumlah Laporan Pertahun - 2023',
                 align: 'left'
             },
 
