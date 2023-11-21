@@ -78,7 +78,9 @@ $routes->post('/admin/petugas/update/(:num)', 'Admin::updatePetugas/$1');
 $routes->get('/admin/petugas/delete/(:num)', 'Admin::deletePetugas/$1');
 $routes->get('/admin/tambahpetugas', 'Admin::tambahPetugas');
 $routes->post('/admin/savepetugas', 'Admin::savePetugas');
-$routes->get('/petugas/defaultpasspetugas/(:num)', 'Admin::defaultpassPetugas/$1');
+$routes->get('/admin/defaultpasspetugas/(:num)', 'Admin::defaultpassPetugas/$1');
+$routes->get('/admin/defaultpass/(:num)', 'Admin::defaultpassMasyarakat/$1');
+
 
 $routes->get('/pengaduanadmin/validasi/(:num)', 'PengaduanAdmin::validasi/$1');
 $routes->get('/pengaduanadmin/tolak/(:num)', 'PengaduanAdmin::tolak/$1');

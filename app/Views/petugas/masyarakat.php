@@ -88,17 +88,13 @@ $session = session()
                             <td><?= $m['nik']; ?></td>
                             <td><?= $m['username']; ?></td>
                             <td>
-                                <?php if ($m['password'] == md5("defaultpassword")) : ?>
-                                    <p style="color: FF8400;">defaultpassword</p>
-                                <?php else : ?>
-                                    <?php
-                                    $password = $m['password'];
-                                    $password = str_split($password);
-                                    $password = array_fill(0, count($password), '*');
-                                    $password = implode($password);
-                                    echo $password;
-                                    ?>
-                                <?php endif; ?>
+                                <!-- change Password to * -->
+                                <?php
+                                $password = $m['password'];
+                                $length = strlen($password);
+                                $password = substr_replace($password, str_repeat("*", $length - 2), 1, $length - 2);
+                                echo $password;
+                                ?>
                             </td>
                             <td><?= $m['telepon']; ?></td>
                             <td>

@@ -121,13 +121,6 @@ class Setting extends BaseController
                     'required' => 'Password Baru harus diisi',
                     'min_length' => 'Password Baru minimal 8 karakter'
                 ]
-            ],
-            'confirm' => [
-                'rules' => 'required|matches[passwordBaru]',
-                'errors' => [
-                    'required' => 'Konfirmasi Password harus diisi',
-                    'matches' => 'Konfirmasi Password tidak sesuai'
-                ]
             ]
         ])) {
             $validation = \Config\Services::validation();
@@ -135,16 +128,22 @@ class Setting extends BaseController
         }
 
         if (md5($data['passwordLama']) != $currentpassword) {
-            session()->setFlashdata('pesanError', 'Password Lama Tidak Cocok');
+            session()->setFlashdata('a', 'Password Lama Tidak Cocok');
+            return redirect()->to('/petugas/setting');
+        }
+        if (md5($data['passwordBaru']) == $currentpassword) {
+            session()->setFlashdata('b', 'Password Baru Tidak Boleh Sama Dengan Password Lama');
+            return redirect()->to('/petugas/setting');
+        }
+        if ($data['confirm'] != $newpassword['passwordBaru']) {
+            session()->setFlashdata('c', 'Konfirmasi Password Tidak Sesuai');
             return redirect()->to('/petugas/setting');
         } else {
             //jika benar, arahkan user masuk ke aplikasi
-            $hashedpass = md5($newpassword['passwordBaru']); 
-            $this->petugasModel->save([
-                'id_petugas' => $id,
-                'nama_petugas' => $this->request->getVar('nama_petugas'),
-                'username' => $this->request->getVar('username'),
-                'password' => $hashedpass,
+            $hashedpass = md5($newpassword['passwordBaru']);
+            $this->masyarakatModel->save([
+                'id_masyarakat' => $id,
+                'password' => $this->request->getVar('passwordBaru'),
             ]);
 
             $this->session->set([

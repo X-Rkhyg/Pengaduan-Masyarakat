@@ -40,8 +40,18 @@ class Admin extends BaseController
             // Jika belum login, arahkan pengguna ke halaman login
             return view('/auth/login-petugas', $nologin);
         }
+
+        $jumlah = $this->pengaduanModel->countAll();
+        $jumlahBelumValidasi = $this->pengaduanModel->where('status', '0')->countAllResults();
+        $jumlahSudahTanggapi = $this->pengaduanModel->where('status', 'proses')->countAllResults();
+        $jumlahSudahValidasi = $this->pengaduanModel->where('status', 'selesai')->countAllResults();
+
         $data = [
-            'title' => 'Data Kelahiran Sleman'
+            'title' => 'Data Kelahiran Sleman',
+            'jumlah' => $jumlah,
+            'jumlahBelumValidasi' => $jumlahBelumValidasi,
+            'jumlahSudahTanggapi' => $jumlahSudahTanggapi,
+            'jumlahSudahValidasi' => $jumlahSudahValidasi
         ];
         return view('admin/home', $data);
     }

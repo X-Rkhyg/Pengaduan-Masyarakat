@@ -5,6 +5,7 @@
 $a = session()->getFlashdata('a');
 $b = session()->getFlashdata('b');
 $c = session()->getFlashdata('c');
+$pesan = session()->getFlashdata('pesan');
 $session = session()
 ?>
 <?php $validation = \Config\Services::validation(); ?>
@@ -79,6 +80,9 @@ $session = session()
                             <?php } ?>
                             <?php if ($c) { ?>
                                 <p style="color: red;"> <?php echo $c ?> </p>
+                            <?php } ?>
+                            <?php if ($pesan) { ?>
+                                <p style="color: green;"> <?php echo $pesan ?> </p>
                             <?php } ?>
                             <form action="/masyarakat/ganti_password/<?= $session->get('id_masyarakat'); ?>" method="post">
                                 <?= csrf_field(); ?>
