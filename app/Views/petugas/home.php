@@ -65,7 +65,7 @@ $session = session()
     <div class="container-xxl p-0">
         <div>
             <div class="row">
-            <div class="col-sm-12 col-lg-12">
+                <div class="col-sm-12 col-lg-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center">
@@ -193,14 +193,122 @@ $session = session()
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm-4 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h3 class="fw-bolder mb-75"><?= $jumlahBelumValidasi; ?></h3>
+                                    <p class="card-text">Jumlah Pengaduan Belum Divalidasi</p>
+                                </div>
+                                <div class="avatar avatar-stats p-50 m-0 bg-light-primary">
+                                    <div class="avatar-content"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h3 class="fw-bolder mb-75"><?= $jumlahSudahValidasi; ?></h3>
+                                    <p class="card-text">Jumlah Pengaduan Sudah Divalidasi</p>
+                                </div>
+                                <div class="avatar avatar-stats p-50 m-0 bg-light-success">
+                                    <div class="avatar-content"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="8.5" cy="7" r="4"></circle>
+                                            <polyline points="17 11 19 13 23 9"></polyline>
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h3 class="fw-bolder mb-75"><?= $jumlahSudahTanggapi; ?></h3>
+                                    <p class="card-text">Jumlah Pengaduan Sudah Ditanggapi</p>
+                                </div>
+                                <div class="avatar avatar-stats p-50 m-0 bg-light-warning">
+                                    <div class="avatar-content"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4 mt-4">
+                <h4 class="mt-2 ms-3">Daftar Pengaduan hari Ini - <?= $totaly; ?> Pengaduan</h4>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>NO</th>
+                                <th>Tanggal Laporan</th>
+                                <th>Judul Laporan</th>
+                                <th>Isi Laporan</th>
+                                <th>Lokasi</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1; ?>
+                            <?php foreach ($aduan as $adu) : ?>
+                                <tr>
+                                    <td><?= $i++; ?></td>
+                                    <td><?= $adu['tanggal_pengaduan'] ?></td>
+                                    <td><?= $adu['judul'] ?></td>
+                                    <td>
+                                        <p style="width: 600px; word-wrap:break-word;"><?= $adu['isi_laporan']; ?></p>
+                                    </td>
+                                    <td><?= $adu['lokasi'] ?></td>
+                                    <td>
+                                        <?php if ($adu['status'] == "0") : ?>
+                                            Pending
+                                        <?php elseif ($adu['status'] == "1") : ?>
+                                            Proses
+                                        <?php elseif ($adu['status'] == "2") : ?>
+                                            Selesai
+                                        <?php elseif ($adu['status'] == "3") : ?>
+                                            Ditolak
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card mb-4 mt-4">
+                <div class="card-body">
+                    <figure class="highcharts-figure">
+                        <div id="container"></div>
+                    </figure>
+                </div>
+            </div>
         </div>
         <?php if ($login) { ?>
             <h5 style="color:green"><?php echo $login ?> <?= $session->get('nama_petugas'); ?>, Anda berhasil Login</h5>
-                <?php } ?>
+        <?php } ?>
 
-                <?php if ($pesan) { ?>
-                    <h5 style="color:green"><?php echo $pesan ?></h5>
-                        <?php } ?>
+        <?php if ($pesan) { ?>
+            <h5 style="color:green"><?php echo $pesan ?></h5>
+        <?php } ?>
     </div>
 </div>
 

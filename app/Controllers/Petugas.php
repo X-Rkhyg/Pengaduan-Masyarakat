@@ -36,10 +36,129 @@ class Petugas extends BaseController
             return view('/auth/login-petugas', $nologin);
         }
 
+        $jumlah = $this->pengaduanModel->countAll();
+        $jumlahBelumValidasi = $this->pengaduanModel->where('status', '0')->countAllResults();
+        $jumlahSudahTanggapi = $this->pengaduanModel->where('status', '2')->countAllResults();
+        $jumlahSudahValidasi = $this->pengaduanModel->where('status', '1')->countAllResults() + $jumlahSudahTanggapi;
+
+        $januari = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '01')->countAllResults();
+        $februari = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '02')->countAllResults();
+        $maret = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '03')->countAllResults();
+        $april = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '04')->countAllResults();
+        $mei = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '05')->countAllResults();
+        $juni = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '06')->countAllResults();
+        $juli = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '07')->countAllResults();
+        $agustus = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '08')->countAllResults();
+        $september = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '09')->countAllResults();
+        $oktober = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '10')->countAllResults();
+        $november = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '11')->countAllResults();
+        $desember = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '12')->countAllResults();
+
+        $januariF = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '01')->where('status', '0')->countAllResults();
+        $februariF = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '02')->where('status', '0')->countAllResults();
+        $maretF = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '03')->where('status', '0')->countAllResults();
+        $aprilF = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '04')->where('status', '0')->countAllResults();
+        $meiF = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '05')->where('status', '0')->countAllResults();
+        $juniF = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '06')->where('status', '0')->countAllResults();
+        $juliF = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '07')->where('status', '0')->countAllResults();
+        $agustusF = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '08')->where('status', '0')->countAllResults();
+        $septemberF = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '09')->where('status', '0')->countAllResults();
+        $oktoberF = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '10')->where('status', '0')->countAllResults();
+        $novemberF = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '11')->where('status', '0')->countAllResults();
+        $desemberF = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '12')->where('status', '0')->countAllResults();
+
+        $januariT = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '01')->where('status', '1')->countAllResults();
+        $februariT = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '02')->where('status', '1')->countAllResults();
+        $maretT = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '03')->where('status', '1')->countAllResults();
+        $aprilT = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '04')->where('status', '1')->countAllResults();
+        $meiT = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '05')->where('status', '1')->countAllResults();
+        $juniT = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '06')->where('status', '1')->countAllResults();
+        $juliT = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '07')->where('status', '1')->countAllResults();
+        $agustusT = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '08')->where('status', '1')->countAllResults();
+        $septemberT = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '09')->where('status', '1')->countAllResults();
+        $oktoberT = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '10')->where('status', '1')->countAllResults();
+        $novemberT = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '11')->where('status', '1')->countAllResults();
+        $desemberT = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '12')->where('status', '1')->countAllResults();
+
+        $januariV = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '01')->where('status', '2')->countAllResults();
+        $februariV = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '02')->where('status', '2')->countAllResults();
+        $maretV = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '03')->where('status', '2')->countAllResults();
+        $aprilV = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '04')->where('status', '2')->countAllResults();
+        $meiV = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '05')->where('status', '2')->countAllResults();
+        $juniV = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '06')->where('status', '2')->countAllResults();
+        $juliV = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '07')->where('status', '2')->countAllResults();
+        $agustusV = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '08')->where('status', '2')->countAllResults();
+        $septemberV = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '09')->where('status', '2')->countAllResults();
+        $oktoberV = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '10')->where('status', '2')->countAllResults();
+        $novemberV = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '11')->where('status', '2')->countAllResults();
+        $desemberV = $this->pengaduanModel->where('MONTH(tanggal_pengaduan)', '12')->where('status', '2')->countAllResults();
+
+        $januariY = $januariT + $januariV;
+        $februariY = $februariT + $februariV;
+        $maretY = $maretT + $maretV;
+        $aprilY = $aprilT + $aprilV;
+        $meiY = $meiT + $meiV;
+        $juniY = $juniT + $juniV;
+        $juliY = $juliT + $juliV;
+        $agustusY = $agustusT + $agustusV;
+        $septemberY = $septemberT + $septemberV;
+        $oktoberY = $oktoberT + $oktoberV;
+        $novemberY = $novemberT + $novemberV;
+        $desemberY = $desemberT + $desemberV;
+
+        $tanggal = date('Y-m-d');
+        $totaly = $this->pengaduanModel->where('tanggal_pengaduan', $tanggal)->countAllResults();
+        $pengaduan = $this->pengaduanModel->where('tanggal_pengaduan', $tanggal)->findAll();
+
+
         $data = [
-            'title' => 'Home - Aplikasi Pengaduan Masyarakat',
-            'jumlah' => $this->pengaduanModel->countAll(),
-            'pengaduan' => $this->pengaduanModel->findAll()
+            'title' => 'Data Kelahiran Sleman',
+            'jumlah' => $jumlah,
+            'jumlahBelumValidasi' => $jumlahBelumValidasi,
+            'jumlahSudahTanggapi' => $jumlahSudahTanggapi,
+            'jumlahSudahValidasi' => $jumlahSudahValidasi,
+
+            'januari' => $januari,
+            'februari' => $februari,
+            'maret' => $maret,
+            'april' => $april,
+            'mei' => $mei,
+            'juni' => $juni,
+            'juli' => $juli,
+            'agustus' => $agustus,
+            'september' => $september,
+            'oktober' => $oktober,
+            'november' => $november,
+            'desember' => $desember,
+
+            'januariF' => $januariF,
+            'februariF' => $februariF,
+            'maretF' => $maretF,
+            'aprilF' => $aprilF,
+            'meiF' => $meiF,
+            'juniF' => $juniF,
+            'juliF' => $juliF,
+            'agustusF' => $agustusF,
+            'septemberF' => $septemberF,
+            'oktoberF' => $oktoberF,
+            'novemberF' => $novemberF,
+            'desemberF' => $desemberF,
+
+            'januariY' => $januariY,
+            'februariY' => $februariY,
+            'maretY' => $maretY,
+            'aprilY' => $aprilY,
+            'meiY' => $meiY,
+            'juniY' => $juniY,
+            'juliY' => $juliY,
+            'agustusY' => $agustusY,
+            'septemberY' => $septemberY,
+            'oktoberY' => $oktoberY,
+            'novemberY' => $novemberY,
+            'desemberY' => $desemberY,
+
+            'aduan' => $pengaduan,
+            'totaly' => $totaly
         ];
 
         return view('petugas/home', $data);
