@@ -88,6 +88,7 @@ class AuthMasyarakat extends BaseController
 
         //ambil data user di database yang usernamenya sama 
         $masyarakat = $this->masyarakatModel->where('username', $data['username'])->first();
+        $defaultpass = "defaultpassword";
 
         //cek apakah username ditemukan
         if ($masyarakat) {
@@ -106,7 +107,7 @@ class AuthMasyarakat extends BaseController
                     'nik' => $masyarakat['nik'],
                 ];
                 $this->session->set($sessLogin);
-                if ($sessLogin['password'] == md5("defaultpassword")) {
+                if ($sessLogin['password'] == md5($defaultpass)) {
                     session()->setFlashdata('password', 'Ganti Password terlebih dahulu');
                     return redirect()->to('/masyarakat/defaultchange');
                 } else {
@@ -172,7 +173,7 @@ class AuthMasyarakat extends BaseController
             //jika benar, arahkan user masuk ke aplikasi 
             $this->masyarakatModel->save([
                 'id_masyarakat' => session('id_masyarakat'),
-                'password' => $this->request->getVar('passwordBaru'),
+                'password' => $hashedpass,
             ]);
 
             $this->session->set([
