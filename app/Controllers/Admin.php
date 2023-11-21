@@ -5,12 +5,14 @@ namespace App\Controllers;
 use App\Models\PengaduanModel;
 use App\Models\MasyarakatModel;
 use App\Models\PetugasModel;
+use App\Models\TanggapanModel;
 
 class Admin extends BaseController
 {
 
     protected $session;
     protected $pengaduanModel;
+    protected $tanggapanModel;
     protected $masyarakatModel;
     protected $petugasModel;
 
@@ -20,6 +22,7 @@ class Admin extends BaseController
         $this->session = session();
 
         $this->pengaduanModel = new PengaduanModel();
+        $this->tanggapanModel = new TanggapanModel();
 
         $this->validation = \Config\Services::validation();
 
@@ -54,9 +57,11 @@ class Admin extends BaseController
         }
 
         $pengaduan = $this->pengaduanModel->findAll();
+        $tanggapan = $this->tanggapanModel->findAll();
 
         $data = [
             'title' => 'Data Kelahiran Sleman',
+            'tanggapan' => $tanggapan,
             'aduan' => $pengaduan
         ];
 

@@ -72,7 +72,7 @@ $pesan = session()->getFlashdata('pesan');
                         <th>NO</th>
                         <th>Tanggal</th>
                         <th>Isi Laporan</th>
-                       
+
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -83,7 +83,7 @@ $pesan = session()->getFlashdata('pesan');
                         <tr>
                             <td><?= $i++; ?></td>
                             <td><?= date('d F Y', strtotime($adu['tanggal_pengaduan'])); ?></td>
-                            <td><?= $adu['isi_laporan']; ?></td>
+                            <td style="width: 350px; word-wrap:break-word;"><?= $adu['isi_laporan']; ?></td>
                             <td>
                                 <?php if ($adu['status'] == "0") : ?>
                                     Pending
@@ -103,11 +103,14 @@ $pesan = session()->getFlashdata('pesan');
                                     <a class="btn btn-danger btn-md" href="/pengaduanpetugas/tolak/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-x-lg"></i></a>
                                     <a class="btn btn-primary btn-md" href="/pengaduanpetugas/validasi/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-check-lg"></i></a>
                                 <?php elseif ($adu['status'] == "1") : ?>
+                                    <a class="btn btn-info btn-md" type="button" data-bs-toggle="modal" data-bs-target="#Modal<?= $adu['id_pengaduan'] ?>"><i class="bi bi-card-image"></i></a>
                                     <a class="btn btn-primary btn-md" href="/pengaduanpetugas/tanggapan/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-envelope"></i></a>
                                 <?php elseif ($adu['status'] == "2") : ?>
-                                    Selesai
+                                    <a class="btn btn-info btn-md" type="button" data-bs-toggle="modal" data-bs-target="#Modal<?= $adu['id_pengaduan'] ?>"><i class="bi bi-card-image"></i></a>
+                                    <a class="btn btn-secondary btn-md" type="button" data-bs-toggle="modal" data-bs-target="#Tanggapan<?= $adu['id_pengaduan'] ?>"><i class="bi bi-chat-dots"></i></a>
                                 <?php elseif ($adu['status'] == "3") : ?>
-                                    Ditolak
+                                    <a class="btn btn-danger btn-md" type="button" data-bs-toggle="modal" data-bs-target="#Modal<?= $adu['id_pengaduan'] ?>"><i class="bi bi-exclamation-octagon"></i></a>
+                                    <a class="btn btn-secondary btn-md" type="button" data-bs-toggle="modal" data-bs-target="#Ditolak<?= $adu['id_pengaduan'] ?>"><i class="bi bi-chat-dots"></i></a>
                                 <?php endif; ?>
                             </td>
 
@@ -138,5 +141,51 @@ $pesan = session()->getFlashdata('pesan');
         </div>
     </div>
 <?php endforeach; ?>
+
+<?php foreach ($aduan as $adu) : ?>
+    <div class="modal fade" id="Tolak<?= $adu['id_pengaduan'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Rejected</h1>
+                </div>
+                <div class="modal-body">
+                    <!-- foto pengaduan -->
+                    Laporan ini ditolak
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+
+<?php foreach ($tanggapan as $t) : ?>
+    <div class="modal fade" id="Tanggapan<?= $t['id_pengaduan'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Tanggapan</h1>
+                </div>
+                <div class="modal-body">
+                    <!-- foto pengaduan -->
+                    <p><?= $t['tanggapan'] ?>
+                    <p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+
+<script>
+    function toggleReadMore() {
+        var container = document.getElementById('myContainer');
+        container.classList.toggle('expanded');
+    }
+</script>
 
 <?= $this->endSection() ?>

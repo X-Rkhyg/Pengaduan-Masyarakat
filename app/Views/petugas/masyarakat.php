@@ -88,8 +88,8 @@ $session = session()
                             <td><?= $m['nik']; ?></td>
                             <td><?= $m['username']; ?></td>
                             <td>
-                                <?php if ($m['password'] == "defaultpassword") : ?>
-                                    <?= $m['password']; ?>
+                                <?php if ($m['password'] == md5("defaultpassword")) : ?>
+                                    <p style="color: FF8400;">defaultpassword</p>
                                 <?php else : ?>
                                     <?php
                                     $password = $m['password'];

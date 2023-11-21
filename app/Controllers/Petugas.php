@@ -5,12 +5,14 @@ namespace App\Controllers;
 use App\Models\PengaduanModel;
 use App\Models\MasyarakatModel;
 use App\Models\PetugasModel;
+use App\Models\TanggapanModel;
 
 class Petugas extends BaseController
 {
 
     protected $session;
     protected $pengaduanModel;
+    protected $tanggapanModel;
     protected $masyarakatModel;
     protected $petugasModel;
     public function __construct()
@@ -18,6 +20,7 @@ class Petugas extends BaseController
         $this->session = session();
 
         $this->pengaduanModel = new PengaduanModel();
+        $this->tanggapanModel = new TanggapanModel();
 
         $this->masyarakatModel = new MasyarakatModel();
 
@@ -54,10 +57,12 @@ class Petugas extends BaseController
         $pengaduanModel = new PengaduanModel();
         $deleted = 'deleted';
         $aduan = $pengaduanModel->getDataWithOneConditions($deleted);
+        $tanggapan = $this->tanggapanModel->findAll();
         $data = [
             'title' => 'Validasi Pengaduan',
             'validation' => \Config\Services::validation(),
-            'aduan' => $aduan,
+            'tanggapan' => $tanggapan,
+            'aduan' => $aduan
         ]; 
         return view('petugas/validasi', $data);
     }
