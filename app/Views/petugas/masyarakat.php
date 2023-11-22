@@ -69,7 +69,7 @@ $session = session()
             <?php if ($pesan) { ?>
                 <h5 style="color:green"><?php echo $pesan ?></h5>
             <?php } ?>
-            <table id="example" class="table table-striped" style="width:100%">
+            <table id="datatablesSimple" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
                         <th>NO</th>

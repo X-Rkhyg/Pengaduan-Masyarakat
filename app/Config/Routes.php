@@ -91,5 +91,29 @@ $routes->get('/admin/defaultchange', 'AuthPetugas::defaultchangeAdmin');
 $routes->post('/admin/defaultchange/save', 'AuthPetugas::defaultchangesaveAdmin');
 
 $routes->get('/admin/donglot', 'Admin::donglot');
+
+$routes->get('/generateyearly', 'PdfGenerate::generatePDFyearly');
 $routes->get('/generatemonthly', 'PdfGenerate::generatePDFmonthly');
 $routes->get('/generatedaily', 'PdfGenerate::generatePDFdaily');
+
+$routes->get('/generateyearly_novalidate', 'PdfGenerate::generatePDFyearly_novalidate');
+$routes->get('/generatemonthly_novalidate', 'PdfGenerate::generatePDFmonthly_novalidate');
+$routes->get('/generatedaily_novalidate', 'PdfGenerate::generatePDFdaily_novalidate');
+
+$routes->get('/generateyearly_validate', 'PdfGenerate::generatePDFyearly_validate');
+$routes->get('/generatemonthly_validate', 'PdfGenerate::generatePDFmonthly_validate');
+$routes->get('/generatedaily_validate', 'PdfGenerate::generatePDFdaily_validate');
+
+$routes->get('/generateyearly_ditanggapi', 'PdfGenerate::generatePDFyearly_ditanggapi');
+$routes->get('/generatemonthly_ditanggapi', 'PdfGenerate::generatePDFmonthly_ditanggapi');
+$routes->get('/generatedaily_ditanggapi', 'PdfGenerate::generatePDFdaily_ditanggapi');
+
+$routes->get('/generateyearly_ditolak', 'PdfGenerate::generatePDFyearly_ditolak');
+$routes->get('/generatemonthly_ditolak', 'PdfGenerate::generatePDFmonthly_ditolak');
+$routes->get('/generatedaily_ditolak', 'PdfGenerate::generatePDFdaily_ditolak');
+
+$routes->get('/generatealltime', 'PdfGenerate::generatePDFalltime');
+$routes->get('/generatealltime_novalidate', 'PdfGenerate::generatePDFalltime_novalidate');
+$routes->get('/generatealltime_validate', 'PdfGenerate::generatePDFalltime_validate');
+$routes->get('/generatealltime_ditanggapi', 'PdfGenerate::generatePDFalltime_ditanggapi');
+$routes->get('/generatealltime_ditolak', 'PdfGenerate::generatePDFalltime_ditolak');

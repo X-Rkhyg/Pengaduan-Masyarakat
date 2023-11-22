@@ -65,12 +65,12 @@ $errors = $session->getFlashdata('errors');
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example3">Username :</label>
-                                    <input name="username" id="form3Example3" class="form-control" placeholder="Yourname" required />
+                                    <input name="username" id="form3Example3" class="form-control" placeholder="enter username.." required />
                                 </div>
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example3">Password :</label>
-                                    <input type="password" name="password" id="form3Example3" class="form-control" placeholder="Yourname123" required />
+                                    <input type="password" name="password" id="form3Example3" class="form-control" placeholder="enter password.." required />
                                 </div>
 
 

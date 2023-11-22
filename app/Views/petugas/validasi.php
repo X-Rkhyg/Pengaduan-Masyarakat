@@ -66,7 +66,7 @@ $pesan = session()->getFlashdata('pesan');
     <div class="header-navbar-shadow"></div>
     <div class="container-xxl p-0">
         <div>
-            <table id="example" class="table table-striped" style="width:100%">
+            <table id="datatablesSimple" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
                         <th>NO</th>

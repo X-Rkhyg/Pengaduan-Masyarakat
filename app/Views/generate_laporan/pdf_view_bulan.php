@@ -38,12 +38,40 @@
 </head>
 
 <body>
+    <?php if (date('m') == 1) : ?>
+        <?php $bulan = "Januari"; ?>
+    <?php elseif (date('m') == 2) : ?>
+        <?php $bulan = "Februari"; ?>
+    <?php elseif (date('m') == 3) : ?>
+        <?php $bulan = "Maret"; ?>
+    <?php elseif (date('m') == 4) : ?>
+        <?php $bulan = "April"; ?>
+    <?php elseif (date('m') == 5) : ?>
+        <?php $bulan = "Mei"; ?>
+    <?php elseif (date('m') == 6) : ?>
+        <?php $bulan = "Juni"; ?>
+    <?php elseif (date('m') == 7) : ?>
+        <?php $bulan = "Juli"; ?>
+    <?php elseif (date('m') == 8) : ?>
+        <?php $bulan = "Agustus"; ?>
+    <?php elseif (date('m') == 9) : ?>
+        <?php $bulan = "September"; ?>
+    <?php elseif (date('m') == 10) : ?>
+        <?php $bulan = "Oktober"; ?>
+    <?php elseif (date('m') == 11) : ?>
+        <?php $bulan = "November"; ?>
+    <?php elseif (date('m') == 12) : ?>
+        <?php $bulan = "Desember"; ?>
+    <?php endif;
+    
+
+     ?>
 
     <center>
         <div class="row">
             <div class="col-12">
-                <h1>LAPORAN PENGADUAN MASYARAKAT TAHUN 2023</h1>
-                <hr />
+                <h1 style='text-transform: uppercase'>LAPORAN PENGADUAN MASYARAKAT <?= $bulan ?> <?= date('Y') ?></h1>
+                <hr/>
             </div>
         </div>
     </center>
@@ -52,6 +80,7 @@
         <tr>
             <th>NO</th>
             <th>Tanggal</th>
+            <th>Judul Laporan</th>
             <th>Isi Laporan</th>
             <th>Status</th>
         </tr>
@@ -61,7 +90,8 @@
         <tr>
             <td><?= $i++; ?></td>
             <td><?= date('d F Y', strtotime($p['tanggal_pengaduan'])); ?></td>
-            <td><?= $p['isi_laporan']; ?></td>
+            <td><p style="width: 100px; word-wrap:break-word;"><?= $p['judul']; ?></p></td>
+            <td><p style="width: 200px; word-wrap:break-word;"><?= $p['isi_laporan']; ?></p></td>
             <td>
                 <?php if ($p['status'] == "0") : ?>
                     Pending
