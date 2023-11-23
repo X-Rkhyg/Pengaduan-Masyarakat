@@ -117,3 +117,5 @@ $routes->get('/generatealltime_novalidate', 'PdfGenerate::generatePDFalltime_nov
 $routes->get('/generatealltime_validate', 'PdfGenerate::generatePDFalltime_validate');
 $routes->get('/generatealltime_ditanggapi', 'PdfGenerate::generatePDFalltime_ditanggapi');
 $routes->get('/generatealltime_ditolak', 'PdfGenerate::generatePDFalltime_ditolak');
+
+$routes->post('/generate', 'PdfGenerate::generate');
