@@ -1028,7 +1028,7 @@ $session = session()
                             color: "#999999",
                             fontSize: "0.6em"
                         },
-                        text: "Made By Rkhyg"
+                        text: ""
                     }
                 };
                 h.chart.styledMode = !1;
@@ -11092,7 +11092,7 @@ $session = session()
             },
 
             subtitle: {
-                text: 'By Rkhyg',
+                text: 'Chart By Rkhyg',
                 align: 'left'
             },
 
