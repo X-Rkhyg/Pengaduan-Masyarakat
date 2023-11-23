@@ -99,7 +99,7 @@
                     if ($waktu == "hari") {
                         echo ($hari . ' ' . $tanggal . ' ' . $bulan . ' ' . $tahun);
                     } elseif ($waktu == "bulan") {
-                        echo ($bulan . $tahun);
+                        echo ($bulan . ' ' . $tahun);
                     } elseif ($waktu == "tahun") {
                         echo ('TAHUN ' . $tahun);
                     } elseif ($waktu == "keseluruhan") {
