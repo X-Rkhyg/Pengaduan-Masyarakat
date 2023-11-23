@@ -15,11 +15,11 @@ $session = session()
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
-                    <table id="datatablesSimple">
+                    <table id="datatablesSimple" class="table table-striped">
                         <thead>
                             <tr>
                                 <th>NO</th>
-                                <th>Id petugas</th>
+                                <th>ID Petugas</th>
                                 <th>Nama Petugas</th>
                                 <th>Username</th>
                                 <th>Password</th>
@@ -46,7 +46,7 @@ $session = session()
                                     <td><p style="text-transform: capitalize;"><?= $p['level']; ?></p></td>
                                     <td>
                                         <a class="btn btn-primary btn-sm" href="/admin/petugas/edit/<?= $p['id_petugas'] ?>"><i class="bi bi-pencil-square"></i></a>
-                                        <a class="btn btn-warning btn-sm" href="/admin/defaultpasspetugas/<?= $p['id_petugas'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Mereset Data Ini?')"><i class="bi bi-key"></i></a>
+                                        <a class="btn btn-warning btn-sm" href="/admin/defaultpasspetugas/<?= $p['id_petugas'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Mereset Password Akun Ini?')"><i class="bi bi-key"></i></a>
                                         <a class="btn btn-danger btn-sm" href="/admin/petugas/delete/<?= $p['id_petugas'] ?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')"><i class="bi bi-trash3"></i></a>
                                     </td>
                                 </tr>

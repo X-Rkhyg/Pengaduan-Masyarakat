@@ -28,7 +28,7 @@
                                 <?= session()->getFlashdata('vall'); ?>
                             <?php endif; ?>
                             <form action="/petugas/defaultchange/save" method="post" enctype="multipart/form-data">
-                                <div class="mb-1"><label for="name" class="form-label form-label">Password Baru<font color="FF7F7F">*</font></label><input name="passwordBaru" placeholder="masukan password..." type="text" class="form-control"></div>
+                                <div class="mb-1"><label for="name" class="form-label form-label">Password Baru<font color="FF7F7F">*</font></label><input name="passwordBaru" placeholder="enter new password" type="password" class="form-control"></div>
                                 <!-- upload foto -->
                                 <button type="submit" class="me-1 btn btn-primary">Create</button>
                                 <div class="text-end"><small>

@@ -15,7 +15,7 @@ $session = session()
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
-                    <table id="datatablesSimple">
+                    <table id="datatablesSimple" class="table table-striped">
                         <thead>
                             <tr>
                                 <th>NO</th>
@@ -31,7 +31,7 @@ $session = session()
                             <?php foreach ($aduan as $adu) : ?>
                                 <tr>
                                     <td><?= $i++; ?></td>
-                                    <td><?= $adu['tanggal_pengaduan'] ?></td>
+                                    <td><?= date('d F Y', strtotime($adu['tanggal_pengaduan'])); ?></td>
                                     <td><?= $adu['judul'] ?></td>
                                     <td><p style="width: 600px; word-wrap:break-word;"><?= $adu['isi_laporan']; ?></p></td>
                                     <td>

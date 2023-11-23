@@ -14,7 +14,7 @@ $session = session()
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active me-3">Dashboard</li>
                 <?php if ($login) { ?>
-                    <h5 style="color:green"><?php echo $login ?> <?= $session->get('username'); ?>, Anda berhasil Login</h5>
+                    <h5 style="color:green"><?php echo $login ?> <?= $session->get('nama_petugas'); ?>, Anda berhasil Login</h5>
                 <?php } ?>
             </ol>
             <div class="row">
@@ -140,7 +140,7 @@ $session = session()
             <div class="card mb-4 mt-4">
                 <h4 class="mt-2 ms-3">Daftar Pengaduan hari Ini - <?= $totaly; ?> Pengaduan</h4>
                 <div class="card-body">
-                    <table id="datatablesSimple">
+                    <table id="datatablesSimple" class="table table-striped">
                         <thead>
                             <tr>
                                 <th>NO</th>
