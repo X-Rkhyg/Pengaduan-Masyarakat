@@ -1,4 +1,4 @@
-<?= $this->extend('layouts/petugas'); ?>
+<?= $this->extend('layouts/masyarakat'); ?>
 <?= $this->section('content'); ?>
 
 <?php
@@ -83,6 +83,9 @@ $session = session()
                             <?php } ?>
                             <?php if ($pesan) { ?>
                                 <p style="color: green;"> <?php echo $pesan ?> </p>
+                            <?php } ?>
+                            <?php if ($validation) { ?>
+                                <p style="color: red;"> <?php $validation ?> </p>
                             <?php } ?>
                             <form action="/masyarakat/ganti_password/<?= $session->get('id_masyarakat'); ?>" method="post">
                                 <?= csrf_field(); ?>

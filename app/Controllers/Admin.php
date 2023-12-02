@@ -41,7 +41,7 @@ class Admin extends BaseController
             return view('/auth/login-petugas', $nologin);
         }
 
-        $jumlah = $this->pengaduanModel->countAll();
+        $jumlah = $this->pengaduanModel->CountDataWithOneConditions($deleted = "deleted");
         $jumlahBelumValidasi = $this->pengaduanModel->where('status', '0')->countAllResults();
         $jumlahSudahTanggapi = $this->pengaduanModel->where('status', '2')->countAllResults();
         $jumlahSudahValidasi = $this->pengaduanModel->where('status', '1')->countAllResults() + $jumlahSudahTanggapi;
@@ -112,8 +112,9 @@ class Admin extends BaseController
         $desemberY = $desemberT + $desemberV;
 
         $tanggal = date('Y-m-d');
-        $totaly = $this->pengaduanModel->where('tanggal_pengaduan', $tanggal)->countAllResults();
-        $pengaduan = $this->pengaduanModel->where('tanggal_pengaduan', $tanggal)->findAll();
+        $deleted = "deleted";
+        $totaly = $this->pengaduanModel->where('tanggal_pengaduan', $tanggal)->CountDataWithOneConditions($deleted);
+        $pengaduan = $this->pengaduanModel->where('tanggal_pengaduan', $tanggal)->getDataWithOneConditions($deleted);
 
 
         $data = [

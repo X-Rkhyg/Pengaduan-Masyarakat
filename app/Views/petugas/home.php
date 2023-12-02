@@ -265,11 +265,11 @@ $session = session()
                                 <tr>
                                     <td><?= $i++; ?></td>
                                     <td><?= $adu['tanggal_pengaduan'] ?></td>
-                                    <td><?= $adu['judul'] ?></td>
+                                    <td style="max-width: 10px; word-wrap:break-word;"><?= $adu['judul'] ?></td>
                                     <td>
                                         <p style="width: 600px; word-wrap:break-word;"><?= $adu['isi_laporan']; ?></p>
                                     </td>
-                                    <td><?= $adu['lokasi'] ?></td>
+                                    <td style="max-width: 10px; word-wrap:break-word;"><?= $adu['lokasi'] ?></td>
                                     <td>
                                         <?php if ($adu['status'] == "0") : ?>
                                             Pending

@@ -33,7 +33,7 @@ class Setting extends BaseController
         $newpassword = $this->request->getPost();
         $currentpassword = session('password');
         $data = $this->request->getPost();
-
+        $validation = \Config\Services::validation();
         if (!$this->validate([
             'passwordLama' => [
                 'rules' => 'required',
@@ -49,7 +49,7 @@ class Setting extends BaseController
                 ]
             ]
         ])) {
-            $validation = \Config\Services::validation();
+            $data['validation'] = $validation;
             return redirect()->to('/masyarakat/setting' . $this->request->getVar('id-masyarakat'))->withInput()->with('validation', $validation);
         }
         // get error validation

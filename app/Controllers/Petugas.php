@@ -106,9 +106,10 @@ class Petugas extends BaseController
         $novemberY = $novemberT + $novemberV;
         $desemberY = $desemberT + $desemberV;
 
+        $deleted = 'deleted';
         $tanggal = date('Y-m-d');
-        $totaly = $this->pengaduanModel->where('tanggal_pengaduan', $tanggal)->countAllResults();
-        $pengaduan = $this->pengaduanModel->where('tanggal_pengaduan', $tanggal)->findAll();
+        $totaly = $this->pengaduanModel->where('tanggal_pengaduan', $tanggal)->CountDataWithOneConditions($deleted);
+        $pengaduan = $this->pengaduanModel->where('tanggal_pengaduan', $tanggal)->getDataWithOneConditions($deleted);
 
 
         $data = [

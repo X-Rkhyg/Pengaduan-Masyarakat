@@ -44,4 +44,11 @@ class PengaduanModel extends Model
         return $this->where('status !=', $deleted)
                     ->findAll();
     }
+
+    public function CountDataWithOneConditions($deleted)
+    {
+        // Menggunakan metode where untuk menambahkan dua kondisi
+        return $this->where('status !=', $deleted)
+                    ->countAllResults();
+    }
 }

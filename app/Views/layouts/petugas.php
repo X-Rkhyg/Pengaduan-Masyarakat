@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="robots" content="index,follow">
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/assets/img/icon.png" type="image/png">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <meta name="theme-color" content="#000000">
     <meta name="description" content="Wibusoft Bot Hosting. Create your own Chatbot now with Wibusoft.">
@@ -263,8 +263,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/14.61c41349.chunk.css">
     <script charset="utf-8" src="/static/js/14.6643e635.chunk.js"></script>
 
-    <link href="/assets/img/okee.png" rel="icon" />
-    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />

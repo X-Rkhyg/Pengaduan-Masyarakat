@@ -42,7 +42,7 @@
     <div class="navbar-container d-flex content">
         <div class="bookmark-wrapper d-flex align-items-center">
             <li class="d-none d-lg-block nav-item"><a class="nav-link-style nav-link">
-                    Management Data masyarakat
+                    Beri Tanggapan
                 </a></li>
         </div>
         <ul class="nav navbar-nav align-items-center ms-auto">

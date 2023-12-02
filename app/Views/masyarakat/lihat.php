@@ -81,13 +81,13 @@ $pesan = session()->getFlashdata('pesan');
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($data as $adu) : ?>
+                    <?php foreach ($pengaduan as $adu) : ?>
                         <tr>
                             <td><?= $i++; ?></td>
                             <td><?= date('d F Y', strtotime($adu['tanggal_pengaduan'])); ?></td>
-                            <td><?= $adu['judul']; ?></td>
-                            <td style="max-width: 10px;"><?= $adu['isi_laporan']; ?></td>
-                            <td><?= $adu['lokasi']; ?></td>
+                            <td style="max-width: 100px; word-wrap:break-word;"><?= $adu['judul']; ?></td>
+                            <td style="max-width: 350px; word-wrap:break-word;"><?= $adu['isi_laporan']; ?></td>
+                            <td style="max-width: 100px; word-wrap:break-word;"><?= $adu['lokasi']; ?></td>
                             <td>
                                 <?php if ($adu['status'] == "0") : ?>
                                     Pending
@@ -106,7 +106,7 @@ $pesan = session()->getFlashdata('pesan');
                                 <!-- info button -->
                                 <a class="btn btn-info btn-md" type="button" data-bs-toggle="modal" data-bs-target="#Modal<?= $adu['id_pengaduan'] ?>"><i class="bi bi-card-image"></i></a>
                                 <?php if ($adu['status'] == "2") : ?>
-                                    <a class="btn btn-success btn-md" href="/pengaduan/lihattanggapan/<?= $adu['id_pengaduan'] ?>"><i class="bi bi-info-circle"></i></a>
+                                    <a class="btn btn-success btn-md" type="button" data-bs-toggle="modal" data-bs-target="#Tanggapan<?= $adu['id_pengaduan'] ?>"><i class="bi bi-chat-dots"></i></a>
                                 <?php endif; ?>
                             </td>
                         </tr>
@@ -117,7 +117,7 @@ $pesan = session()->getFlashdata('pesan');
     </div>
 </div>
 
-<?php foreach ($data as $adu) : ?>
+<?php foreach ($pengaduan as $adu) : ?>
     <div class="modal fade" id="Modal<?= $adu['id_pengaduan'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -127,6 +127,26 @@ $pesan = session()->getFlashdata('pesan');
                 <div class="modal-body">
                     <!-- foto pengaduan -->
                     <img src="/foto_storage/<?= $adu['foto'] ?>" alt="Image" style="width: auto; height: auto; max-width: 100%; max-height: 100%;">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+
+<?php foreach ($tanggapan as $t) : ?>
+    <div class="modal fade" id="Tanggapan<?= $t['id_pengaduan'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Tanggapan</h1>
+                </div>
+                <div class="modal-body">
+                    <!-- foto pengaduan -->
+                    <p><?= $t['tanggapan'] ?>
+                    <p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

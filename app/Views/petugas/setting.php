@@ -86,6 +86,9 @@ $session = session()
                                         <?php if ($pesan) { ?>
                                             <p style="color: green;"> <?php echo $pesan ?> </p>
                                         <?php } ?>
+                                        <div class="alert alert-danger">
+                                            <?= $validation->listErrors() ?>
+                                        </div>
                                         <form action="/petugas/ganti_password/<?= $session->get('id_petugas'); ?>" method="post">
                                             <?= csrf_field(); ?>
 
