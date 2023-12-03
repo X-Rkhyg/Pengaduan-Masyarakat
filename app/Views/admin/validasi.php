@@ -19,9 +19,9 @@ $session = session()
                         <thead>
                             <tr>
                                 <th>NO</th>
-                                <th>Tanggal Laporan</th>
-                                <th>Judul Laporan</th>
-                                <th>Isi Laporan</th>
+                                <th>Tanggal Aduan</th>
+                                <th>Judul Aduan</th>
+                                <th>Isi Aduan</th>
                                 <th>Lokasi</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
@@ -33,9 +33,9 @@ $session = session()
                                 <tr>
                                     <td><?= $i++; ?></td>
                                     <td><?= date('d F Y', strtotime($adu['tanggal_pengaduan'])); ?></td>
-                                    <td style="width: 100px; word-wrap:break-word;"><?= $adu['judul'] ?></td>
-                                    <td><p style="width: 600px; word-wrap:break-word;"><?= $adu['isi_laporan']; ?></p></td>
-                                    <td style="width: 100px; word-wrap:break-word;"><?= $adu['lokasi']; ?></td>
+                                    <td style="max-width: 100px; word-wrap:break-word;"><?= $adu['judul'] ?></td>
+                                    <td><p style="max-width: 400px; word-wrap:break-word;"><?= $adu['isi_laporan']; ?></p></td>
+                                    <td style="max-width: 200px; word-wrap:break-word;"><?= $adu['lokasi']; ?></td>
                                     <td>
                                         <?php if ($adu['status'] == "0") : ?>
                                             Pending

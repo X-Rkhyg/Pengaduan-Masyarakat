@@ -180,7 +180,7 @@ $session = session()
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h3 class="fw-bolder mb-75"><?= $jumlah; ?></h3>
-                                    <p class="card-text">Total Jumlah Laporan</p>
+                                    <p class="card-text">Total Jumlah Aduan</p>
                                 </div>
                                 <div class="avatar avatar-stats p-50 m-0 bg-light-secondary">
                                     <div class="avatar-content"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-text" viewBox="0 0 16 16">
@@ -198,7 +198,7 @@ $session = session()
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h3 class="fw-bolder mb-75"><?= $jumlahBelumValidasi; ?></h3>
-                                    <p class="card-text">Laporan Belum Divalidasi</p>
+                                    <p class="card-text">Aduan Belum Divalidasi</p>
                                 </div>
                                 <div class="avatar avatar-stats p-50 m-0 bg-light-danger">
                                     <div class="avatar-content"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-lg" viewBox="0 0 16 16">
@@ -215,7 +215,7 @@ $session = session()
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h3 class="fw-bolder mb-75"><?= $jumlahSudahValidasi; ?></h3>
-                                    <p class="card-text">Laporan Sudah Divalidasi</p>
+                                    <p class="card-text">Aduan Sudah Divalidasi</p>
                                 </div>
                                 <div class="avatar avatar-stats p-50 m-0 bg-light-warning">
                                     <div class="avatar-content"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
@@ -232,7 +232,7 @@ $session = session()
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h3 class="fw-bolder mb-75"><?= $jumlahSudahTanggapi; ?></h3>
-                                    <p class="card-text">Laporan Sudah Ditanggapi</p>
+                                    <p class="card-text">Aduan Sudah Ditanggapi</p>
                                 </div>
                                 <div class="avatar avatar-stats p-50 m-0 bg-light-success">
                                     <div class="avatar-content"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-check" viewBox="0 0 16 16">
@@ -246,15 +246,15 @@ $session = session()
                 </div>
             </div>
             <div class="card mb-4 mt-4">
-                <h4 class="mt-2 ms-2 bold fw-bold">Daftar Laporan hari Ini - <?= $totaly; ?> Laporan</h4>
+                <h4 class="mt-2 ms-2 bold fw-bold">Daftar Pengaduan hari Ini - <?= $totaly; ?> Aduan</h4>
                 <div class="card-body">
                     <table id="datatablesSimple" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
                                 <th>NO</th>
-                                <th>Tanggal Laporan</th>
-                                <th>Judul Laporan</th>
-                                <th>Isi Laporan</th>
+                                <th>Tanggal Aduan</th>
+                                <th>Judul Aduan</th>
+                                <th>Isi Aduan</th>
                                 <th>Lokasi</th>
                                 <th>Status</th>
                             </tr>

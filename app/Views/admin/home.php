@@ -94,7 +94,7 @@ $session = session()
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h3 class="fw-bolder mb-75"><?= $jumlah; ?> </h3>
-                                    <h5 class="card-text">Jumlah Total Pengaduan</h5>
+                                    <h5 class="card-text">Jumlah Total Aduan</h5>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +106,7 @@ $session = session()
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h3 class="fw-bolder mb-75"><?= $jumlahBelumValidasi; ?></h3>
-                                    <h5 class="card-text">Jumlah Pengaduan Belum Di Validasi</h5>
+                                    <h5 class="card-text">Jumlah Aduan Belum Di Validasi</h5>
                                 </div>
                             </div>
                         </div>
@@ -118,7 +118,7 @@ $session = session()
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h3 class="fw-bolder mb-75"><?= $jumlahSudahValidasi; ?></h3>
-                                    <h5 class="card-text">Jumlah Pengaduan Sudah Di Validasi</h5>
+                                    <h5 class="card-text">Jumlah Aduan Sudah Di Validasi</h5>
                                 </div>
                             </div>
                         </div>
@@ -130,7 +130,7 @@ $session = session()
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h3 class="fw-bolder mb-75"><?= $jumlahSudahTanggapi; ?></h3>
-                                    <h5 class="card-text">Jumlah Pengaduan Sudah Di Tanggapi</h5>
+                                    <h5 class="card-text">Jumlah Aduan Sudah Di Tanggapi</h5>
                                 </div>
                             </div>
                         </div>
@@ -138,15 +138,14 @@ $session = session()
                 </div>
             </div>
             <div class="card mb-4 mt-4">
-                <h4 class="mt-2 ms-3">Daftar Pengaduan hari Ini - <?= $totaly; ?> Pengaduan</h4>
+                <h4 class="mt-2 ms-3">Daftar Pengaduan hari Ini - <?= $totaly; ?> Aduan</h4>
                 <div class="card-body">
                     <table id="datatablesSimple" class="table table-striped">
                         <thead>
                             <tr>
                                 <th>NO</th>
-                                <th>Tanggal Laporan</th>
-                                <th>Judul Laporan</th>
-                                <th>Isi Laporan</th>
+                                <th>Judul Aduan</th>
+                                <th>Isi Aduan</th>
                                 <th>Lokasi</th>
                                 <th>Status</th>
                             </tr>
@@ -156,12 +155,11 @@ $session = session()
                             <?php foreach ($aduan as $adu) : ?>
                                 <tr>
                                     <td><?= $i++; ?></td>
-                                    <td style="max-width: 10px;"><?= $adu['tanggal_pengaduan'] ?></td>
-                                    <td style="max-width: 50px; word-wrap:break-word;"><?= $adu['judul'] ?></td>
+                                    <td style="max-width: 200px; word-wrap:break-word;"><?= $adu['judul'] ?></td>
                                     <td>
-                                        <p style="max-width: 350px; word-wrap:break-word;"><?= $adu['isi_laporan']; ?></p>
+                                        <p style="max-width: 400px; word-wrap:break-word;"><?= $adu['isi_laporan']; ?></p>
                                     </td>
-                                    <td style="max-width: 10px; word-wrap:break-word;"><?= $adu['lokasi'] ?></td>
+                                    <td><p style="max-width: 200px; word-wrap:break-word;"><?= $adu['lokasi'] ?></p></td>
                                     <td>
                                         <?php if ($adu['status'] == "0") : ?>
                                             Pending
