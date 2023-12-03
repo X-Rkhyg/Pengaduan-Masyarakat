@@ -51,12 +51,13 @@ class Pengaduan extends BaseController
                 ]
             ],
             'foto' => [
-                'rules' => 'uploaded[foto]|max_size[foto,10240]',
+                'rules' => 'max_size[foto,10240]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
                 'errors' => [
-                    'uploaded' => 'File harus ditambahkan',
                     'max_size' => 'Ukuran file harus kurang dari 10MB',
+                    'is_image' => 'File harus berupa gambar',
+                    'mime_in' => 'File harus berupa gambar'
                 ]
-            ],
+                ],
         ])) {
             $validation = \Config\Services::validation();
             session()->setFlashdata('vall', $validation->listErrors());
@@ -169,9 +170,11 @@ class Pengaduan extends BaseController
                 ]
             ],
             'foto' => [
-                'rules' => 'max_size[foto,10240]',
+                'rules' => 'max_size[foto,10240]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]',
                 'errors' => [
                     'max_size' => 'Ukuran file harus kurang dari 10MB',
+                    'is_image' => 'File harus berupa gambar',
+                    'mime_in' => 'File harus berupa gambar'
                 ]
             ]
         ])) {

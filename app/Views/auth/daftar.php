@@ -96,27 +96,27 @@ $errors5 = $session->getFlashdata('telepon');
 
                                 <div class="form-outline mb-4 mt-1">
                                     <label class="form-label" for="form3Example3">Username :</label>
-                                    <input name="username" id="form3Example3" class="form-control" placeholder="Yourname" required />
+                                    <input name="username" id="form3Example3" class="form-control" placeholder="enter username.." required />
                                 </div>
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example3">Password :</label>
-                                    <input type="password" name="password" id="form3Example3" class="form-control" placeholder="Yourname123" required />
+                                    <input type="password" name="password" id="form3Example3" class="form-control" placeholder="enter password.." required />
                                 </div>
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example3">Konfirmasi Password :</label>
-                                    <input type="password" name="confirm" id="form3Example3" class="form-control" placeholder="Yourname123" required />
+                                    <input type="password" name="confirm" id="form3Example3" class="form-control" placeholder="confirm password.." required />
                                 </div>
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example3">NIK :</label>
-                                    <input type="text" name="nik" id="form3Example3" class="form-control" placeholder="Yourname123" required />
+                                    <input type="text" name="nik" id="form3Example3" class="form-control" placeholder="enter nik.." required />
                                 </div>
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example3">NO. TELEPON :</label>
-                                    <input type="text" name="telepon" id="form3Example3" class="form-control" placeholder="Yourname123" required />
+                                    <input type="text" name="telepon" id="form3Example3" class="form-control" placeholder="enter phone number.." required />
                                 </div>
 
                                 <div class="mb-3">

@@ -85,9 +85,9 @@ $pesan = session()->getFlashdata('pesan');
                         <tr>
                             <td><?= $i++; ?></td>
                             <td><?= date('d F Y', strtotime($adu['tanggal_pengaduan'])); ?></td>
-                            <td style="max-width: 100px; word-wrap:break-word;"><?= $adu['judul']; ?></td>
-                            <td style="max-width: 350px; word-wrap:break-word;"><?= $adu['isi_laporan']; ?></td>
-                            <td style="max-width: 100px; word-wrap:break-word;"><?= $adu['lokasi']; ?></td>
+                            <td style="max-width: 300px; word-wrap:break-word;"><?= $adu['judul']; ?></td>
+                            <td style="max-width: 650px; word-wrap:break-word;"><?= $adu['isi_laporan']; ?></td>
+                            <td style="max-width: 300px; word-wrap:break-word;"><?= $adu['lokasi']; ?></td>
                             <td>
                                 <?php if ($adu['status'] == "0") : ?>
                                     Pending
